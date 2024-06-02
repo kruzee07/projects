@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Rock-Paper-Scissors</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css" />x
+    </noscript>
+    <style>
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .image-item {
+            text-align: center;
+            margin: 10px;
+            flex: 1 1 calc(50% - 20px); /* Two items per row, accounting for margin */
+            box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+        }
+        .image-item img {
+            width: 100%; /* Make the image fill the container */
+            height: auto; /* Maintain the aspect ratio */
+        }
+        figure {
+            margin: 0;
+        }
+        figcaption {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a>
+        <nav>
+            <ul>
+                <li><a href="https://kruzee07.github.io/KrutarthGhuge_Portfolio/home.html">Portfolio Home</a></li>
+                <li><a href="https://kruzee07.github.io/projects/">Projects Home</a></li>
+                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div id="wrapper">
+        <!-- Main -->
+        <section id="main" class="wrapper style1 fullscreen fade-up">
+            <div class="inner">
+                <h1 class="major">Rock-Paper-Scissors Game</h1>
+                <section id="one">
+                    <h2>A simple rock-paper-scissors game by me</h2>
+                    <h3>Tests</h3>
+                    <div class="image-container">
+                        <div class="image-item">
+                            <h4>Test 1</h4>
+                            <figure>
+                                <img src="./tests/test1.png" alt="test 1">
+                                <figcaption>Chose rock -> tied (algorithm chose rock)</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-item">
+                            <h4>Test 2</h4>
+                            <figure>
+                                <img src="./tests/test2.png" alt="test 2">
+                                <figcaption>Chose paper -> tied (algorithm chose paper)</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-item">
+                            <h4>Test 3</h4>
+                            <figure>
+                                <img src="./tests/test3.png" alt="test 3">
+                                <figcaption>Chose scissors -> won (algorithm chose paper)</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-item">
+                            <h4>Test 4</h4>
+                            <figure>
+                                <img src="./tests/test4.png" alt="test 4">
+                                <figcaption>Chose rock -> lost (algorithm chose paper)</figcaption>
+                            </figure>
+                        </div>
+                        <div class="image-item">
+                            <h4>Test 5</h4>
+                            <figure>
+                                <img src="./tests/test5.png" alt="test 5">
+                                <figcaption>Chose scissors -> tied (algorithm chose scissors)</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+
+                    <div class="containers">
+                        <button onclick="openLink('gotocode')">View Codes</button>
+                        <script>
+                            function openLink(topic) {
+                                // Define the URLs for each topic
+                                const topicUrls = {
+                                    gotocode: 'https://github.com/kruzee07/projects/tree/main/Rock-Paper-Scissors',
+                                };
+
+                                // Open the corresponding URL for the clicked topic
+                                const url = topicUrls[topic];
+                                if (url) {
+                                    window.open(url, '_blank');
+                                } else {
+                                    alert('Link not found.');
+                                }
+                            }
+                        </script>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="wrapper style1-alt">
+        <div class="inner">
+            <ul class="menu">
+                <li>&copy; Untitled. All rights reserved.</li>
+                <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+                <li>Site modified by <a href="#intro">Krutarth Ghuge</a> 2024</li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
