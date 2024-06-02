@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Krutarth Ghuge's Projects</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body>
+    <header id="header">
+        <a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a>
+        <nav>
+            <ul>
+                <li><a href="https://kruzee07.github.io/KrutarthGhuge_Portfolio/home.html">Portfolio Home</a></li>
+                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+        <div id="wrapper">
+            <!-- Main -->
+            <section id="main" class="wrapper style1 fullscreen fade-up">
+                <div class="inner">
+                    <h1 class="major">My projects</h1>
+                    <section id="one">
+                        <div class="containers">
+                            <button onclick="openLink('messagemixer')">Message Mixer Encryption</button>
+                            <button onclick="openLink('rockpaperscissors')">Rock-Paper-Scissors Game</button>
+                            <button onclick="openLink('medicalinsurance')">US Medical Insurance Costs</button>
+
+                            <script>
+                                function openLink(topic) {
+                                    // Define the URLs for each topic
+                                    const topicUrls = {
+                                        messagemixer: 'https://github.com/kruzee07/projects/tree/main/Message-Mixer%20encryption',
+                                        rockpaperscissors: 'https://github.com/kruzee07/projects/tree/main/Rock-Paper-Scissors',
+                                        medicalinsurance: 'https://github.com/kruzee07/projects/tree/main/US%20Medical%20Insurance%20Costs',
+                                    };
+
+                                    // Open the corresponding URL for the clicked topic
+                                    const url = topicUrls[topic];
+                                    if (url) {
+                                        window.open(url, '_blank');
+                                    } else {
+                                        alert('Link not found.');
+                                    }
+                                }
+                            </script>
+
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer" class="wrapper style1-alt">
+            <div class="inner">
+                <ul class="menu">
+                    <li>&copy; Untitled. All rights reserved.</li>
+                    <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+                    <li>Site modified by <a href="#intro">Krutarth Ghuge</a> 2024</li>
+                </ul>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+</body>
+
+</html>
