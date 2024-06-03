@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>US-Medical-Charges</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/noscript.css" />x
+    </noscript>
+</head>
+
+<body class="is-preload">
+    <header id="header">
+        <nav>
+            <ul>
+                <li><a href="https://kruzee07.github.io/KrutarthGhuge_Portfolio/home.html">Portfolio Home</a></li>
+                <li><a href="https://kruzee07.github.io/projects/">Projects Home</a></li>
+                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <section id="sidebar">
+        <div class="inner">
+            <nav>
+                <ul>
+                    <li><a href="#project-info" class="active">Project Information</a></li>
+                    <li><a href="#project-desc" class="active">Description</a></li>
+                    <li><a href="#project-goals" class="active">Goals</a></li>
+                    <li><a href="#project-data" class="active">Project Data</a></li>
+                    <li><a href="#analysis" class="active">Analysis</a></li>
+                    <li><a href="#evaluation" class="active">Evaluation</a></li>
+                    <li><a href="#outputs" class="active">Outputs</a></li>
+                    <li><a href="#further-study" class="active">Further Study</a></li>
+                    <li><a href="#rnl" class="active">Resources and Links</a></li>
+
+
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+
+    <div id="wrapper">
+        <!-- Main -->
+        <section id="main" class="wrapper style1 fullscreen fade-up">
+            <div class="inner">
+                <h1 class="major">US Medical Insurance Costs</h1>
+                <section id="one">
+                    <section id="project-info">
+                        <h3>From: Codecademy</h3>
+                        <h3>By: Krutarth Ghuge </h3>
+                        <h3>Project Date: June 2024</h3>
+                    </section>
+                    <br>
+                    <section id="project-desc">
+                        <h2>Project Description</h2>
+                        <p>For this project, I investigated a medical insurance costs dataset in a .csv file
+                            (insurance.csv)
+                            using the Python skills that I have developed so far.
+                            This project was programmed using the Visual Studio Code editor and
+                            has been pushed to my Github repo.</p>
+                    </section>
+                    <section id="project-goals">
+
+                        <h2>Project Goals</h2>
+                        <p>
+                        <ol>
+                            <li>To assess the data collected in the csv file based on the factors mentioned. </li>
+                            <li>How a factor affects the medical charges on the patient.</li>
+                            <li>Does being healthy reduce medical charges?</li>
+                            <li>More children = more bills?</li>
+                            <li>Does your sex affect medical charges?</li>
+                        </ol>
+                        </p>
+                    </section>
+                    <section id="project-data">
+                        <h2>Data</h2>
+                        <p>The data available from the csv file (insurance.csv)
+                            <br>Headers (for each person (entry)):
+
+                        <ol>
+                            <li>Age of person (numerical attribute): age</li>
+                            <li>Sex (categorical attr. - male / female): sex</li>
+                            <li>Body Mass Index (numerical attr.): bmi</li>
+                            <li>Number of children (numerical attr.): children</li>
+                            <li>Smoker (categorical attr. - yes / no): smoker</li>
+                            <li>Region of th US the person resides (categorical attr. -
+                                Northwest, Northeast, Southeast, Southwest): region</li>
+                            <li>Medical charges on insurance (numerical attr.): charges</li>
+                        </ol>
+
+                        Entries:<br>
+                        There are a total of 1338 data entries
+                        (people) whose data is collected into this csv file.
+
+                        Points to note:
+                        <ol>
+                            <li>There is no missing data.</li>
+                            <li>There are seven columns.</li>
+                            <li>Some columns are numerical while some are categorical.</li>
+                        </ol>
+                        </p>
+                    </section>
+                    <section id="analysis">
+                        <h2>Analysis</h2>
+                        <p>I have performed some basic and intermediate analysis on the given data. <br>
+                            From the dataset, is it possible to conduct various number of analysis ranging from
+                            the use of just one attribute to all of them. For this project, I am performing (writing)
+                            few
+                            functions or doing mathematical calculations to analyze and further visualize my findings.
+                            <br>Our data with highest interest is the charges column which is the ultimate base of
+                            this research file (most analysis includes this column).
+                            <br><br>Analysis that I performed:
+                        <ol>
+                            <li>Whether smokers have higher medical charges than non-smokers.</li>
+                            <li>How the medical charges change with age.</li>
+                            <li>How BMI across different regions of the US affect medical charges.</li>
+                            <li>Trend between number of children of person and medical charges. </li>
+                            <li>Do males or females have higher charges.</li>
+                        </ol>
+                        </p>
+                    </section>
+                    <section id="evaluation">
+                        <h2>Evaluation</h2>
+                        <p>
+                            1. Whether smokers have higher medical charges than non-smokers.
+                            <br>Data calculated:
+                        <ul>
+                            <li>The total number of people in dataset = 1338</li>
+                            <li>Total number of males and females = 676, 662 respectively</li>
+                            <li>Total number of smokers and non-smokers = 274, 1064 respectively</li>
+                            <li>Total number of male smokers and female smokers = 159, 115 respectively</li>
+                            <li>The total medical charges = $17,755,824.99</li>
+                            <li>The total medical charges for smokers and non-smokers = $8781763.52, $8974061.47
+                                respectively</li>
+                            <li>The average charges for smokers and non-smokers = $32050.23, $8434.27 respectively</li>
+                        </ul>
+                        For this finding, I went deep to find out all the small scale calculations part required for
+                        this analysis.
+                        The analysis turned out to be more mathematical than programmable.<br>
+                        Concluding with our findings, the results show that smokers had a higher average medical charge
+                        than the non-smokers.
+                        Although the total charges for each group were near about the same, due to a small number of
+                        smokers in the dataset, their average charge soared.
+                        </p>
+                        <p>
+                            2. How the medical charges change with age.<br>
+                        </p>
+                        <p>
+                            3. How BMI across different regions of the US affect medical charges.<br>
+                        </p>
+                        <p>
+                            4. Trend between number of children of person and medical charges.<br>
+                        </p>
+                        <p>
+                            5. Do males or females have higher charges.<br>
+                        </p>
+                    </section>
+                    <section id="outputs">
+                        <h2>Outputs</h2>
+
+                        <h4>Analysis 1</h4>
+                        <img src="./img/analysis1.png" height="200" width="800" alt="analysis 1 output">
+
+                        <h4>Analysis 2</h4>
+
+                        <h4>Analysis 3</h4>
+
+                        <h4>Analysis 4</h4>
+
+                        <h4>Analysis 5</h4>
+
+                    </section>
+                    <section id="further-study">
+                        <h2>Further Study</h2>
+
+                    </section>
+
+                    <section id="rnl">
+                        <h2>Resources and Links</h2>
+                        <p>
+                        <ol>
+                            <li><a
+                                    href="https://www.codecademy.com/projects/portfolio/us-medical-insurance-costs-portfolio-project">Overview,
+                                    Instructions and Setup:</a></li>
+                            <li><a href="https://www.kaggle.com/datasets/mirichoi0218/insurance">Dataset</a></li>
+                            <li><a href="https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html ">BMI</a>
+                            </li>
+
+
+                        </ol>
+                        </p>
+                    </section>
+
+
+
+
+                    <div class="containers">
+                        <button onclick="openLink('gotocode')">View Codes</button>
+                        <script>
+                            function openLink(topic) {
+                                // Define the URLs for each topic
+                                const topicUrls = {
+                                    gotocode: 'https://github.com/kruzee07/projects/tree/main/US%20Medical%20Insurance%20Costs',
+                                };
+
+                                // Open the corresponding URL for the clicked topic
+                                const url = topicUrls[topic];
+                                if (url) {
+                                    window.open(url, '_blank');
+                                } else {
+                                    alert('Link not found.');
+                                }
+                            }
+                        </script>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="wrapper style1-alt">
+        <div class="inner">
+            <ul class="menu">
+                <li>&copy; Untitled. All rights reserved.</li>
+                <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+                <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

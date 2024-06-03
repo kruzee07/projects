@@ -187,7 +187,7 @@ html {
 }
 
 body {
-  background: #008ae6;
+  background: rgb(139, 108, 225);
 }
 
 body.is-preload *,
@@ -3109,7 +3109,7 @@ body.is-ie .spotlights > section {
   -webkit-transition: opacity 1s ease;
   -ms-transition: opacity 1s ease;
   transition: opacity 1s ease;
-  background: #0068b3;
+  background: #CBC3E3;
   content: "";
   display: block;
   height: 100%;
@@ -3585,7 +3585,7 @@ body.is-preload .wrapper.fade > .inner {
 
 #sidebar {
   padding: 2.5em 2.5em 0.5em 2.5em;
-  background: 	#140e20;
+  background: 	#0e0818;
   cursor: default;
   height: 100vh;
   left: 0;
