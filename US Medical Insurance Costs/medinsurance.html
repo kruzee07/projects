@@ -64,6 +64,8 @@
                             This project was programmed using the Visual Studio Code editor and
                             has been pushed to my Github repo.</p>
                     </section>
+
+
                     <section id="project-goals">
 
                         <h2>Project Goals</h2>
@@ -80,7 +82,8 @@
                     <section id="project-data">
                         <h2>Data</h2>
                         <p>The data available from the csv file (insurance.csv)
-                            <br>Headers (for each person (entry)):
+                            <br>
+                            <h3>Headers (for each person (entry))</h3>
 
                         <ol>
                             <li>Age of person (numerical attribute): age</li>
@@ -93,11 +96,11 @@
                             <li>Medical charges on insurance (numerical attr.): charges</li>
                         </ol>
 
-                        Entries:<br>
-                        There are a total of 1338 data entries
-                        (people) whose data is collected into this csv file.
-
-                        Points to note:
+                        <h3>Entries</h3>
+                        <p>There are a total of 1338 data entries
+                        (people) whose data is collected into this csv file.</p>
+                        
+                        <h3>Points to note</h3>
                         <ol>
                             <li>There is no missing data.</li>
                             <li>There are seven columns.</li>
@@ -114,21 +117,20 @@
                             functions or doing mathematical calculations to analyze and further visualize my findings.
                             <br>Our data with highest interest is the charges column which is the ultimate base of
                             this research file (most analysis includes this column).
-                            <br><br>Analysis that I performed:
+                            <h4>Analysis that I performed</h4>
                         <ol>
                             <li>Whether smokers have higher medical charges than non-smokers.</li>
                             <li>How the medical charges change with age.</li>
                             <li>How BMI across different regions of the US affect medical charges.</li>
                             <li>Trend between number of children of person and medical charges. </li>
-                            <li>Do males or females have higher charges.</li>
                         </ol>
                         </p>
                     </section>
                     <section id="evaluation">
                         <h2>Evaluation</h2>
                         <p>
-                            1. Whether smokers have higher medical charges than non-smokers.
-                            <br>Data calculated:
+                             <h3>Analysis 1 - Whether smokers have higher medical charges than non-smokers</h3>
+                            <h4>Data calculated</h4>
                         <ul>
                             <li>The total number of people in dataset = 1338</li>
                             <li>Total number of males and females = 676, 662 respectively</li>
@@ -148,16 +150,75 @@
                         smokers in the dataset, their average charge soared.
                         </p>
                         <p>
-                            2. How the medical charges change with age.<br>
+                            <h3>Analysis 2 - How the medical charges change with age</h3>
+                            <h4>Data calculated</h4>
+                        <ul>
+                            <li>Age 54 had the highest total medical charges across US of $63770.43</li>
+                            <li>Age 18 had the lowest total medical charges across US of $1121.87</li>
+                            <li>Age 64 had the highest average medical charges across US of $23275.53 per person</li>
+                            <li>Age 21 had the lowest average medical charges across US of $4730.46 per person</li>
+                        </ul>
+                        With that and the plotted graph, we can see that in entirety, the average medical charges per
+                        person increases with age.<br>
+                        Here I have created several functions to perform analysis on the dataset with the given project
+                        scope. In turn I also plotted a line graph
+                        to visualize the findings.
                         </p>
                         <p>
-                            3. How BMI across different regions of the US affect medical charges.<br>
+                            <h3>Analysis 3 - How BMI across different regions of the US affect medical charges</h3>
+                            <h4>Data calculated</h4>
+                            <ul>
+                                <li>The BMI with the highest medical charge is 47.41</li>
+                                    <li>The BMI with the lowest medical charge is 23.21</li>
+                                    <br>
+                                    <strong>The average charges for each BMI range are</strong>
+                                    <li>Underweight = $8852.20</li>
+                                    <li>Healthy Weight = $10379.50</li>
+                                    <li>Overweight = $11017.60</li>
+                                    <li>Obesity = $15448.68</li>
+                                    <br>
+                                    <strong>The average charges for each region are</strong>
+                                   <li>NorthWest = $12417.58</li>
+                                    <li>NorthEast = $13406.38</li>
+                                    <li>SouthEast = $14735.41</li>
+                                    <li>SouthWest = $12346.94</li>
+                            </ul>
+                            The pie charts in the diagram (scroll below to Outputs -> Analysis 3) show the distribution of BMIs (percentages) across each different region of the dataset.
+                            <br>
+                            We can fairly conclude that a large portion of the US is obese and overweight and a very minute portion is underweight or healthy.
+                            <br>
+                            What is also peculiar is that the average medical charges increase as we go from low BMI (underweight) towards high BMI (obesity), disregarding the fact that there is a healthy BMI range in between.
+                            <br>
+                            The average medical charges across the four regions are also very similar, the highest however being for the South East region, and the lowest for the South West.
                         </p>
                         <p>
-                            4. Trend between number of children of person and medical charges.<br>
-                        </p>
-                        <p>
-                            5. Do males or females have higher charges.<br>
+                            <h3>Analysis 4 - Trend between number of children of person and medical charges</h3>
+                            <h4>Data calculated</h4>
+                            <ul>
+                                <li>Total people with no children: 574</li>
+                                <li>Total people with one child: 324</li>
+                                <li>Total people with two children: 240</li>
+                                <li>Total people with three children: 157</li>
+                                <li>Total people with four children: 25</li>
+                                <li>Total people with five children: 18</li>
+                                <br>
+                                <li>Average medical charges for people with no children: $12365.98</li>
+                                <li>Average medical charges for people with one child: $12731.17</li>
+                                <li>Average medical charges for people with two children: $15073.56</li>
+                                <li>Average medical charges for people with three children: $15355.32</li>
+                                <li>Average medical charges for people with four children: $13850.66</li>
+                                <li>Average medical charges for people with five children: $8786.04</li>
+
+                                <li>The maximum charge for people with 5 (user input) children = $19023.26</li>
+                                <li>The minimum charge for people with 1 (user input) children = $1711.03</li>
+                            </ul>
+                            The bar chart (scroll below to Outputs -> Analysis 4), shows how the average medical charge differs for people with different number of children.
+                            <br>
+                            The people with 3 children have the highest medical charges, whereas the people with 5 children have the lowest charges. 
+                            However, considering the real world, even if the people with 5 children on average are saving up on their medical charges, their living expenses and education costs for their children
+                            would on average be greater than those with fewer children.
+
+
                         </p>
                     </section>
                     <section id="outputs">
@@ -166,17 +227,32 @@
                         <h4>Analysis 1</h4>
                         <img src="./img/analysis1.png" height="200" width="800" alt="analysis 1 output">
 
+                        <br>
                         <h4>Analysis 2</h4>
+                        <img src="./img/analysis2_1.png" height="100" width="500" alt="analysis 1 output">
+                        <img src="./img/analysis2_2.png" height="500" width="550" alt="analysis 2 output">
+                        <img src="./img/analysis2_3.png" height="500" width="550" alt="analysis 3 output">
+                        <img src="./img/analysis2_4.png" height="100" width="600" alt="analysis 4 output">
+                        <br>
+                        <img src="./img/averageCharges.png" height="500" width="500" alt="average charges graph">
 
+                        <br>
                         <h4>Analysis 3</h4>
+                        <img src="./img/analysis3.png" height="250" width="700" alt="analysis 3 output">
+                        <img src="./img/analysis3_plot.png" height="500" width="800" alt="analysis 3 plot">
 
+                        <br>
                         <h4>Analysis 4</h4>
+                        <img src="./img/analysis4.png" height="250" width="700" alt="analysis 4 output">
+                        <img src="./img/analysis4_plot.png" height="400" width="600" alt="analysis 4 plot">
 
-                        <h4>Analysis 5</h4>
 
                     </section>
                     <section id="further-study">
                         <h2>Further Study</h2>
+                        <p>
+                            
+                        </p>
 
                     </section>
 
@@ -189,6 +265,7 @@
                                     Instructions and Setup:</a></li>
                             <li><a href="https://www.kaggle.com/datasets/mirichoi0218/insurance">Dataset</a></li>
                             <li><a href="https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html ">BMI</a>
+                            <li><a href="https://chatgpt.com/">Commenting and Documentation</a></li>
                             </li>
 
 
