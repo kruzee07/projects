@@ -3980,6 +3980,12 @@ body.is-preload #sidebar nav ul li {
     text-align: center;
 }
 
+/* Styles for the buttons */
+.my-button {
+    display: block;
+    margin-bottom: 15px; /* Adjust this value to increase or decrease the space */
+}
+
 
 
 
