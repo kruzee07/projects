@@ -24,28 +24,29 @@
 
 
         <div id="wrapper">
-            <!-- Main -->
-            <section id="main" class="wrapper alt fullscreen fade-up">
-                <div class="inner">
-                    <h1 class="major">My projects</h1>
-                    <section id="one">
-                        <div class="containers">
-                            <button onclick="openFile('Message-Mixer encryption/messagemixer.html')">Message Mixer Encryption</button>
-                            <button onclick="openFile('Rock-Paper-Scissors/rpc.html')">Rock-Paper-Scissors Game</button>
-                            <button onclick="openFile('US Medical Insurance Costs/medinsurance.html')">US Medical Insurance Costs</button>
-                            <button onclick="openFile('Exploratory Data Analysis/eda.html')">Exploratory Data Analysis</button>
-                            <button onclick="openFile('Decrypting Hashed Codes/dhc.html')">Decrypting Hashed Codes</button>
-                        </div>
-                        
-                        <script>
-                            function openFile(filePath) {
-                                window.open(filePath, '_blank');
-                            }
-                        </script>
-                    </section>
+    <!-- Main -->
+    <section id="main" class="wrapper alt fullscreen fade-up">
+        <div class="inner">
+            <h1 class="major">My projects</h1>
+            <section id="one">
+                <div class="containers">
+                    <button class="my-button" onclick="openFile('Message-Mixer encryption/messagemixer.html')">Message Mixer Encryption</button>
+                    <button class="my-button" onclick="openFile('Rock-Paper-Scissors/rpc.html')">Rock-Paper-Scissors Game</button>
+                    <button class="my-button" onclick="openFile('US Medical Insurance Costs/medinsurance.html')">US Medical Insurance Costs</button>
+                    <button class="my-button" onclick="openFile('Exploratory Data Analysis/eda.html')">Exploratory Data Analysis</button>
+                    <button class="my-button" onclick="openFile('Decrypting Hashed Codes/dhc.html')">Decrypting Hashed Codes</button>
                 </div>
+
+                <script>
+                    function openFile(filePath) {
+                        window.open(filePath, '_blank');
+                    }
+                </script>
             </section>
         </div>
+    </section>
+</div>
+
 
         <!-- Footer -->
         <footer id="footer" class="wrapper style1-alt">
