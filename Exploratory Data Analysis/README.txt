@@ -10,5 +10,5 @@ Data:
 
 Resources:
 1. Climate TRACE (https://climatetrace.org/)
-
+2. Google Earth Engine (https://earthengine.google.com/)
 
