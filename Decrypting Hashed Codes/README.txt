@@ -2,7 +2,8 @@ Project:
 Decrypting Hashed Codes and Understanding Hashing Concepts
 
 Objective:
-To decrypt hashed codes using various hashing algorithms like SHA-1, SHA-2 (including  SHA-256), and MD5. Additionally, we explore hashing concepts such as salting to understand its impact on hash security. 
+To decrypt hashed codes using various hashing algorithms like SHA-1, SHA-2 (including  SHA-256), and MD5. 
+Additionally, we explore hashing concepts such as salting to understand its impact on hash security. 
 
 Data:
 
