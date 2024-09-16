@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
     <title>Message Mixer Encryption</title>
@@ -9,14 +9,44 @@
 
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript>
-        <link rel="stylesheet" href="../assets/css/noscript.css" />x
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
     <style>
+        .container {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        input[type="number"] {
+            color: black;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 16px;
+        }
+
         .image-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .image-item {
             text-align: center;
             margin: 10px;
@@ -29,76 +59,50 @@
         <a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a>
         <nav>
             <ul>
-                <li><a href="https://kruzee07.github.io/KrutarthGhuge_Portfolio/home.html">Portfolio Home</a></li>
-                <li><a href="https://kruzee07.github.io/projects/">Projects Home</a></li>
+                <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
                 <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
             </ul>
         </nav>
     </header>
-
 
     <div id="wrapper">
         <!-- Main -->
         <section id="main" class="wrapper style1 fullscreen fade-up">
             <div class="inner">
                 <h1 class="major">Message Mixer Encryption</h1>
-                <section id="one">
 
-                    <h3>Notes about the files</h3>
-                    <ol>
-                        <li>message-mixer.js<br>
-                            The file contains logic for running the encryption methods -> caesarCipher, symbolCipher,
-                            and reverseCipher.
-                            caesarCipher: in which the characters of the input message are shifted alphabetically by a
-                            given amount.
-                            symbolCipher: in which select characters from the input message are replaced with visually
-                            similar symbols.
-                            reverseCipher: in which each word of the input message is reversed in place.
-                        </li>
-                        <li>encryptors.js<br>
-                            Contains logic for each of the Cipher functions.
-                        </li>
-                        <li>super-encoder.js<br>
-                            Shorthand encoder and decoder which use the Cipher functions.
-                            Encodes in pre-defined order using a string and performing caesarCipher first, then
-                            reverseCipher, and finally symbolCipher on it.
-                            It also can decode the encrypted word using the opposite of the above algorithm.
-                        </li>
-                    </ol>
+                <div class="container">
+                    <h3>Enter your message below:</h3>
+                    <textarea id="user-input" placeholder="Type your message here..."></textarea>
+                    <br>
+                    <button class="button" onclick="encryptMessage('caesar')">Caesar Cipher</button>
+                    <button class="button" onclick="encryptMessage('symbol')">Symbol Cipher</button>
+                    <button class="button" onclick="encryptMessage('reverse')">Reverse Cipher</button>
 
-                    <h3>Tests</h3>
-                    <div class="image-container">
-                        <div class="image-item">
-                            <h4>Test 1</h4>
-                            <img src="./tests/test1.png" height="400" width="450" alt="test 1">
-                        </div>
-                        <div class="image-item">
-                            <h4>Test 2</h4>
-                            <img src="./tests/test2.png" height="400" width="450" alt="test 2">
-                        </div>
+                    <div>
+                        <label for="caesar-shift">Caesar Shift Amount:</label>
+                        <input type="number" id="caesar-shift" value="3" min="1" max="25" />
                     </div>
 
+                    <div id="output">Your encrypted message will appear here...</div>
+                </div>
 
-                    <div class="containers">
-                        <button onclick="openLink('gotocode')">View Codes</button>
-                        <script>
-                            function openLink(topic) {
-                                // Define the URLs for each topic
-                                const topicUrls = {
-                                    gotocode: 'https://github.com/kruzee07/projects/tree/main/Message-Mixer%20encryption',
-                                };
-
-                                // Open the corresponding URL for the clicked topic
-                                const url = topicUrls[topic];
-                                if (url) {
-                                    window.open(url, '_blank');
-                                } else {
-                                    alert('Link not found.');
-                                }
+                <div class="containers">
+                    <button onclick="openLink('gotocode')">View Codes</button>
+                    <script>
+                        function openLink(topic) {
+                            const topicUrls = {
+                                gotocode: 'https://github.com/kruzee07/projects/tree/main/Message-Mixer%20encryption',
+                            };
+                            const url = topicUrls[topic];
+                            if (url) {
+                                window.open(url, '_blank');
+                            } else {
+                                alert('Link not found.');
                             }
-                        </script>
-                    </div>
-                </section>
+                        }
+                    </script>
+                </div>
             </div>
         </section>
     </div>
@@ -115,13 +119,85 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script>
+        // Caesar Cipher
+        const caesarCipher = (str, amount = 0) => {
+            if (amount < 0) {
+                return caesarCipher(str, amount + 26);
+            }
+            let output = '';
+            for (let i = 0; i < str.length; i++) {
+                let char = str[i];
+                if (char.match(/[a-z]/i)) {
+                    let code = str.charCodeAt(i);
+                    if (code >= 65 && code <= 90) {
+                        char = String.fromCharCode(((code - 65 + amount) % 26) + 65);
+                    } else if (code >= 97 && code <= 122) {
+                        char = String.fromCharCode(((code - 97 + amount) % 26) + 97);
+                    }
+                }
+                output += char;
+            }
+            return output;
+        };
+
+        // Symbol Cipher
+        const symbolCipher = (str) => {
+            const symbols = {
+                'i': '!',
+                '!': 'i',
+                'l': '1',
+                '1': 'l',
+                's': '$',
+                '$': 's',
+                'o': '0',
+                '0': 'o',
+                'a': '@',
+                '@': 'a',
+                'e': '3',
+                '3': 'e',
+                'b': '6',
+                '6': 'b'
+            };
+
+            let output = '';
+            for (let i = 0; i < str.length; i++) {
+                let char = str.toLowerCase()[i];
+                if (symbols[char]) {
+                    output += symbols[char];
+                } else {
+                    output += char;
+                }
+            }
+            return output;
+        };
+
+        // Reverse Cipher
+        const reverseCipher = (sentence) => {
+            let words = sentence.split(' ');
+            for (let i = 0; i < words.length; i++) {
+                words[i] = words[i].split('').reverse().join('');
+            }
+            return words.join(' ');
+        };
+
+        // Function to handle encryption based on selected method
+        function encryptMessage(method) {
+            const userInput = document.getElementById('user-input').value;
+            let output = '';
+
+            if (method === 'caesar') {
+                const shift = parseInt(document.getElementById('caesar-shift').value);
+                output = caesarCipher(userInput, shift);
+            } else if (method === 'symbol') {
+                output = symbolCipher(userInput);
+            } else if (method === 'reverse') {
+                output = reverseCipher(userInput);
+            }
+
+            document.getElementById('output').innerText = `Encrypted message: ${output}`;
+        }
+    </script>
 </body>
 
 </html>
