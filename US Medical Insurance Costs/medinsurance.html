@@ -5,319 +5,429 @@
     <title>US-Medical-Charges</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="description"
+        content="An analysis of US Medical Insurance Costs using Python with dataset from Codecademy. Explore factors like smoking, BMI, and number of children and their impact on medical charges.">
     <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
-
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript>
-        <link rel="stylesheet" href="../assets/css/noscript.css" />x
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .wrapper.style1 {
+            background-color: #1d1d1d;
+        }
+
+        header#header {
+            background-color: #444;
+            padding: 1em;
+        }
+
+        header#header nav ul li a {
+            color: white;
+        }
+
+        section#sidebar {
+            background-color: #292929;
+        }
+
+        section#sidebar nav ul li a {
+            color: white;
+        }
+
+        /* Sidebar line style */
+        #sidebar nav ul li {
+            border-bottom: 2px solid #ffcc00;
+            /* Change this to match your site theme */
+        }
+
+        /* Main header line style */
+        #main h1 {
+            border-bottom: 2px solid #ffcc00;
+            /* Change this to match your site theme */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ol,
+        ul,
+        li {
+            color: white;
+            /* Change this if needed */
+        }
+
+        .section-box {
+            background-color: #1a1a1a;
+            border: 1px solid #555;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-box h2,
+        .section-box h3 {
+            color: #ffcc00;
+            /* Change this color as per your preference */
+            border-bottom: 2px solid #555;
+            padding-bottom: 10px;
+        }
+
+        .containers button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .containers button:hover {
+            background-color: #777;
+        }
+
+        footer#footer {
+            background-color: #222;
+        }
+
+        footer#footer ul.menu li a {
+            color: #aaa;
+        }
+
+        img {
+            border: 2px solid white;
+            margin-bottom: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add hover effect to images */
+        section#outputs img {
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        section#outputs img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption styling */
+        section#outputs figcaption {
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body>
     <header id="header">
         <nav>
             <ul>
-                <li><a href="https://kruzee07.github.io/KrutarthGhuge_Portfolio/home.html">Portfolio Home</a></li>
-                <li><a href="https://kruzee07.github.io/projects/">Projects Home</a></li>
+                <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
                 <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Sidebar -->
     <section id="sidebar">
         <div class="inner">
             <nav>
                 <ul>
-                    <li><a href="#project-info" class="active">Project Information</a></li>
-                    <li><a href="#project-desc" class="active">Description</a></li>
-                    <li><a href="#project-goals" class="active">Goals</a></li>
-                    <li><a href="#project-data" class="active">Project Data</a></li>
-                    <li><a href="#analysis" class="active">Analysis</a></li>
-                    <li><a href="#evaluation" class="active">Evaluation</a></li>
-                    <li><a href="#outputs" class="active">Outputs</a></li>
-                    <li><a href="#further-study" class="active">Further Study</a></li>
-                    <li><a href="#rnl" class="active">Resources and Links</a></li>
-
-
+                    <li><a href="#project-info">Project Information</a></li>
+                    <li><a href="#project-desc">Description</a></li>
+                    <li><a href="#project-goals">Goals</a></li>
+                    <li><a href="#project-data">Project Data</a></li>
+                    <li><a href="#analysis">Analysis</a></li>
+                    <li><a href="#evaluation">Evaluation</a></li>
+                    <li><a href="#outputs">Outputs</a></li>
+                    <li><a href="#further-study">Further Study</a></li>
+                    <li><a href="#rnl">Resources and Links</a></li>
                 </ul>
             </nav>
         </div>
     </section>
 
-
     <div id="wrapper">
-        <!-- Main -->
         <section id="main" class="wrapper style1 fullscreen fade-up">
             <div class="inner">
                 <h1 class="major">US Medical Insurance Costs</h1>
-                <section id="one">
-                    <section id="project-info">
+
+                <section class="section-box" id="project-info">
+                    <header>
                         <h3>From: Codecademy</h3>
-                        <h3>By: Krutarth Ghuge </h3>
+                        <h3>By: Krutarth Ghuge</h3>
                         <h3>Project Date: June 2024</h3>
-                    </section>
-                    <br>
-                    <section id="project-desc">
-                        <h2>Project Description</h2>
-                        <p>For this project, I investigated a medical insurance costs dataset in a .csv file
-                            (insurance.csv)
-                            using the Python skills that I have developed so far.
-                            This project was programmed using the Visual Studio Code editor and
-                            has been pushed to my Github repo.</p>
-                    </section>
-
-
-                    <section id="project-goals">
-
-                        <h2>Project Goals</h2>
-                        <p>
-                        <ol>
-                            <li>To assess the data collected in the csv file based on the factors mentioned. </li>
-                            <li>How a factor affects the medical charges on the patient.</li>
-                            <li>Does being healthy reduce medical charges?</li>
-                            <li>More children = more bills?</li>
-                            <li>Does your sex affect medical charges?</li>
-                        </ol>
-                        </p>
-                    </section>
-                    <section id="project-data">
-                        <h2>Data</h2>
-                        <p>The data available from the csv file (insurance.csv)
-                            <br>
-                            <h3>Headers (for each person (entry))</h3>
-
-                        <ol>
-                            <li>Age of person (numerical attribute): age</li>
-                            <li>Sex (categorical attr. - male / female): sex</li>
-                            <li>Body Mass Index (numerical attr.): bmi</li>
-                            <li>Number of children (numerical attr.): children</li>
-                            <li>Smoker (categorical attr. - yes / no): smoker</li>
-                            <li>Region of th US the person resides (categorical attr. -
-                                Northwest, Northeast, Southeast, Southwest): region</li>
-                            <li>Medical charges on insurance (numerical attr.): charges</li>
-                        </ol>
-
-                        <h3>Entries</h3>
-                        <p>There are a total of 1338 data entries
-                        (people) whose data is collected into this csv file.</p>
-                        
-                        <h3>Points to note</h3>
-                        <ol>
-                            <li>There is no missing data.</li>
-                            <li>There are seven columns.</li>
-                            <li>Some columns are numerical while some are categorical.</li>
-                        </ol>
-                        </p>
-                    </section>
-                    <section id="analysis">
-                        <h2>Analysis</h2>
-                        <p>I have performed some basic and intermediate analysis on the given data. <br>
-                            From the dataset, is it possible to conduct various number of analysis ranging from
-                            the use of just one attribute to all of them. For this project, I am performing (writing)
-                            few
-                            functions or doing mathematical calculations to analyze and further visualize my findings.
-                            <br>Our data with highest interest is the charges column which is the ultimate base of
-                            this research file (most analysis includes this column).
-                            <h4>Analysis that I performed</h4>
-                        <ol>
-                            <li>Whether smokers have higher medical charges than non-smokers.</li>
-                            <li>How the medical charges change with age.</li>
-                            <li>How BMI across different regions of the US affect medical charges.</li>
-                            <li>Trend between number of children of person and medical charges. </li>
-                        </ol>
-                        </p>
-                    </section>
-                    <section id="evaluation">
-                        <h2>Evaluation</h2>
-                        <p>
-                             <h3>Analysis 1 - Whether smokers have higher medical charges than non-smokers</h3>
-                            <h4>Data calculated</h4>
-                        <ul>
-                            <li>The total number of people in dataset = 1338</li>
-                            <li>Total number of males and females = 676, 662 respectively</li>
-                            <li>Total number of smokers and non-smokers = 274, 1064 respectively</li>
-                            <li>Total number of male smokers and female smokers = 159, 115 respectively</li>
-                            <li>The total medical charges = $17,755,824.99</li>
-                            <li>The total medical charges for smokers and non-smokers = $8781763.52, $8974061.47
-                                respectively</li>
-                            <li>The average charges for smokers and non-smokers = $32050.23, $8434.27 respectively</li>
-                        </ul>
-                        For this finding, I went deep to find out all the small scale calculations part required for
-                        this analysis.
-                        The analysis turned out to be more mathematical than programmable.<br>
-                        Concluding with our findings, the results show that smokers had a higher average medical charge
-                        than the non-smokers.
-                        Although the total charges for each group were near about the same, due to a small number of
-                        smokers in the dataset, their average charge soared.
-                        </p>
-                        <p>
-                            <h3>Analysis 2 - How the medical charges change with age</h3>
-                            <h4>Data calculated</h4>
-                        <ul>
-                            <li>Age 54 had the highest total medical charges across US of $63770.43</li>
-                            <li>Age 18 had the lowest total medical charges across US of $1121.87</li>
-                            <li>Age 64 had the highest average medical charges across US of $23275.53 per person</li>
-                            <li>Age 21 had the lowest average medical charges across US of $4730.46 per person</li>
-                        </ul>
-                        With that and the plotted graph, we can see that in entirety, the average medical charges per
-                        person increases with age.<br>
-                        Here I have created several functions to perform analysis on the dataset with the given project
-                        scope. In turn I also plotted a line graph
-                        to visualize the findings.
-                        </p>
-                        <p>
-                            <h3>Analysis 3 - How BMI across different regions of the US affect medical charges</h3>
-                            <h4>Data calculated</h4>
-                            <ul>
-                                <li>The BMI with the highest medical charge is 47.41</li>
-                                    <li>The BMI with the lowest medical charge is 23.21</li>
-                                    <br>
-                                    <strong>The average charges for each BMI range are</strong>
-                                    <li>Underweight = $8852.20</li>
-                                    <li>Healthy Weight = $10379.50</li>
-                                    <li>Overweight = $11017.60</li>
-                                    <li>Obesity = $15448.68</li>
-                                    <br>
-                                    <strong>The average charges for each region are</strong>
-                                   <li>NorthWest = $12417.58</li>
-                                    <li>NorthEast = $13406.38</li>
-                                    <li>SouthEast = $14735.41</li>
-                                    <li>SouthWest = $12346.94</li>
-                            </ul>
-                            The pie charts in the diagram (scroll below to Outputs -> Analysis 3) show the distribution of BMIs (percentages) across each different region of the dataset.
-                            <br>
-                            We can fairly conclude that a large portion of the US is obese and overweight and a very minute portion is underweight or healthy.
-                            <br>
-                            What is also peculiar is that the average medical charges increase as we go from low BMI (underweight) towards high BMI (obesity), disregarding the fact that there is a healthy BMI range in between.
-                            <br>
-                            The average medical charges across the four regions are also very similar, the highest however being for the South East region, and the lowest for the South West.
-                        </p>
-                        <p>
-                            <h3>Analysis 4 - Trend between number of children of person and medical charges</h3>
-                            <h4>Data calculated</h4>
-                            <ul>
-                                <li>Total people with no children: 574</li>
-                                <li>Total people with one child: 324</li>
-                                <li>Total people with two children: 240</li>
-                                <li>Total people with three children: 157</li>
-                                <li>Total people with four children: 25</li>
-                                <li>Total people with five children: 18</li>
-                                <br>
-                                <li>Average medical charges for people with no children: $12365.98</li>
-                                <li>Average medical charges for people with one child: $12731.17</li>
-                                <li>Average medical charges for people with two children: $15073.56</li>
-                                <li>Average medical charges for people with three children: $15355.32</li>
-                                <li>Average medical charges for people with four children: $13850.66</li>
-                                <li>Average medical charges for people with five children: $8786.04</li>
-
-                                <li>The maximum charge for people with 5 (user input) children = $19023.26</li>
-                                <li>The minimum charge for people with 1 (user input) children = $1711.03</li>
-                            </ul>
-                            The bar chart (scroll below to Outputs -> Analysis 4), shows how the average medical charge differs for people with different number of children.
-                            <br>
-                            The people with 3 children have the highest medical charges, whereas the people with 5 children have the lowest charges. 
-                            However, considering the real world, even if the people with 5 children on average are saving up on their medical charges, their living expenses and education costs for their children
-                            would on average be greater than those with fewer children.
-
-
-                        </p>
-                    </section>
-                    <section id="outputs">
-                        <h2>Outputs</h2>
-
-                        <h4>Analysis 1</h4>
-                        <img src="./img/analysis1.png" height="200" width="800" alt="analysis 1 output">
-
-                        <br>
-                        <h4>Analysis 2</h4>
-                        <img src="./img/analysis2_1.png" height="100" width="500" alt="analysis 1 output">
-                        <img src="./img/analysis2_2.png" height="500" width="550" alt="analysis 2 output">
-                        <img src="./img/analysis2_3.png" height="500" width="550" alt="analysis 3 output">
-                        <img src="./img/analysis2_4.png" height="100" width="600" alt="analysis 4 output">
-                        <br>
-                        <img src="./img/averageCharges.png" height="500" width="500" alt="average charges graph">
-
-                        <br>
-                        <h4>Analysis 3</h4>
-                        <img src="./img/analysis3.png" height="250" width="700" alt="analysis 3 output">
-                        <img src="./img/analysis3_plot.png" height="500" width="800" alt="analysis 3 plot">
-
-                        <br>
-                        <h4>Analysis 4</h4>
-                        <img src="./img/analysis4.png" height="250" width="700" alt="analysis 4 output">
-                        <img src="./img/analysis4_plot.png" height="400" width="600" alt="analysis 4 plot">
-
-
-                    </section>
-                    <section id="further-study">
-                        <h2>Further Study</h2>
-                        <p>
-                            Those wanting to use this dataset can further study on a mix of data:
-                            For example: males and females within a specified BMI, people with a certain number of children in a specific US region.
-                            There are many such example studies one can expand upon.
-                            <br>
-                            If you are from a certain field:
-                            Healthcare - might want to focus on smoking data, BMI data, number of children.
-                            Government services - region data, sex data, charges data.
-                            Finance - might want to focus on medical charges, region data, sex data.
-                        </p>
-
-                    </section>
-
-                    <section id="rnl">
-                        <h2>Resources and Links</h2>
-                        <p>
-                        <ol>
-                            <li><a
-                                    href="https://www.codecademy.com/projects/portfolio/us-medical-insurance-costs-portfolio-project">Overview,
-                                    Instructions and Setup:</a></li>
-                            <li><a href="https://www.kaggle.com/datasets/mirichoi0218/insurance">Dataset</a></li>
-                            <li><a href="https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html ">BMI</a>
-                            <li><a href="https://chatgpt.com/">Commenting and Documentation</a></li>
-                            </li>
-
-
-                        </ol>
-                        </p>
-                    </section>
-
-
-
-
-                    <div class="containers">
-                        <button onclick="openLink('gotocode')">View Codes</button>
-                        <script>
-                            function openLink(topic) {
-                                // Define the URLs for each topic
-                                const topicUrls = {
-                                    gotocode: 'https://github.com/kruzee07/projects/tree/main/US%20Medical%20Insurance%20Costs',
-                                };
-
-                                // Open the corresponding URL for the clicked topic
-                                const url = topicUrls[topic];
-                                if (url) {
-                                    window.open(url, '_blank');
-                                } else {
-                                    alert('Link not found.');
-                                }
-                            }
-                        </script>
-                    </div>
+                    </header>
                 </section>
+
+                <section class="section-box" id="project-desc">
+                    <header>
+                        <h2>Project Description</h2>
+                    </header>
+                    <p>For this project, I investigated a medical insurance costs dataset in a .csv file
+                        (insurance.csv)
+                        using the Python skills that I have developed so far.
+                        This project was programmed using the Visual Studio Code editor and
+                        has been pushed to my Github repo.</p>
+                </section>
+
+                <section class="section-box" id="project-goals">
+                    <header>
+                        <h2>Project Goals</h2>
+                    </header>
+                    <ol>
+                        <li>To assess the data collected in the csv file based on the factors mentioned.</li>
+                        <li>How a factor affects the medical charges on the patient.</li>
+                        <li>Does being healthy reduce medical charges?</li>
+                        <li>More children = more bills?</li>
+                        <li>Does your sex affect medical charges?</li>
+                    </ol>
+                </section>
+
+                <section class="section-box" id="project-data">
+                    <header>
+                        <h2>Data</h2>
+                    </header>
+                    <h3>Headers</h3>
+                    <ol>
+                        <li>Age of person (numerical attribute): age</li>
+                        <li>Sex (categorical attr. - male / female): sex</li>
+                        <li>Body Mass Index (numerical attr.): bmi</li>
+                        <li>Number of children (numerical attr.): children</li>
+                        <li>Smoker (categorical attr. - yes / no): smoker</li>
+                        <li>Region of the US the person resides (categorical attr. - Northwest, Northeast, Southeast,
+                            Southwest): region</li>
+                        <li>Medical charges on insurance (numerical attr.): charges</li>
+                    </ol>
+                    <h3>Entries</h3>
+                    <p>There are a total of 1338 data entries (people).</p>
+                    <h3>Points to note</h3>
+                    <ol>
+                        <li>No missing data.</li>
+                        <li>Seven columns.</li>
+                        <li>Some numerical, some categorical.</li>
+                    </ol>
+                </section>
+
+                <section class="section-box" id="analysis">
+                    <header>
+                        <h2>Analysis</h2>
+                    </header>
+                    <p>I have performed some basic and intermediate analysis on the given data. <br>
+                        From the dataset, it is possible to conduct various analyses ranging from
+                        the use of just one attribute to all of them. For this project, I am performing (writing)
+                        functions or doing mathematical calculations to analyze and further visualize my findings.
+                        <br>Our data with the highest interest is the charges column, which is the ultimate base of
+                        this research file (most analysis includes this column).
+                    </p>
+
+                    <h4>Analysis that I performed</h4>
+                    <ol>
+                        <li>Whether smokers have higher medical charges than non-smokers.</li>
+                        <li>How the medical charges change with age.</li>
+                        <li>How BMI across different regions of the US affect medical charges.</li>
+                        <li>The trend between the number of children and medical charges.</li>
+                    </ol>
+                </section>
+
+                <!-- Continue with other sections similarly -->
+
+                <div class="section-box" id="evaluation">
+                    <h2>Evaluation</h2>
+                    <p>
+                    <h3>Analysis 1 - Whether smokers have higher medical charges than non-smokers</h3>
+                    <h4>Data calculated</h4>
+                    <ul>
+                        <li>The total number of people in dataset = 1338</li>
+                        <li>Total number of males and females = 676, 662 respectively</li>
+                        <li>Total number of smokers and non-smokers = 274, 1064 respectively</li>
+                        <li>Total number of male smokers and female smokers = 159, 115 respectively</li>
+                        <li>The total medical charges = $17,755,824.99</li>
+                        <li>The total medical charges for smokers and non-smokers = $8781763.52, $8974061.47
+                            respectively</li>
+                        <li>The average charges for smokers and non-smokers = $32050.23, $8434.27 respectively</li>
+                    </ul>
+                    For this finding, I went deep to find out all the small scale calculations part required for
+                    this analysis.
+                    The analysis turned out to be more mathematical than programmable.<br>
+                    Concluding with our findings, the results show that smokers had a higher average medical charge
+                    than the non-smokers.
+                    Although the total charges for each group were near about the same, due to a small number of
+                    smokers in the dataset, their average charge soared.
+                    </p>
+                    <p>
+                    <h3>Analysis 2 - How the medical charges change with age</h3>
+                    <h4>Data calculated</h4>
+                    <ul>
+                        <li>Age 54 had the highest total medical charges across US of $63770.43</li>
+                        <li>Age 18 had the lowest total medical charges across US of $1121.87</li>
+                        <li>Age 64 had the highest average medical charges across US of $23275.53 per person</li>
+                        <li>Age 21 had the lowest average medical charges across US of $4730.46 per person</li>
+                    </ul>
+                    With that and the plotted graph, we can see that in entirety, the average medical charges per
+                    person increases with age.<br>
+                    Here I have created several functions to perform analysis on the dataset with the given project
+                    scope. In turn I also plotted a line graph
+                    to visualize the findings.
+                    </p>
+                    <p>
+                    <h3>Analysis 3 - How BMI across different regions of the US affect medical charges</h3>
+                    <h4>Data calculated</h4>
+                    <ul>
+                        <li>The BMI with the highest medical charge is 47.41</li>
+                        <li>The BMI with the lowest medical charge is 23.21</li>
+                        <br>
+                        <strong>The average charges for each BMI range are</strong>
+                        <li>Underweight = $8852.20</li>
+                        <li>Healthy Weight = $10379.50</li>
+                        <li>Overweight = $11017.60</li>
+                        <li>Obesity = $15448.68</li>
+                        <br>
+                        <strong>The average charges for each region are</strong>
+                        <li>NorthWest = $12417.58</li>
+                        <li>NorthEast = $13406.38</li>
+                        <li>SouthEast = $14735.41</li>
+                        <li>SouthWest = $12346.94</li>
+                    </ul>
+                    The pie charts in the diagram (scroll below to Outputs -> Analysis 3) show the distribution of BMIs
+                    (percentages) across each different region of the dataset.
+                    <br>
+                    We can fairly conclude that a large portion of the US is obese and overweight and a very minute
+                    portion is underweight or healthy.
+                    <br>
+                    What is also peculiar is that the average medical charges increase as we go from low BMI
+                    (underweight) towards high BMI (obesity), disregarding the fact that there is a healthy BMI range in
+                    between.
+                    <br>
+                    The average medical charges across the four regions are also very similar, the highest however being
+                    for the South East region, and the lowest for the South West.
+                    </p>
+                    <p>
+                    <h3>Analysis 4 - Trend between number of children of person and medical charges</h3>
+                    <h4>Data calculated</h4>
+                    <ul>
+                        <li>Total people with no children: 574</li>
+                        <li>Total people with one child: 324</li>
+                        <li>Total people with two children: 240</li>
+                        <li>Total people with three children: 157</li>
+                        <li>Total people with four children: 25</li>
+                        <li>Total people with five children: 18</li>
+                        <br>
+                        <li>Average medical charges for people with no children: $12365.98</li>
+                        <li>Average medical charges for people with one child: $12731.17</li>
+                        <li>Average medical charges for people with two children: $15073.56</li>
+                        <li>Average medical charges for people with three children: $15355.32</li>
+                        <li>Average medical charges for people with four children: $13850.66</li>
+                        <li>Average medical charges for people with five children: $8786.04</li>
+
+                        <li>The maximum charge for people with 5 (user input) children = $19023.26</li>
+                        <li>The minimum charge for people with 1 (user input) children = $1711.03</li>
+                    </ul>
+                    The bar chart (scroll below to Outputs -> Analysis 4), shows how the average medical charge differs
+                    for people with different number of children.
+                    <br>
+                    The people with 3 children have the highest medical charges, whereas the people with 5 children have
+                    the lowest charges.
+                    However, considering the real world, even if the people with 5 children on average are saving up on
+                    their medical charges, their living expenses and education costs for their children
+                    would on average be greater than those with fewer children.
+
+
+                    </p>
+
+                </div>
+
+                <section class="section-box" id="outputs">
+                    <header>
+                        <h2>Outputs</h2>
+                    </header>
+
+                    <figure>
+                        <h4>Analysis 2</h4>
+                        <img src="./img/averageCharges.png" height="500" width="500"
+                            alt="Graph showing average medical charges by age">
+                        <figcaption>Average medical charges by age</figcaption>
+                    </figure>
+
+                    <figure>
+                        <h4>Analysis 3</h4>
+                        <img src="./img/analysis3_plot.png" height="500" width="800"
+                            alt="Plot depicting BMI across US regions and their respective medical charges">
+                        <figcaption>BMI across US regions and their respective medical charges</figcaption>
+                    </figure>
+
+                    <figure>
+                        <h4>Analysis 4</h4>
+                        <img src="./img/analysis4_plot.png" height="400" width="600"
+                            alt="Bar chart illustrating average medical charges by number of children">
+                        <figcaption>Average medical charges by number of children</figcaption>
+                    </figure>
+                </section>
+
+
+
+                <section class="section-box" id="further-study">
+                    <header>
+                        <h2>Further Study</h2>
+                    </header>
+                    <p>
+                        Those wanting to use this dataset can further study a mix of data:<br>
+                        For example: males and females within a specified BMI, people with a certain number of children
+                        in a specific US region.<br>
+                        There are many such example studies one can expand upon.
+                        <br>
+                        <br>
+                        If you are from a certain field: <br>
+                        Healthcare - might want to focus on smoking data, BMI data, number of children.<br>
+                        Government services - region data, sex data, charges data.<br>
+                        Finance - might want to focus on medical charges, region data, sex data.
+                    </p>
+                </section>
+
+                <section class="section-box" id="rnl">
+                    <header>
+                        <h2>Resources and Links</h2>
+                    </header>
+                    <p>
+                    <ol>
+                        <li><a
+                                href="https://www.codecademy.com/projects/portfolio/us-medical-insurance-costs-portfolio-project">Codecademy
+                                Insurance Cost Dataset</a></li>
+                        <li><a href="https://www.kaggle.com/datasets/mirichoi0218/insurance">Dataset</a></li>
+                        <li><a href="https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html ">BMI</a>
+                        <li><a href="https://chatgpt.com/">Commenting and Documentation</a></li>
+
+                    </ol>
+                    </p>
+                </section>
+
+                <div class="containers">
+                    <button onclick="window.location.href='https://github.com/YourRepoLink'">View Codes</button>
+                </div>
             </div>
         </section>
     </div>
 
-    <!-- Footer -->
-    <footer id="footer" class="wrapper style1-alt">
-        <div class="inner">
-            <ul class="menu">
-                <li>&copy; Untitled. All rights reserved.</li>
-                <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
-                <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
-            </ul>
-        </div>
+    <footer id="footer">
+        <ul class="menu">
+            <li>&copy; Untitled. All rights reserved.</li>
+            <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
+        </ul>
     </footer>
 
     <!-- Scripts -->
@@ -328,6 +438,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
