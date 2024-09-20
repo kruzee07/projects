@@ -1,58 +1,223 @@
-
 <!DOCTYPE HTML>
 <html>
 
 <head>
-    <title>D-H-C</title>
+    <title>Decrypting Hashed Codes</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/main.css" />
     <noscript>
-        <link rel="stylesheet" href="../assets/css/noscript.css" />x
+        <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #007bff; /* Blue color scheme */
+            color: #fff;
+            padding: 15px 0;
+            border-bottom: 3px solid #0056b3; /* Darker blue for emphasis */
+        }
+
+        header .inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        #main {
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+
+        h1.major {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #007bff; /* Match header color */
+        }
+
+        .section-header {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 15px;
+            background: #0056b3; /* Darker blue for section headers */
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .section-content {
+            display: none;
+            padding: 20px;
+            background: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .containers {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background: #007bff; /* Button color */
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #0056b3; /* Darker button color on hover */
+        }
+
+        footer {
+            background: #007bff; /* Match footer color */
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            border-top: 3px solid #0056b3; /* Darker blue for emphasis */
+        }
+
+        footer .inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        footer ul.menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        footer ul.menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        footer ul.menu li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
-<body>
+<body class="is-preload">
     <header id="header">
-        <a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a>
-        <nav>
-            <ul>
-                <li><a href="https://kruzee07.github.io/KrutarthGhuge_Portfolio/home.html">Portfolio Home</a></li>
-                <li><a href="https://kruzee07.github.io/projects/">Projects Home</a></li>
-                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
-            </ul>
-        </nav>
+        <div class="inner">
+            <a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a>
+            <nav>
+                <ul>
+                    <li><a href="../kruzee07.github.io/index.html">Home</a></li>
+                    <li><a href="../kruzee07.github.io/index.html#three">Get in touch</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
 
     <div id="wrapper">
         <!-- Main -->
         <section id="main" class="wrapper style1 fullscreen fade-up">
             <div class="inner">
                 <h1 class="major">Decrypting Hashed Codes</h1>
+                
+                <!-- Presentation Content -->
+                <section id="presentation">
+                    <div class="section-header" onclick="toggleContent('introduction')">Introduction</div>
+                    <div id="introduction" class="section-content">
+                        <p><strong>Topic Introduction:</strong> Welcome, everyone, to our presentation on decrypting hashed codes and understanding hashing concepts.</p>
+                        <p><strong>Importance in Cybersecurity:</strong> Hashing is fundamental in ensuring data security and integrity in cyberspace.</p>
+                        <p><strong>Presentation Structure:</strong> We'll cover hashing basics, common algorithms, a decryption challenge, salting, and our findings.</p>
+                    </div>
+                    
+                    <div class="section-header" onclick="toggleContent('hashing-basics')">Understanding Hashing Basics</div>
+                    <div id="hashing-basics" class="section-content">
+                        <p><strong>Purpose of Hashing:</strong> Hashing converts data into a fixed-size string, ensuring data integrity and authenticity.</p>
+                        <p><strong>Importance:</strong> Vital in protecting passwords, digital signatures, and verifying data integrity.</p>
+                        <p><strong>Key Properties:</strong> Deterministic, unique hashes, and resistant to collisions.</p>
+                    </div>
+                    
+                    <div class="section-header" onclick="toggleContent('hashing-algorithms')">Common Hashing Algorithms</div>
+                    <div id="hashing-algorithms" class="section-content">
+                        <p><strong>Introduction:</strong> We explore SHA-1, SHA-2 (including SHA-256), and MD5.</p>
+                        <p><strong>Features:</strong> Characteristics like hash length and cryptographic strength.</p>
+                        <p><strong>Strengths and Weaknesses:</strong> Compare security, performance, and vulnerabilities.</p>
+                    </div>
+                    
+                    <div class="section-header" onclick="toggleContent('decryption-challenge')">Decryption Challenge</div>
+                    <div id="decryption-challenge" class="section-content">
+                        <p><strong>Provided Hashed Codes:</strong> Presentation of hashed codes for decryption.</p>
+                        <p><strong>Decryption Process:</strong> Discuss the decryption attempts using online tools or scripts.</p>
+                        <p><strong>Successes and Challenges:</strong> Describe successful decryption attempts and challenges faced.</p>
+                    </div>
+                    
+                    <div class="section-header" onclick="toggleContent('salting-concept')">Exploring the Salting Concept</div>
+                    <div id="salting-concept" class="section-content">
+                        <p><strong>Definition:</strong> Salting adds random data to input before hashing.</p>
+                        <p><strong>Role in Security:</strong> Enhances security by making each hash unique, preventing rainbow table attacks.</p>
+                        <p><strong>Examples:</strong> Examples of salting techniques and their effectiveness.</p>
+                    </div>
+                    
+                    <div class="section-header" onclick="toggleContent('findings')">Documentation of Findings</div>
+                    <div id="findings" class="section-content">
+                        <p><strong>Decryption Process Summary:</strong> Summary of the decryption process and insights gained.</p>
+                        <p><strong>Impact of Salting:</strong> Discussion on salting's impact on hash security.</p>
+                        <p><strong>Insights Gained:</strong> Notable observations and unexpected findings.</p>
+                    </div>
+                    
+                    <div class="section-header" onclick="toggleContent('conclusion')">Conclusion</div>
+                    <div id="conclusion" class="section-content">
+                        <p><strong>Recap of Key Findings:</strong> Summary of main findings.</p>
+                        <p><strong>Implications:</strong> Implications for cybersecurity practices and data protection.</p>
+                        <p><strong>Future Research:</strong> Suggestions for further research or experimentation.</p>
+                    </div>
+                </section>
+                
                 <section id="one">
-
-                    <p><strong>PROJECT COMING SOON!</strong></p>
-
                     <div class="containers">
                         <button onclick="openLink('gotocode')">View Codes</button>
-                        <script>
-                            function openLink(topic) {
-                                // Define the URLs for each topic
-                                const topicUrls = {
-                                    gotocode: 'https://github.com/kruzee07/projects/tree/main/Decrypting Hashed Codes',
-                                };
-
-                                // Open the corresponding URL for the clicked topic
-                                const url = topicUrls[topic];
-                                if (url) {
-                                    window.open(url, '_blank');
-                                } else {
-                                    alert('Link not found.');
-                                }
-                            }
-                        </script>
                     </div>
                 </section>
             </div>
@@ -63,7 +228,7 @@
     <footer id="footer" class="wrapper style1-alt">
         <div class="inner">
             <ul class="menu">
-                <li>&copy; Untitled. All rights reserved.</li>
+                <li>&copy; 2024 Krutarth Ghuge. All rights reserved.</li>
                 <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
                 <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
             </ul>
@@ -71,13 +236,24 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script>
+        function openLink(topic) {
+            const topicUrls = {
+                gotocode: 'https://github.com/kruzee07/projects/tree/main/Decrypting Hashed Codes',
+            };
+            const url = topicUrls[topic];
+            if (url) {
+                window.open(url, '_blank');
+            } else {
+                alert('Link not found.');
+            }
+        }
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
 </body>
 
 </html>
