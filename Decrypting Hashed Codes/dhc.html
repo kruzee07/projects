@@ -21,10 +21,12 @@
         }
 
         header {
-            background: #007bff; /* Blue color scheme */
+            background: #007bff;
+            /* Blue color scheme */
             color: #fff;
             padding: 15px 0;
-            border-bottom: 3px solid #0056b3; /* Darker blue for emphasis */
+            border-bottom: 3px solid #0056b3;
+            /* Darker blue for emphasis */
         }
 
         header .inner {
@@ -70,7 +72,8 @@
         h1.major {
             font-size: 2.5em;
             margin-bottom: 20px;
-            color: #007bff; /* Match header color */
+            color: #007bff;
+            /* Match header color */
         }
 
         .section-header {
@@ -78,7 +81,8 @@
             margin-bottom: 10px;
             cursor: pointer;
             padding: 15px;
-            background: #0056b3; /* Darker blue for section headers */
+            background: #0056b3;
+            /* Darker blue for section headers */
             color: #fff;
             border-radius: 5px;
         }
@@ -97,7 +101,8 @@
         }
 
         button {
-            background: #007bff; /* Button color */
+            background: #007bff;
+            /* Button color */
             color: #fff;
             border: none;
             padding: 12px 24px;
@@ -107,15 +112,18 @@
         }
 
         button:hover {
-            background: #0056b3; /* Darker button color on hover */
+            background: #0056b3;
+            /* Darker button color on hover */
         }
 
         footer {
-            background: #007bff; /* Match footer color */
+            background: #007bff;
+            /* Match footer color */
             color: #fff;
             padding: 15px 0;
             text-align: center;
-            border-top: 3px solid #0056b3; /* Darker blue for emphasis */
+            border-top: 3px solid #0056b3;
+            /* Darker blue for emphasis */
         }
 
         footer .inner {
@@ -162,59 +170,109 @@
         <section id="main" class="wrapper style1 fullscreen fade-up">
             <div class="inner">
                 <h1 class="major">Decrypting Hashed Codes</h1>
-                
+
                 <!-- Presentation Content -->
                 <section id="presentation">
                     <div class="section-header" onclick="toggleContent('introduction')">Introduction</div>
                     <div id="introduction" class="section-content">
-                        <p><strong>Topic Introduction:</strong> Welcome, everyone, to our presentation on decrypting hashed codes and understanding hashing concepts.</p>
-                        <p><strong>Importance in Cybersecurity:</strong> Hashing is fundamental in ensuring data security and integrity in cyberspace.</p>
-                        <p><strong>Presentation Structure:</strong> We'll cover hashing basics, common algorithms, a decryption challenge, salting, and our findings.</p>
+                        <p>This project is on decrypting hashed codes and understanding hashing concepts. As data
+                            breaches and cyber threats continue to rise, encryption and hashing play crucial roles in
+                            securing sensitive information.</p>
+                        <p><strong>Importance in Cybersecurity:</strong> Hashing is a foundational aspect of
+                            cybersecurity. It’s used in password storage, digital signatures, message integrity checks,
+                            and more. Without proper understanding of hashing, systems are vulnerable to attacks like
+                            collision or rainbow table attacks.</p>
+                        <p><strong>Contents:</strong>
+                        <ol>
+                            <li>The basics of hashing and why it's essential.</li>
+                            <li>Key algorithms like SHA-1, SHA-256, and MD5.</li>
+                            <li>A real-world decryption challenge.</li>
+                            <li>The importance of salting in securing hashed data.</li>
+                            <li>The key findings and insights.</li>
+                        </ol>
+                        </p>
                     </div>
-                    
-                    <div class="section-header" onclick="toggleContent('hashing-basics')">Understanding Hashing Basics</div>
+
+                    <div class="section-header" onclick="toggleContent('hashing-basics')">Understanding Hashing Basics
+                    </div>
                     <div id="hashing-basics" class="section-content">
-                        <p><strong>Purpose of Hashing:</strong> Hashing converts data into a fixed-size string, ensuring data integrity and authenticity.</p>
-                        <p><strong>Importance:</strong> Vital in protecting passwords, digital signatures, and verifying data integrity.</p>
-                        <p><strong>Key Properties:</strong> Deterministic, unique hashes, and resistant to collisions.</p>
+                        <p><strong>Purpose of Hashing:</strong> Hashing is the process of transforming any given input
+                            into a fixed-size string, which represents the data uniquely. Hashing is commonly used for
+                            verifying data integrity. The resulting hashed value is always the same for the same input,
+                            but even a slight change in the input results in a completely different hash.</p>
+                        <p><strong>Importance:</strong></p>
+                        <p>Hashing is widely used in:</p>
+                        <p>
+                        <ol>
+                            <li><strong>Password Storage: </strong> Passwords are never stored directly. Instead, their
+                                hash values are stored, ensuring that even if data is stolen, the actual password
+                                remains protected.</li>
+                            <li><strong>Data Integrity: </strong>By hashing data, we can verify that it hasn't been
+                                altered.</li>
+                            <li><strong>Digital Signatures: </strong>Used to authenticate the origin of digital messages
+                                or documents.</li>
+                        </ol>
+                        </p>
+                        <p><strong>Key Properties:</strong>
+                        </p>
+                        <p>Hashing functions possess several essential properties:</p>
+                        <ol>
+                            <li><strong>Deterministic: </strong>The same input will always result in the same hash
+                                output.</li>
+                            <li><strong>Collision Resistant: </strong>It is computationally infeasible for two different
+                                inputs to produce the same hash value.</li>
+                            <li><strong>Preimage Resistant: </strong>Given a hash, it should be nearly impossible to
+                                reverse-engineer the input.</li>
+                            <li><strong>Avalanche Effect: </strong>A slight change in the input results in a drastically
+                                different hash.</li>
+                        </ol>
                     </div>
-                    
-                    <div class="section-header" onclick="toggleContent('hashing-algorithms')">Common Hashing Algorithms</div>
+
+                    <div class="section-header" onclick="toggleContent('hashing-algorithms')">Common Hashing Algorithms
+                    </div>
                     <div id="hashing-algorithms" class="section-content">
                         <p><strong>Introduction:</strong> We explore SHA-1, SHA-2 (including SHA-256), and MD5.</p>
                         <p><strong>Features:</strong> Characteristics like hash length and cryptographic strength.</p>
-                        <p><strong>Strengths and Weaknesses:</strong> Compare security, performance, and vulnerabilities.</p>
+                        <p><strong>Strengths and Weaknesses:</strong> Compare security, performance, and
+                            vulnerabilities.</p>
                     </div>
-                    
-                    <div class="section-header" onclick="toggleContent('decryption-challenge')">Decryption Challenge</div>
+
+                    <div class="section-header" onclick="toggleContent('decryption-challenge')">Decryption Challenge
+                    </div>
                     <div id="decryption-challenge" class="section-content">
                         <p><strong>Provided Hashed Codes:</strong> Presentation of hashed codes for decryption.</p>
-                        <p><strong>Decryption Process:</strong> Discuss the decryption attempts using online tools or scripts.</p>
-                        <p><strong>Successes and Challenges:</strong> Describe successful decryption attempts and challenges faced.</p>
+                        <p><strong>Decryption Process:</strong> Discuss the decryption attempts using online tools or
+                            scripts.</p>
+                        <p><strong>Successes and Challenges:</strong> Describe successful decryption attempts and
+                            challenges faced.</p>
                     </div>
-                    
-                    <div class="section-header" onclick="toggleContent('salting-concept')">Exploring the Salting Concept</div>
+
+                    <div class="section-header" onclick="toggleContent('salting-concept')">Exploring the Salting Concept
+                    </div>
                     <div id="salting-concept" class="section-content">
                         <p><strong>Definition:</strong> Salting adds random data to input before hashing.</p>
-                        <p><strong>Role in Security:</strong> Enhances security by making each hash unique, preventing rainbow table attacks.</p>
+                        <p><strong>Role in Security:</strong> Enhances security by making each hash unique, preventing
+                            rainbow table attacks.</p>
                         <p><strong>Examples:</strong> Examples of salting techniques and their effectiveness.</p>
                     </div>
-                    
+
                     <div class="section-header" onclick="toggleContent('findings')">Documentation of Findings</div>
                     <div id="findings" class="section-content">
-                        <p><strong>Decryption Process Summary:</strong> Summary of the decryption process and insights gained.</p>
+                        <p><strong>Decryption Process Summary:</strong> Summary of the decryption process and insights
+                            gained.</p>
                         <p><strong>Impact of Salting:</strong> Discussion on salting's impact on hash security.</p>
                         <p><strong>Insights Gained:</strong> Notable observations and unexpected findings.</p>
                     </div>
-                    
+
                     <div class="section-header" onclick="toggleContent('conclusion')">Conclusion</div>
                     <div id="conclusion" class="section-content">
                         <p><strong>Recap of Key Findings:</strong> Summary of main findings.</p>
-                        <p><strong>Implications:</strong> Implications for cybersecurity practices and data protection.</p>
+                        <p><strong>Implications:</strong> Implications for cybersecurity practices and data protection.
+                        </p>
                         <p><strong>Future Research:</strong> Suggestions for further research or experimentation.</p>
                     </div>
                 </section>
-                
+
                 <section id="one">
                     <div class="containers">
                         <button onclick="openLink('gotocode')">View Codes</button>
