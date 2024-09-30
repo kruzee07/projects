@@ -179,7 +179,7 @@
                             breaches and cyber threats continue to rise, encryption and hashing play crucial roles in
                             securing sensitive information.</p>
                         <p><strong>Importance in Cybersecurity:</strong> Hashing is a foundational aspect of
-                            cybersecurity. It's used in password storage, digital signatures, message integrity checks,
+                            cybersecurity. It’s used in password storage, digital signatures, message integrity checks,
                             and more. Without proper understanding of hashing, systems are vulnerable to attacks like
                             collision or rainbow table attacks.</p>
                         <p><strong>Contents:</strong>
@@ -231,150 +231,45 @@
                     <div class="section-header" onclick="toggleContent('hashing-algorithms')">Common Hashing Algorithms
                     </div>
                     <div id="hashing-algorithms" class="section-content">
-                        <p><strong>Introduction:</strong> There are many hashing algorithms available, but we will focus
-                            on three widely-used ones: MD5, SHA-1, and SHA-256.</p>
-                        <p><em><strong>Features:</strong></em></p>
-                        <p>MD5 (Message Digest Algorithm 5):</p>
-                        <ul>
-                            <li>Produces a 128-bit hash value.</li>
-                            <li>Known for its speed, but it has been rendered insecure due to vulnerabilities,
-                                especially in collision resistance.</li>
-                        </ul>
-                        <p>SHA-1 (Secure Hash Algorithm 1):</p>
-                        <ul>
-                            <li>Produces a 160-bit hash.</li>
-                            <li>SHA-1 has been widely used for security applications, but it's now considered weak and
-                                has been phased out in favor of stronger algorithms.
-                            </li>
-                        </ul>
-                        <p>SHA-2 (Secure Hash Algorithm 2):</p>
-                        <ul>
-                            <li>The SHA-256 variant produces a 256-bit hash.</li>
-                            <li>It is much more secure than both MD5 and SHA-1, making it widely used in modern
-                                cryptographic applications, including SSL/TLS certificates and blockchain technology.
-                            </li>
-                        </ul>
-                        <p><em><strong>Strengths and Weaknesses:</strong></em></p>
-                        <p>MD5:</p>
-                        <ul>
-                            <li>Strengths: Fast and easy to compute.</li>
-                            <li>Weaknesses: Susceptible to collisions and brute-force attacks, making it unsuitable for
-                                security-critical applications.</li>
-                        </ul>
-                        <p>SHA-1:</p>
-                        <ul>
-                            <li>Strengths: Once widely used for digital signatures and SSL certificates.</li>
-                            <li>Weaknesses: Vulnerable to attacks; researchers have shown that it's possible to generate
-                                two different inputs with the same hash (collision).
-                            </li>
-                        </ul>
-                        <p>SHA-2:</p>
-                        <ul>
-                            <li>Strengths: Highly secure with no known vulnerabilities to collision or preimage attacks.
-                                Used in many modern security applications, such as blockchain.</li>
-                            <li>Weaknesses: Slightly slower than MD5 and SHA-1 due to its complexity, but this is a
-                                necessary trade-off for security.</li>
-                        </ul>
-
+                        <p><strong>Introduction:</strong> We explore SHA-1, SHA-2 (including SHA-256), and MD5.</p>
+                        <p><strong>Features:</strong> Characteristics like hash length and cryptographic strength.</p>
+                        <p><strong>Strengths and Weaknesses:</strong> Compare security, performance, and
+                            vulnerabilities.</p>
                     </div>
 
                     <div class="section-header" onclick="toggleContent('decryption-challenge')">Decryption Challenge
                     </div>
                     <div id="decryption-challenge" class="section-content">
-                        <p><strong>Provided Hashed Codes:</strong> For this challenge, we have been provided with
-                            several hashed codes that need to be decrypted. The hashes are in different formats (MD5,
-                            SHA-1, and SHA-256).</p>
-                        <p><strong>Decryption Process:</strong> Hashes are generally designed to be one-way functions,
-                            meaning they cannot be reversed or decrypted directly. However, there are methods we can use
-                            to "crack" or reverse a hash:
-                        <ul>
-                            <li>Rainbow Tables: These are precomputed tables of hash values for various inputs, which
-                                can help reverse a hash by finding a matching precomputed value.</li>
-                            <li>Brute Force Attack: This involves systematically trying every possible combination of
-                                inputs until the correct one is found. This method is computationally expensive but
-                                sometimes effective.</li>
-                            <li>Dictionary Attack: This involves using a dictionary of common passwords or inputs to see
-                                if the hashed value corresponds to any of them.</li>
-                            <li>Custom Scripts: Python libraries like <em>hashlib</em> can be used to write scripts that
-                                compare hashes to known values.</li>
-                        </ul>
-                        </p>
-                        <p><strong>Successes and Challenges:</strong>
-                        <ul>
-                            <li>Successes: If a hash matches a precomputed value in a rainbow table or a common password
-                                from a dictionary, it can be "decrypted."</li>
-                            <li>Challenges: Salting (adding random data to the input before hashing) makes hashes harder
-                                to decrypt since it ensures that even identical inputs will produce different hashes.
-                            </li>
-                        </ul>
-                        </p>
+                        <p><strong>Provided Hashed Codes:</strong> Presentation of hashed codes for decryption.</p>
+                        <p><strong>Decryption Process:</strong> Discuss the decryption attempts using online tools or
+                            scripts.</p>
+                        <p><strong>Successes and Challenges:</strong> Describe successful decryption attempts and
+                            challenges faced.</p>
                     </div>
 
                     <div class="section-header" onclick="toggleContent('salting-concept')">Exploring the Salting Concept
                     </div>
                     <div id="salting-concept" class="section-content">
-                        <p><strong>Definition:</strong> Salting is the process of adding random data (the "salt") to the
-                            input before hashing. This ensures that even if two users have the same password, their
-                            hashed values will be different.</p>
-                        <p><strong>Role in Security:</strong> Salting is especially useful in preventing <em>rainbow
-                                table attacks</em>. Without salt, hackers can use precomputed hash tables to reverse
-                            common password hashes. Salt makes this process ineffective because the salt changes the
-                            input before hashing.</p>
-                        <p><strong>Examples:</strong>
-                        <ul>
-                            <li>Example 1: If two users have the password "password123," their unsalted hashes will be
-                                the same. If they're salted with unique values (e.g., user1salt and user2salt), the
-                                resulting hashes will be completely different.</li>
-                            <li>Effectiveness: Salting enhances the security of hashed data and is widely implemented in
-                                password storage systems. It also increases the difficulty of cracking hashes using
-                                brute-force or dictionary attacks.</li>
-                        </ul>
-                        </p>
+                        <p><strong>Definition:</strong> Salting adds random data to input before hashing.</p>
+                        <p><strong>Role in Security:</strong> Enhances security by making each hash unique, preventing
+                            rainbow table attacks.</p>
+                        <p><strong>Examples:</strong> Examples of salting techniques and their effectiveness.</p>
                     </div>
 
                     <div class="section-header" onclick="toggleContent('findings')">Documentation of Findings</div>
                     <div id="findings" class="section-content">
-                        <p><strong>Decryption Process Summary:</strong> Our decryption attempts involved testing the
-                            hashes against online tools (rainbow tables, brute-force, and dictionary attacks). We
-                            discovered that hashes with salt were significantly harder to crack than unsalted ones.</p>
-                        <p><strong>Impact of Salting:</strong> Salted hashes provide an extra layer of protection
-                            against most known hash-decryption techniques. Without salt, hashes are susceptible to
-                            rainbow table attacks, while adding salt renders precomputed hash tables useless.</p>
-                        <p><strong>Insights Gained:</strong>
-                        <ul>
-                            <li>MD5 and SHA-1 are increasingly insecure, with well-documented vulnerabilities to
-                                collision attacks.</li>
-                            <li>SHA-256, while more secure, can also be made vulnerable if poor password practices are
-                                followed (e.g., weak passwords, lack of salting).</li>
-                        </ul>
-                        </p>
+                        <p><strong>Decryption Process Summary:</strong> Summary of the decryption process and insights
+                            gained.</p>
+                        <p><strong>Impact of Salting:</strong> Discussion on salting's impact on hash security.</p>
+                        <p><strong>Insights Gained:</strong> Notable observations and unexpected findings.</p>
                     </div>
 
                     <div class="section-header" onclick="toggleContent('conclusion')">Conclusion</div>
                     <div id="conclusion" class="section-content">
-                        <p><strong>Recap of Key Findings:</strong>
-                        <ul>
-                            <li>Hashing is critical for data security but relies heavily on the strength of the
-                                algorithm and the use of techniques like salting.</li>
-                            <li>MD5 and SHA-1 are largely considered obsolete due to their vulnerabilities.</li>
-                            <li>Salting is essential for preventing rainbow table and brute-force attacks.</li>
-                        </ul>
+                        <p><strong>Recap of Key Findings:</strong> Summary of main findings.</p>
+                        <p><strong>Implications:</strong> Implications for cybersecurity practices and data protection.
                         </p>
-                        <p><strong>Implications:</strong>
-                        <ul>
-                            <li>Cryptography and hashing algorithms are constantly evolving to stay ahead of potential
-                                attacks. Choosing the right algorithm and implementing security practices like salting
-                                are vital to protecting sensitive data.</li>
-                        </ul>
-                        </p>
-                        <p><strong>Future Research:</strong>
-                        <ul>
-                            <li>Explore newer cryptographic functions, such as SHA-3.</li>
-                            <li>Investigate alternative methods of password protection like password stretching (e.g.,
-                                bcrypt, scrypt, and Argon2) which are specifically designed to be slow, making
-                                brute-force attacks more difficult.</li>
-                        </ul>
-                        </p>
+                        <p><strong>Future Research:</strong> Suggestions for further research or experimentation.</p>
                     </div>
                 </section>
 
