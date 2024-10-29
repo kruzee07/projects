@@ -6,164 +6,158 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
     <style>
         body {
+            background-color: #333;
+            color: white;
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
         }
 
-        header {
-            background: #007bff;
-            /* Blue color scheme */
-            color: #fff;
-            padding: 15px 0;
-            border-bottom: 3px solid #0056b3;
-            /* Darker blue for emphasis */
+        .wrapper.style1 {
+            background-color: #1d1d1d;
         }
 
-        header .inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        header#header {
+            background-color: #444;
+            padding: 1em;
         }
 
-        header a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
+        header#header nav ul li a {
+            color: white;
         }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        section#sidebar {
+            background-color: #292929;
         }
 
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
+        section#sidebar nav ul li a {
+            color: white;
         }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1em;
+        /* Sidebar line style */
+        #sidebar nav ul li {
+            border-bottom: 2px solid #ffcc00;
+            /* Change this to match your site theme */
         }
 
-        #main {
-            padding: 30px;
-            background: #fff;
-            border-radius: 8px;
-            margin: 20px auto;
-            max-width: 900px;
+        /* Main header line style */
+        #main h1 {
+            border-bottom: 2px solid #ffcc00;
+            /* Change this to match your site theme */
         }
 
-        h1.major {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #007bff;
-            /* Match header color */
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ol,
+        ul,
+        li {
+            color: white;
+            /* Change this if needed */
         }
 
-        .section-header {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            cursor: pointer;
-            padding: 15px;
-            background: #0056b3;
-            /* Darker blue for section headers */
-            color: #fff;
-            border-radius: 5px;
-        }
-
-        .section-content {
-            display: none;
+        .section-box {
+            background-color: #1a1a1a;
+            border: 1px solid #555;
             padding: 20px;
-            background: #e9ecef;
-            border-radius: 5px;
             margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        .containers {
-            text-align: center;
-            margin-top: 20px;
+        .section-box h2,
+        .section-box h3 {
+            color: #ffcc00;
+            /* Change this color as per your preference */
+            border-bottom: 2px solid #555;
+            padding-bottom: 10px;
         }
 
-        button {
-            background: #007bff;
-            /* Button color */
-            color: #fff;
+        .containers button {
+            background-color: #555;
+            color: white;
             border: none;
-            padding: 12px 24px;
-            font-size: 1em;
+            padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
         }
 
-        button:hover {
-            background: #0056b3;
-            /* Darker button color on hover */
+        .containers button:hover {
+            background-color: #777;
         }
 
-        footer {
-            background: #007bff;
-            /* Match footer color */
-            color: #fff;
-            padding: 15px 0;
+        footer#footer {
+            background-color: #222;
+        }
+
+        footer#footer ul.menu li a {
+            color: #aaa;
+        }
+
+        img {
+            border: 2px solid white;
+            margin-bottom: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add hover effect to images */
+        section#outputs img {
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        section#outputs img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption styling */
+        section#outputs figcaption {
             text-align: center;
-            border-top: 3px solid #0056b3;
-            /* Darker blue for emphasis */
-        }
-
-        footer .inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        footer ul.menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: center;
-        }
-
-        footer ul.menu li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        footer ul.menu li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
+            color: #ccc;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
     </style>
 </head>
 
-<body class="is-preload">
+<body>
     <header id="header">
+        <nav>
+            <ul>
+                <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
+                <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
+                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="sidebar">
         <div class="inner">
-            <a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a>
             <nav>
                 <ul>
-                    <li><a href="../index.html">Projects</a></li>
-                    <li><a href="../kruzee07.github.io/index.html#three">Get in touch</a></li>
+                    <li><a href="#introduction">Project Introduction</a></li>
+                    <li><a href="#hashing-basics">Hashing Basics</a></li>
+                    <li><a href="#hashing-algorithms">Hashing Algorithms</a></li>
+                    <li><a href="#decryption-challenge">Decryption Challenge</a></li>
+                    <li><a href="#salting-concept">Salting Concept</a></li>
+                    <li><a href="#findings">Findings</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
+                    <li><a href="#rnl">Resources and Links</a></li>
                 </ul>
             </nav>
         </div>
-    </header>
+    </section>
 
     <div id="wrapper">
         <!-- Main -->
@@ -173,13 +167,13 @@
 
                 <!-- Presentation Content -->
                 <section id="presentation">
-                    <div class="section-header" onclick="toggleContent('introduction')">Introduction</div>
+                    <div class="section-box" onclick="toggleContent('introduction')">Introduction</div>
                     <div id="introduction" class="section-content">
                         <p>This project is on decrypting hashed codes and understanding hashing concepts. As data
                             breaches and cyber threats continue to rise, encryption and hashing play crucial roles in
                             securing sensitive information.</p>
                         <p><strong>Importance in Cybersecurity:</strong> Hashing is a foundational aspect of
-                            cybersecurity. It’s used in password storage, digital signatures, message integrity checks,
+                            cybersecurity. It's used in password storage, digital signatures, message integrity checks,
                             and more. Without proper understanding of hashing, systems are vulnerable to attacks like
                             collision or rainbow table attacks.</p>
                         <p><strong>Contents:</strong>
@@ -193,7 +187,7 @@
                         </p>
                     </div>
 
-                    <div class="section-header" onclick="toggleContent('hashing-basics')">Understanding Hashing Basics
+                    <div class="section-box" onclick="toggleContent('hashing-basics')">Understanding Hashing Basics
                     </div>
                     <div id="hashing-basics" class="section-content">
                         <p><strong>Purpose of Hashing:</strong> Hashing is the process of transforming any given input
@@ -228,7 +222,7 @@
                         </ol>
                     </div>
 
-                    <div class="section-header" onclick="toggleContent('hashing-algorithms')">Common Hashing Algorithms
+                    <div class="section-box" onclick="toggleContent('hashing-algorithms')">Common Hashing Algorithms
                     </div>
                     <div id="hashing-algorithms" class="section-content">
                         <p><strong>Introduction:</strong> We explore SHA-1, SHA-2 (including SHA-256), and MD5.</p>
@@ -237,7 +231,7 @@
                             vulnerabilities.</p>
                     </div>
 
-                    <div class="section-header" onclick="toggleContent('decryption-challenge')">Decryption Challenge
+                    <div class="section-box" onclick="toggleContent('decryption-challenge')">Decryption Challenge
                     </div>
                     <div id="decryption-challenge" class="section-content">
                         <p><strong>Provided Hashed Codes:</strong> Presentation of hashed codes for decryption.</p>
@@ -247,7 +241,7 @@
                             challenges faced.</p>
                     </div>
 
-                    <div class="section-header" onclick="toggleContent('salting-concept')">Exploring the Salting Concept
+                    <div class="section-box" onclick="toggleContent('salting-concept')">Exploring the Salting Concept
                     </div>
                     <div id="salting-concept" class="section-content">
                         <p><strong>Definition:</strong> Salting adds random data to input before hashing.</p>
@@ -256,7 +250,7 @@
                         <p><strong>Examples:</strong> Examples of salting techniques and their effectiveness.</p>
                     </div>
 
-                    <div class="section-header" onclick="toggleContent('findings')">Documentation of Findings</div>
+                    <div class="section-box" onclick="toggleContent('findings')">Documentation of Findings</div>
                     <div id="findings" class="section-content">
                         <p><strong>Decryption Process Summary:</strong> Summary of the decryption process and insights
                             gained.</p>
@@ -264,7 +258,7 @@
                         <p><strong>Insights Gained:</strong> Notable observations and unexpected findings.</p>
                     </div>
 
-                    <div class="section-header" onclick="toggleContent('conclusion')">Conclusion</div>
+                    <div class="section-box" onclick="toggleContent('conclusion')">Conclusion</div>
                     <div id="conclusion" class="section-content">
                         <p><strong>Recap of Key Findings:</strong> Summary of main findings.</p>
                         <p><strong>Implications:</strong> Implications for cybersecurity practices and data protection.
@@ -282,18 +276,26 @@
         </section>
     </div>
 
-    <!-- Footer -->
-    <footer id="footer" class="wrapper style1-alt">
-        <div class="inner">
-            <ul class="menu">
-                <li>&copy; 2024 Krutarth Ghuge. All rights reserved.</li>
-                <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
-                <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
-            </ul>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+        <ul class="menu">
+            <li>&copy; Untitled. All rights reserved.</li>
+            <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
+        </ul>
+    </div>
+</footer>
 
     <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
     <script>
         function openLink(topic) {
             const topicUrls = {
@@ -312,6 +314,7 @@
             content.style.display = content.style.display === 'none' ? 'block' : 'none';
         }
     </script>
+
 </body>
 
 </html>
