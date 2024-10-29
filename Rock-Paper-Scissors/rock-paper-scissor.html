@@ -1,21 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+<!DOCTYPE HTML>
+<html>
+
+<head>
     <title>Rock-Paper-Scissors</title>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript>
-      <link rel="stylesheet" href="../assets/css/noscript.css" />
+        <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
     <style>
-      /* Add styles for the game layout */
-      .game-container {
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .wrapper.style1 {
+            background-color: #1d1d1d;
+        }
+
+        header#header {
+            background-color: #444;
+            padding: 1em;
+        }
+
+        header#header nav ul li a {
+            color: white;
+        }
+
+        section#sidebar {
+            background-color: #292929;
+        }
+
+        section#sidebar nav ul li a {
+            color: white;
+        }
+
+        /* Sidebar line style */
+        #sidebar nav ul li {
+            border-bottom: 2px solid #ffcc00;
+            /* Change this to match your site theme */
+        }
+
+        /* Main header line style */
+        #main h1 {
+            border-bottom: 2px solid #ffcc00;
+            /* Change this to match your site theme */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ol,
+        ul,
+        li {
+            color: white;
+            /* Change this if needed */
+        }
+
+        .section-box {
+            background-color: #1a1a1a;
+            border: 1px solid #555;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-box h2,
+        .section-box h3 {
+            color: #ffcc00;
+            /* Change this color as per your preference */
+            border-bottom: 2px solid #555;
+            padding-bottom: 10px;
+        }
+
+        .containers button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .containers button:hover {
+            background-color: #777;
+        }
+
+        footer#footer {
+            background-color: #222;
+        }
+
+        footer#footer ul.menu li a {
+            color: #aaa;
+        }
+
+        img {
+            border: 2px solid white;
+            margin-bottom: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add hover effect to images */
+        section#outputs img {
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        section#outputs img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption styling */
+        section#outputs figcaption {
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .game-container {
         text-align: center;
         margin: 50px auto;
       }
@@ -34,129 +148,92 @@
         margin-top: 20px;
         font-size: 24px;
       }
-
-      /* Style for the View Codes button */
-      .view-codes-button {
-        position: fixed; /* Fixes the button at the desired position */
-        bottom: 20px; /* Positions the button 20px from the bottom */
-        left: 20px; /* Positions the button 20px from the left */
-        padding: 10px 20px;
-        background-color: #5e42a6;
-        color: white; /* White text */
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        text-decoration: none;
-      }
-
-      .view-codes-button:hover {
-        background-color: #493382;
-      }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <header id="header">
-      <a href="https://kruzee07.github.io/index.html#intro" class="title"
-        >Krutarth Ghuge</a
-      >
-      <nav>
-        <ul>
-          <li>
-            <a href="https://kruzee07.github.io/projects/">Projects</a>
-          </li>
-          <li>
-            <a href="https://kruzee07.github.io/index.html#three"
-              >Get in touch</a
-            >
-          </li>
-        </ul>
-      </nav>
+        <nav>
+            <ul>
+                <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
+                <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
+                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
+            </ul>
+        </nav>
     </header>
 
+    <section id="sidebar">
+
+    </section>
+
     <div id="wrapper">
-      <!-- Main -->
-      <section id="main" class="wrapper style1 fullscreen fade-up">
-        <div class="inner">
-          <h1 class="major">Rock-Paper-Scissors Game</h1>
-
-          <div class="game-container">
-            <h2>Pick Your Choice:</h2>
-            <div class="choices">
-              <button class="choice-button" onclick="playGame('rock')">
-                Rock
-              </button>
-              <button class="choice-button" onclick="playGame('paper')">
-                Paper
-              </button>
-              <button class="choice-button" onclick="playGame('scissors')">
-                Scissors
-              </button>
+        <!-- Main -->
+        <section id="main" class="wrapper style1 fullscreen fade-up">
+          <div class="inner">
+            <h1 class="major">Rock-Paper-Scissors Game</h1>
+  
+            <div class="game-container">
+              <h2>Pick Your Choice:</h2>
+              <div class="choices">
+                <button class="choice-button" onclick="playGame('rock')">
+                  Rock
+                </button>
+                <button class="choice-button" onclick="playGame('paper')">
+                  Paper
+                </button>
+                <button class="choice-button" onclick="playGame('scissors')">
+                  Scissors
+                </button>
+              </div>
+              <div id="result" class="result"></div>
             </div>
-            <div id="result" class="result"></div>
           </div>
-        </div>
-
-        <button class="view-codes-button" onclick="openLink('gotocode')">
-          View Codes
-        </button>
-        <script>
-          function openLink(topic) {
-            // Define the URLs for each topic
-            const topicUrls = {
-              gotocode:
-                "https://github.com/kruzee07/projects/tree/main/Rock-Paper-Scissors",
-            };
-
-            // Open the corresponding URL for the clicked topic
-            const url = topicUrls[topic];
-            if (url) {
-              window.open(url, "_blank");
-            } else {
-              alert("Link not found.");
-            }
-          }
-        </script>
-      </section>
-    </div>
-
-    <!-- Footer -->
-    <footer id="footer" class="wrapper style1-alt">
-      <div class="inner">
-        <ul class="menu">
-          <li>&copy; Untitled. All rights reserved.</li>
-          <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
-          <li>
-            Site modified by
-            <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024
-          </li>
-        </ul>
+  
+        </section>
       </div>
-    </footer>
 
-    <!-- JavaScript -->
+<!-- Footer -->
+<footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+        <ul class="menu">
+            <li>&copy; Untitled. All rights reserved.</li>
+            <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
+        </ul>
+    </div>
+</footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
     <script>
-      function playGame(userChoice) {
-        const choices = ["rock", "paper", "scissors"];
-        const randomChoice = choices[Math.floor(Math.random() * 3)];
-
-        let resultMessage = `You selected ${userChoice}. `;
-
-        if (userChoice === randomChoice) {
-          resultMessage += `It's a tie! We both chose ${randomChoice}.`;
-        } else if (
-          (userChoice === "rock" && randomChoice === "scissors") ||
-          (userChoice === "paper" && randomChoice === "rock") ||
-          (userChoice === "scissors" && randomChoice === "paper")
-        ) {
-          resultMessage += `You won! I chose ${randomChoice}.`;
-        } else {
-          resultMessage += `You lost! I chose ${randomChoice}.`;
+        function playGame(userChoice) {
+          const choices = ["rock", "paper", "scissors"];
+          const randomChoice = choices[Math.floor(Math.random() * 3)];
+  
+          let resultMessage = `You selected ${userChoice}. `;
+  
+          if (userChoice === randomChoice) {
+            resultMessage += `It's a tie! We both chose ${randomChoice}.`;
+          } else if (
+            (userChoice === "rock" && randomChoice === "scissors") ||
+            (userChoice === "paper" && randomChoice === "rock") ||
+            (userChoice === "scissors" && randomChoice === "paper")
+          ) {
+            resultMessage += `You won! I chose ${randomChoice}.`;
+          } else {
+            resultMessage += `You lost! I chose ${randomChoice}.`;
+          }
+  
+          document.getElementById("result").innerText = resultMessage;
         }
+      </script>
 
-        document.getElementById("result").innerText = resultMessage;
-      }
-    </script>
-  </body>
+</body>
+
 </html>

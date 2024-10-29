@@ -1,17 +1,134 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html>
 
 <head>
     <title>Message Mixer Encryption</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
-
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
     <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .wrapper.style1 {
+            background-color: #1d1d1d;
+        }
+
+        header#header {
+            background-color: #444;
+            padding: 1em;
+        }
+
+        header#header nav ul li a {
+            color: white;
+        }
+
+        section#sidebar {
+            background-color: #292929;
+        }
+
+        section#sidebar nav ul li a {
+            color: white;
+        }
+
+        /* Sidebar line style */
+        #sidebar nav ul li {
+            border-bottom: 2px solid #ffcc00;
+            /* Change this to match your site theme */
+        }
+
+        /* Main header line style */
+        #main h1 {
+            border-bottom: 2px solid #ffcc00;
+            /* Change this to match your site theme */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ol,
+        ul,
+        li {
+            color: white;
+            /* Change this if needed */
+        }
+
+        .section-box {
+            background-color: #1a1a1a;
+            border: 1px solid #555;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-box h2,
+        .section-box h3 {
+            color: #ffcc00;
+            /* Change this color as per your preference */
+            border-bottom: 2px solid #555;
+            padding-bottom: 10px;
+        }
+
+        .containers button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .containers button:hover {
+            background-color: #777;
+        }
+
+        footer#footer {
+            background-color: #222;
+        }
+
+        footer#footer ul.menu li a {
+            color: #aaa;
+        }
+
+        img {
+            border: 2px solid white;
+            margin-bottom: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add hover effect to images */
+        section#outputs img {
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        section#outputs img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Caption styling */
+        section#outputs figcaption {
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
         .container {
             text-align: center;
             margin: 20px auto;
@@ -56,14 +173,17 @@
 
 <body>
     <header id="header">
-        <a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a>
         <nav>
             <ul>
+                <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
                 <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
                 <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
             </ul>
         </nav>
     </header>
+
+    <section id="sidebar">
+    </section>
 
     <div id="wrapper">
         <!-- Main -->
@@ -87,117 +207,113 @@
                     <div id="output">Your encrypted message will appear here...</div>
                 </div>
 
-                <div class="containers">
-                    <button onclick="openLink('gotocode')">View Codes</button>
-                    <script>
-                        function openLink(topic) {
-                            const topicUrls = {
-                                gotocode: 'https://github.com/kruzee07/projects/tree/main/Message-Mixer%20encryption',
-                            };
-                            const url = topicUrls[topic];
-                            if (url) {
-                                window.open(url, '_blank');
-                            } else {
-                                alert('Link not found.');
-                            }
-                        }
-                    </script>
-                </div>
+                
             </div>
         </section>
     </div>
 
-    <!-- Footer -->
-    <footer id="footer" class="wrapper style1-alt">
-        <div class="inner">
-            <ul class="menu">
-                <li>&copy; Untitled. All rights reserved.</li>
-                <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
-                <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
-            </ul>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+        <ul class="menu">
+            <li>&copy; Untitled. All rights reserved.</li>
+            <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
+        </ul>
+    </div>
+</footer>
 
     <!-- Scripts -->
-    <script>
-        // Caesar Cipher
-        const caesarCipher = (str, amount = 0) => {
-            if (amount < 0) {
-                return caesarCipher(str, amount + 26);
-            }
-            let output = '';
-            for (let i = 0; i < str.length; i++) {
-                let char = str[i];
-                if (char.match(/[a-z]/i)) {
-                    let code = str.charCodeAt(i);
-                    if (code >= 65 && code <= 90) {
-                        char = String.fromCharCode(((code - 65 + amount) % 26) + 65);
-                    } else if (code >= 97 && code <= 122) {
-                        char = String.fromCharCode(((code - 97 + amount) % 26) + 97);
-                    }
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+
+<script>
+    // Caesar Cipher
+    const caesarCipher = (str, amount = 0) => {
+        if (amount < 0) {
+            return caesarCipher(str, amount + 26);
+        }
+        let output = '';
+        for (let i = 0; i < str.length; i++) {
+            let char = str[i];
+            if (char.match(/[a-z]/i)) {
+                let code = str.charCodeAt(i);
+                if (code >= 65 && code <= 90) {
+                    char = String.fromCharCode(((code - 65 + amount) % 26) + 65);
+                } else if (code >= 97 && code <= 122) {
+                    char = String.fromCharCode(((code - 97 + amount) % 26) + 97);
                 }
+            }
+            output += char;
+        }
+        return output;
+    };
+
+    // Symbol Cipher
+    const symbolCipher = (str) => {
+        const symbols = {
+            'i': '!',
+            '!': 'i',
+            'l': '1',
+            '1': 'l',
+            's': '$',
+            '$': 's',
+            'o': '0',
+            '0': 'o',
+            'a': '@',
+            '@': 'a',
+            'e': '3',
+            '3': 'e',
+            'b': '6',
+            '6': 'b'
+        };
+
+        let output = '';
+        for (let i = 0; i < str.length; i++) {
+            let char = str.toLowerCase()[i];
+            if (symbols[char]) {
+                output += symbols[char];
+            } else {
                 output += char;
             }
-            return output;
-        };
-
-        // Symbol Cipher
-        const symbolCipher = (str) => {
-            const symbols = {
-                'i': '!',
-                '!': 'i',
-                'l': '1',
-                '1': 'l',
-                's': '$',
-                '$': 's',
-                'o': '0',
-                '0': 'o',
-                'a': '@',
-                '@': 'a',
-                'e': '3',
-                '3': 'e',
-                'b': '6',
-                '6': 'b'
-            };
-
-            let output = '';
-            for (let i = 0; i < str.length; i++) {
-                let char = str.toLowerCase()[i];
-                if (symbols[char]) {
-                    output += symbols[char];
-                } else {
-                    output += char;
-                }
-            }
-            return output;
-        };
-
-        // Reverse Cipher
-        const reverseCipher = (sentence) => {
-            let words = sentence.split(' ');
-            for (let i = 0; i < words.length; i++) {
-                words[i] = words[i].split('').reverse().join('');
-            }
-            return words.join(' ');
-        };
-
-        // Function to handle encryption based on selected method
-        function encryptMessage(method) {
-            const userInput = document.getElementById('user-input').value;
-            let output = '';
-
-            if (method === 'caesar') {
-                const shift = parseInt(document.getElementById('caesar-shift').value);
-                output = caesarCipher(userInput, shift);
-            } else if (method === 'symbol') {
-                output = symbolCipher(userInput);
-            } else if (method === 'reverse') {
-                output = reverseCipher(userInput);
-            }
-
-            document.getElementById('output').innerText = `Encrypted message: ${output}`;
         }
-    </script>
+        return output;
+    };
+
+    // Reverse Cipher
+    const reverseCipher = (sentence) => {
+        let words = sentence.split(' ');
+        for (let i = 0; i < words.length; i++) {
+            words[i] = words[i].split('').reverse().join('');
+        }
+        return words.join(' ');
+    };
+
+    // Function to handle encryption based on selected method
+    function encryptMessage(method) {
+        const userInput = document.getElementById('user-input').value;
+        let output = '';
+
+        if (method === 'caesar') {
+            const shift = parseInt(document.getElementById('caesar-shift').value);
+            output = caesarCipher(userInput, shift);
+        } else if (method === 'symbol') {
+            output = symbolCipher(userInput);
+        } else if (method === 'reverse') {
+            output = reverseCipher(userInput);
+        }
+
+        document.getElementById('output').innerText = `Encrypted message: ${output}`;
+    }
+</script>
+
 </body>
 
 </html>

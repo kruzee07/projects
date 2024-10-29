@@ -168,7 +168,7 @@
                 <!-- Presentation Content -->
                 <section id="presentation">
                     <div class="section-box" onclick="toggleContent('introduction')">Introduction</div>
-                    <div id="introduction" class="section-content">
+                    <div id="introduction" class="section-box">
                         <p>This project is on decrypting hashed codes and understanding hashing concepts. As data
                             breaches and cyber threats continue to rise, encryption and hashing play crucial roles in
                             securing sensitive information.</p>
@@ -189,7 +189,7 @@
 
                     <div class="section-box" onclick="toggleContent('hashing-basics')">Understanding Hashing Basics
                     </div>
-                    <div id="hashing-basics" class="section-content">
+                    <div id="hashing-basics" class="section-box">
                         <p><strong>Purpose of Hashing:</strong> Hashing is the process of transforming any given input
                             into a fixed-size string, which represents the data uniquely. Hashing is commonly used for
                             verifying data integrity. The resulting hashed value is always the same for the same input,
@@ -224,7 +224,7 @@
 
                     <div class="section-box" onclick="toggleContent('hashing-algorithms')">Common Hashing Algorithms
                     </div>
-                    <div id="hashing-algorithms" class="section-content">
+                    <div id="hashing-algorithms" class="section-box">
                         <p><strong>Introduction:</strong> We explore SHA-1, SHA-2 (including SHA-256), and MD5.</p>
                         <p><strong>Features:</strong> Characteristics like hash length and cryptographic strength.</p>
                         <p><strong>Strengths and Weaknesses:</strong> Compare security, performance, and
@@ -233,7 +233,7 @@
 
                     <div class="section-box" onclick="toggleContent('decryption-challenge')">Decryption Challenge
                     </div>
-                    <div id="decryption-challenge" class="section-content">
+                    <div id="decryption-challenge" class="section-box">
                         <p><strong>Provided Hashed Codes:</strong> Presentation of hashed codes for decryption.</p>
                         <p><strong>Decryption Process:</strong> Discuss the decryption attempts using online tools or
                             scripts.</p>
@@ -243,7 +243,7 @@
 
                     <div class="section-box" onclick="toggleContent('salting-concept')">Exploring the Salting Concept
                     </div>
-                    <div id="salting-concept" class="section-content">
+                    <div id="salting-concept" class="section-box">
                         <p><strong>Definition:</strong> Salting adds random data to input before hashing.</p>
                         <p><strong>Role in Security:</strong> Enhances security by making each hash unique, preventing
                             rainbow table attacks.</p>
@@ -251,7 +251,7 @@
                     </div>
 
                     <div class="section-box" onclick="toggleContent('findings')">Documentation of Findings</div>
-                    <div id="findings" class="section-content">
+                    <div id="findings" class="section-box">
                         <p><strong>Decryption Process Summary:</strong> Summary of the decryption process and insights
                             gained.</p>
                         <p><strong>Impact of Salting:</strong> Discussion on salting's impact on hash security.</p>
@@ -259,7 +259,7 @@
                     </div>
 
                     <div class="section-box" onclick="toggleContent('conclusion')">Conclusion</div>
-                    <div id="conclusion" class="section-content">
+                    <div id="conclusion" class="section-box">
                         <p><strong>Recap of Key Findings:</strong> Summary of main findings.</p>
                         <p><strong>Implications:</strong> Implications for cybersecurity practices and data protection.
                         </p>
@@ -267,11 +267,9 @@
                     </div>
                 </section>
 
-                <section id="one">
-                    <div class="containers">
-                        <button onclick="openLink('gotocode')">View Codes</button>
-                    </div>
-                </section>
+
+                       
+
             </div>
         </section>
     </div>
@@ -297,17 +295,6 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-        function openLink(topic) {
-            const topicUrls = {
-                gotocode: 'https://github.com/kruzee07/projects/tree/main/Decrypting Hashed Codes',
-            };
-            const url = topicUrls[topic];
-            if (url) {
-                window.open(url, '_blank');
-            } else {
-                alert('Link not found.');
-            }
-        }
 
         function toggleContent(id) {
             const content = document.getElementById(id);
