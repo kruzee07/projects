@@ -3983,9 +3983,14 @@ body.is-preload #sidebar nav ul li {
 /* Styles for the buttons */
 .my-button {
     display: block;
-    margin-bottom: 15px; /* Adjust this value to increase or decrease the space */
+    margin-bottom: 15px;
+    margin-right: 3px; /* Adjust this value to increase or decrease the space */
+    cursor: pointer;
+    width: 30%; /* Optional: adjust width to match container */
 }
 
-
+.my-button:last-child {
+  margin-bottom: 0; /* Remove margin from the last button */
+}
 
 
