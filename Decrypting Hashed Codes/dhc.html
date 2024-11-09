@@ -154,6 +154,7 @@
                     <li><a href="#findings">Findings</a></li>
                     <li><a href="#conclusion">Conclusion</a></li>
                     <li><a href="#rnl">Resources and Links</a></li>
+                    <li><a href="#test-form">Demos</a></li>
                 </ul>
             </nav>
         </div>
@@ -267,22 +268,42 @@
                     </div>
                 </section>
 
+                <section>
+                    <!-- Add this form where you want users to input data -->
+                    <div class="section-box" id="test-form">
+                        <h3>Hashing Input</h3>
+                        <form action="/hash" method="post">
+                            <input type="text" name="input_data" placeholder="Enter data to hash" required>
+                            <button type="submit">Hash Data</button>
+                        </form>
 
-                       
+                         <!-- Display hashed code if it exists -->
+                    {% if hashed_code %}
+                    <div class="section-box">
+                        <h3>Hashed Output</h3>
+                        <p>{{ hashed_code }}</p>
+                    </div>
+                    {% endif %}
+
+                    </div>
+                
+
+                </section>
+
 
             </div>
         </section>
     </div>
 
-<!-- Footer -->
-<footer id="footer" class="wrapper style1-alt">
-    <div class="inner">
-        <ul class="menu">
-            <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
-            <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
-        </ul>
-    </div>
-</footer>
+    <!-- Footer -->
+    <footer id="footer" class="wrapper style1-alt">
+        <div class="inner">
+            <ul class="menu">
+                <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+                <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
+            </ul>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
