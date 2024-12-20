@@ -128,6 +128,27 @@
             font-size: 0.9em;
             margin-top: 5px;
         }
+
+        /* Special text styles */
+        .yellow-text {
+            color: yellow;
+        }
+
+        .blue-text {
+            color: blue;
+        }
+
+        .underline-text {
+            text-decoration: underline;
+        }
+
+        .bold-text {
+            font-weight: bold;
+        }
+
+        .italic-text {
+            font-style: italic;
+        }
     </style>
 </head>
 
@@ -171,18 +192,16 @@
                     <div class="section-box" onclick="toggleContent('introduction')">Introduction</div>
                     <div id="introduction" class="section-box">
                         <p>This project is on decrypting hashed codes and understanding hashing concepts. As data
-                            breaches and cyber threats continue to rise, encryption and hashing play crucial roles in
-                            securing sensitive information.</p>
-                        <p><strong>Importance in Cybersecurity:</strong> Hashing is a foundational aspect of
-                            cybersecurity. It's used in password storage, digital signatures, message integrity checks,
-                            and more. Without proper understanding of hashing, systems are vulnerable to attacks like
-                            collision or rainbow table attacks.</p>
+                            breaches and cyber threats continue to rise, <span class="yellow-text bold-text">encryption</span> and
+                            <span class="yellow-text italic-text">hashing</span> play crucial roles in securing sensitive information.</p>
+                        <p><strong>Importance in Cybersecurity:</strong> <span class="yellow-text underline-text">Hashing</span> is a
+                            foundational aspect of cybersecurity. It's used in password storage, digital signatures, message integrity checks, and more. Without proper understanding of <span class="yellow-text bold-text">hashing</span>, systems are vulnerable to attacks like collision or rainbow table attacks.</p>
                         <p><strong>Contents:</strong>
                         <ol>
-                            <li>The basics of hashing and why it's essential.</li>
+                            <li>The basics of <span class="yellow-text bold-text">hashing</span> and why it's essential.</li>
                             <li>Key algorithms like SHA-1, SHA-256, and MD5.</li>
                             <li>A real-world decryption challenge.</li>
-                            <li>The importance of salting in securing hashed data.</li>
+                            <li>The importance of <span class="yellow-text bold-text">salting</span> in securing hashed data.</li>
                             <li>The key findings and insights.</li>
                         </ol>
                         </p>
@@ -191,18 +210,17 @@
                     <div class="section-box" onclick="toggleContent('hashing-basics')">Understanding Hashing Basics
                     </div>
                     <div id="hashing-basics" class="section-box">
-                        <p><strong>Purpose of Hashing:</strong> Hashing is the process of transforming any given input
-                            into a fixed-size string, which represents the data uniquely. Hashing is commonly used for
-                            verifying data integrity. The resulting hashed value is always the same for the same input,
-                            but even a slight change in the input results in a completely different hash.</p>
+                        <p><strong>Purpose of Hashing:</strong> <span class="blue-text bold-text">Hashing</span> is the process of
+                            transforming any given input into a fixed-size string, which represents the data uniquely.
+                            <span class="yellow-text italic-text">Hashing</span> is commonly used for verifying data integrity. The resulting hashed value is always the same for the same input, but even a slight change in the input results in a completely different hash.</p>
                         <p><strong>Importance:</strong></p>
-                        <p>Hashing is widely used in:</p>
+                        <p><span class="yellow-text underline-text">Hashing</span> is widely used in:</p>
                         <p>
                         <ol>
                             <li><strong>Password Storage: </strong> Passwords are never stored directly. Instead, their
                                 hash values are stored, ensuring that even if data is stolen, the actual password
                                 remains protected.</li>
-                            <li><strong>Data Integrity: </strong>By hashing data, we can verify that it hasn't been
+                            <li><strong>Data Integrity: </strong>By <span class="blue-text italic-text">hashing</span> data, we can verify that it hasn't been
                                 altered.</li>
                             <li><strong>Digital Signatures: </strong>Used to authenticate the origin of digital messages
                                 or documents.</li>
@@ -210,7 +228,7 @@
                         </p>
                         <p><strong>Key Properties:</strong>
                         </p>
-                        <p>Hashing functions possess several essential properties:</p>
+                        <p><span class="yellow-text bold-text">Hashing</span> functions possess several essential properties:</p>
                         <ol>
                             <li><strong>Deterministic: </strong>The same input will always result in the same hash
                                 output.</li>
@@ -228,99 +246,61 @@
                     <div id="hashing-algorithms" class="section-box">
                         <p><strong>Introduction:</strong> We explore SHA-1, SHA-2 (including SHA-256), and MD5.</p>
                         <p><strong>Features:</strong> Characteristics like hash length and cryptographic strength.</p>
-                        <p><strong>Strengths and Weaknesses:</strong> Compare security, performance, and
-                            vulnerabilities.</p>
+                        <p><strong>Vulnerabilities:</strong> Discussion of weaknesses, like collision attacks in MD5, and
+                            the increasing obsolescence of SHA-1 in favor of SHA-2.</p>
                     </div>
 
                     <div class="section-box" onclick="toggleContent('decryption-challenge')">Decryption Challenge
                     </div>
                     <div id="decryption-challenge" class="section-box">
-                        <p><strong>Provided Hashed Codes:</strong> Presentation of hashed codes for decryption.</p>
-                        <p><strong>Decryption Process:</strong> Discuss the decryption attempts using online tools or
-                            scripts.</p>
-                        <p><strong>Successes and Challenges:</strong> Describe successful decryption attempts and
-                            challenges faced.</p>
+                        <p>Here we present an example where a given hash needs to be cracked.</p>
+                        <p>Challenge: Decrypt the MD5 hash <span class="blue-text">5f4dcc3b5aa765d61d8327deb882cf99</span> into its
+                            plaintext form (Hint: It's a common password).</p>
                     </div>
 
-                    <div class="section-box" onclick="toggleContent('salting-concept')">Exploring the Salting Concept
-                    </div>
+                    <div class="section-box" onclick="toggleContent('salting-concept')">Salting Concept</div>
                     <div id="salting-concept" class="section-box">
-                        <p><strong>Definition:</strong> Salting adds random data to input before hashing.</p>
-                        <p><strong>Role in Security:</strong> Enhances security by making each hash unique, preventing
-                            rainbow table attacks.</p>
-                        <p><strong>Examples:</strong> Examples of salting techniques and their effectiveness.</p>
+                        <p><strong>What is Salting?</strong> Salting is the process of adding a random value to the password
+                            before hashing it. This ensures that even identical passwords result in different
+                            hash values.</p>
+                        <p><strong>Why Salt?</strong> Salting prevents attacks like rainbow tables, where precomputed
+                            hashes are used to reverse-engineer passwords.</p>
                     </div>
 
-                    <div class="section-box" onclick="toggleContent('findings')">Documentation of Findings</div>
+                    <div class="section-box" onclick="toggleContent('findings')">Findings</div>
                     <div id="findings" class="section-box">
-                        <p><strong>Decryption Process Summary:</strong> Summary of the decryption process and insights
-                            gained.</p>
-                        <p><strong>Impact of Salting:</strong> Discussion on salting's impact on hash security.</p>
-                        <p><strong>Insights Gained:</strong> Notable observations and unexpected findings.</p>
+                        <p>We learned that proper salting is essential for securing hashes. Weak hashing algorithms like
+                            MD5 should be avoided.</p>
                     </div>
 
                     <div class="section-box" onclick="toggleContent('conclusion')">Conclusion</div>
                     <div id="conclusion" class="section-box">
-                        <p><strong>Recap of Key Findings:</strong> Summary of main findings.</p>
-                        <p><strong>Implications:</strong> Implications for cybersecurity practices and data protection.
-                        </p>
-                        <p><strong>Future Research:</strong> Suggestions for further research or experimentation.</p>
+                        <p>Hashing and salting are essential for protecting sensitive data in modern applications.
+                            Understanding their nuances can help in building secure systems.</p>
                     </div>
-                </section>
 
-                <section>
-                    <!-- Add this form where you want users to input data -->
-                    <div class="section-box" id="test-form">
-                        <h3>Hashing Input</h3>
-                        <form action="/hash" method="post">
-                            <input type="text" name="input_data" placeholder="Enter data to hash" required>
-                            <button type="submit">Hash Data</button>
-                        </form>
-
-                         <!-- Display hashed code if it exists -->
-                    {% if hashed_code %}
-                    <div class="section-box">
-                        <h3>Hashed Output</h3>
-                        <p>{{ hashed_code }}</p>
+                    <div class="section-box" onclick="toggleContent('rnl')">Resources and Links</div>
+                    <div id="rnl" class="section-box">
+                        <p>Links to relevant papers, tutorials, and guides will be provided here.</p>
                     </div>
-                    {% endif %}
 
+                    <div class="section-box" onclick="toggleContent('test-form')">Demos</div>
+                    <div id="test-form" class="section-box">
+                        <p>Testing form for demonstration purposes (e.g., hashing text).</p>
                     </div>
-                
+
+                    <footer id="footer">
+                        <ul class="menu">
+                            <li>&copy; 2024 Krutarth Ghuge</li>
+                        </ul>
+                    </footer>
 
                 </section>
-
 
             </div>
         </section>
+
     </div>
-
-    <!-- Footer -->
-    <footer id="footer" class="wrapper style1-alt">
-        <div class="inner">
-            <ul class="menu">
-                <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
-                <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
-            </ul>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-
-    <script>
-
-        function toggleContent(id) {
-            const content = document.getElementById(id);
-            content.style.display = content.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
 
 </body>
 
