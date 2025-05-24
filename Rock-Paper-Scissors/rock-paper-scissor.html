@@ -2,134 +2,287 @@
 <html>
 
 <head>
+  <title>Rock-Paper-Scissors</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <noscript>
+    <link rel="stylesheet" href="../assets/css/noscript.css" />
+  </noscript>
+  <style>
+    body {
+      background: rgb(139, 108, 225);
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .wrapper.style1 {
+      background-color: #1d1d1d;
+    }
+
+    header#header {
+      background-color: #444;
+      padding: 1em;
+    }
+
+    header#header nav ul li a {
+      color: white;
+    }
+
+    section#sidebar {
+      background-color: #292929;
+    }
+
+    section#sidebar nav ul li a {
+      color: white;
+    }
+
+    /* Sidebar line style */
+    #sidebar nav ul li {
+      border-bottom: 2px solid #ffcc00;
+      /* Change this to match your site theme */
+    }
+
+    /* Main header line style */
+    #main h1 {
+      border-bottom: 2px solid #ffcc00;
+      /* Change this to match your site theme */
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    ol,
+    ul,
+    li {
+      color: white;
+      /* Change this if needed */
+    }
+
+    .section-box {
+      background-color: #1a1a1a;
+      border: 1px solid #555;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-box h2,
+    .section-box h3 {
+      color: #ffcc00;
+      /* Change this color as per your preference */
+      border-bottom: 2px solid #555;
+      padding-bottom: 10px;
+    }
+
+    .containers button {
+      background-color: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .containers button:hover {
+      background-color: #777;
+    }
+
+    footer#footer {
+      background-color: #222;
+    }
+
+    footer#footer ul.menu li a {
+      color: #aaa;
+    }
+
+    img {
+      border: 2px solid white;
+      margin-bottom: 20px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Add hover effect to images */
+    section#outputs img {
+      border: 2px solid white;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    section#outputs img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption styling */
+    section#outputs figcaption {
+      text-align: center;
+      color: #ccc;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .game-container {
+      text-align: center;
+      margin: 50px auto;
+    }
+
+    .choices {
+      margin-top: 20px;
+    }
+
+    .choice-button {
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+  <!DOCTYPE HTML>
+  <html>
+
+  <head>
     <title>Rock-Paper-Scissors</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript>
-        <link rel="stylesheet" href="../assets/css/noscript.css" />
+      <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
     <style>
-        body {
-          background: rgb(139, 108, 225);
-          color: white;
-            font-family: Arial, sans-serif;
-        }
+      /* Add your existing CSS styles here */
+      /* I will just add the new styles for the new features below */
+      body {
+        background: rgb(139, 108, 225);
+        color: white;
+        font-family: Arial, sans-serif;
+      }
 
-        .wrapper.style1 {
-            background-color: #1d1d1d;
-        }
+      .wrapper.style1 {
+        background-color: #1d1d1d;
+      }
 
-        header#header {
-            background-color: #444;
-            padding: 1em;
-        }
+      header#header {
+        background-color: #444;
+        padding: 1em;
+      }
 
-        header#header nav ul li a {
-            color: white;
-        }
+      header#header nav ul li a {
+        color: white;
+      }
 
-        section#sidebar {
-            background-color: #292929;
-        }
+      section#sidebar {
+        background-color: #292929;
+      }
 
-        section#sidebar nav ul li a {
-            color: white;
-        }
+      section#sidebar nav ul li a {
+        color: white;
+      }
 
-        /* Sidebar line style */
-        #sidebar nav ul li {
-            border-bottom: 2px solid #ffcc00;
-            /* Change this to match your site theme */
-        }
+      /* Sidebar line style */
+      #sidebar nav ul li {
+        border-bottom: 2px solid #ffcc00;
+        /* Change this to match your site theme */
+      }
 
-        /* Main header line style */
-        #main h1 {
-            border-bottom: 2px solid #ffcc00;
-            /* Change this to match your site theme */
-        }
+      /* Main header line style */
+      #main h1 {
+        border-bottom: 2px solid #ffcc00;
+        /* Change this to match your site theme */
+      }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        p,
-        ol,
-        ul,
-        li {
-            color: white;
-            /* Change this if needed */
-        }
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      ol,
+      ul,
+      li {
+        color: white;
+        /* Change this if needed */
+      }
 
-        .section-box {
-            background-color: #1a1a1a;
-            border: 1px solid #555;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
+      .section-box {
+        background-color: #1a1a1a;
+        border: 1px solid #555;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
 
-        .section-box h2,
-        .section-box h3 {
-            color: #ffcc00;
-            /* Change this color as per your preference */
-            border-bottom: 2px solid #555;
-            padding-bottom: 10px;
-        }
+      .section-box h2,
+      .section-box h3 {
+        color: #ffcc00;
+        /* Change this color as per your preference */
+        border-bottom: 2px solid #555;
+        padding-bottom: 10px;
+      }
 
-        .containers button {
-            background-color: #555;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+      .containers button {
+        background-color: #555;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
 
-        .containers button:hover {
-            background-color: #777;
-        }
+      .containers button:hover {
+        background-color: #777;
+      }
 
-        footer#footer {
-            background-color: #222;
-        }
+      footer#footer {
+        background-color: #222;
+      }
 
-        footer#footer ul.menu li a {
-            color: #aaa;
-        }
+      footer#footer ul.menu li a {
+        color: #aaa;
+      }
 
-        img {
-            border: 2px solid white;
-            margin-bottom: 20px;
-            max-width: 100%;
-            height: auto;
-        }
+      img {
+        border: 2px solid white;
+        margin-bottom: 20px;
+        max-width: 100%;
+        height: auto;
+      }
 
-        /* Add hover effect to images */
-        section#outputs img {
-            border: 2px solid white;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: block;
-            margin: 0 auto 20px;
-        }
+      /* Add hover effect to images */
+      section#outputs img {
+        border: 2px solid white;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: block;
+        margin: 0 auto 20px;
+      }
 
-        section#outputs img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
-        }
+      section#outputs img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+      }
 
-        /* Caption styling */
-        section#outputs figcaption {
-            text-align: center;
-            color: #ccc;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
+      /* Caption styling */
+      section#outputs figcaption {
+        text-align: center;
+        color: #ccc;
+        font-size: 0.9em;
+        margin-top: 5px;
+      }
 
-        .game-container {
+      .game-container {
         text-align: center;
         margin: 50px auto;
       }
@@ -148,104 +301,272 @@
         margin-top: 20px;
         font-size: 24px;
       }
+
+      .score {
+        font-size: 20px;
+        margin-top: 10px;
+        color: #ffcc00;
+      }
+
+      .reset-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #444;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .reset-button:hover {
+        background-color: #777;
+      }
+
+      .choice-image {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        margin: 0 10px;
+      }
     </style>
+  </head>
+
+<body>
+  <header id="header">
+    <!-- Your existing header code -->
+    <nav>
+      <ul>
+        <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
+        <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
+        <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="wrapper">
+    <section id="intro" class="wrapper style1 fullscreen fade-up">
+      <div class="inner">
+        <h1 class="major">Rock-Paper-Scissors Game</h1>
+
+        <div class="project-description">
+          <h2>Rock Paper Scissors Game</h2>
+          <p>
+            Welcome to my interactive <strong>Rock Paper Scissors game</strong>! Put your skills to the test
+            as you compete against the computer.
+          </p>
+          <h3>How it works:</h3>
+          <ul>
+            <li>Choose your move: Rock, Paper, or Scissors.</li>
+            <li>Watch the computer make its choice.</li>
+            <li>See who wins the round, with the result displayed instantly!</li>
+          </ul>
+          <p>
+            This project was created using <strong>HTML, CSS, and JavaScript</strong> to provide an engaging
+            and responsive gaming experience. It's a showcase of my abilities in building interactive
+            web-based applications.
+          </p>
+          <h4><a
+              href="https://www.vecteezy.com/vector-art/12616132-rock-paper-scissors-icon-set-on-white-background">Image
+              Credits</a></h4>
+        </div>
+
+
+        <div class="game-container">
+          <h2>Pick Your Choice:</h2>
+          <div class="choices">
+            <button class="choice-button" onclick="playGame('rock')">
+              Rock
+            </button>
+            <button class="choice-button" onclick="playGame('paper')">
+              Paper
+            </button>
+            <button class="choice-button" onclick="playGame('scissors')">
+              Scissors
+            </button>
+          </div>
+          <div id="result" class="result"></div>
+
+          <div class="score">
+            <p>Your score: <span id="userScore">0</span> | Computer score: <span id="computerScore">0</span>
+            </p>
+          </div>
+
+          <button class="reset-button" onclick="resetScores()">Reset Score</button>
+
+          <div id="outputs" class="outputs">
+
+            <h3>Your choice:</h3>
+            <img id="userChoiceImg" class="choice-image" src="" alt="User Choice">
+
+            <h3>Computer's choice:</h3>
+            <img id="computerChoiceImg" class="choice-image" src="" alt="Computer Choice">
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer id="footer" class="wrapper style1-alt">
+    <!-- Your existing footer code -->
+    <div class="inner">
+      <ul class="menu">
+        <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li>Modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2025</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    let userScore = 0;
+    let computerScore = 0;
+
+    function playGame(userChoice) {
+      const choices = ["rock", "paper", "scissors"];
+      const randomChoice = choices[Math.floor(Math.random() * 3)];
+
+      // Display the selected images
+      document.getElementById('userChoiceImg').src = `images/${userChoice}.png`;
+      document.getElementById('computerChoiceImg').src = `images/${randomChoice}.png`;
+
+      let resultMessage = `You selected ${userChoice}. `;
+
+      if (userChoice === randomChoice) {
+        resultMessage += `It's a tie! We both chose ${randomChoice}.`;
+      } else if (
+        (userChoice === "rock" && randomChoice === "scissors") ||
+        (userChoice === "paper" && randomChoice === "rock") ||
+        (userChoice === "scissors" && randomChoice === "paper")
+      ) {
+        resultMessage += `You won! I chose ${randomChoice}.`;
+        userScore++;
+      } else {
+        resultMessage += `You lost! I chose ${randomChoice}.`;
+        computerScore++;
+      }
+
+      document.getElementById("result").innerText = resultMessage;
+
+      // Update score
+      document.getElementById("userScore").innerText = userScore;
+      document.getElementById("computerScore").innerText = computerScore;
+    }
+
+    function resetScores() {
+      userScore = 0;
+      computerScore = 0;
+      document.getElementById("userScore").innerText = userScore;
+      document.getElementById("computerScore").innerText = computerScore;
+
+      // Clear images
+      document.getElementById('userChoiceImg').src = '';
+      document.getElementById('computerChoiceImg').src = '';
+      document.getElementById("result").innerText = '';
+    }
+  </script>
+</body>
+
+</html>
 </head>
 
 <body>
-    <header id="header">
-        <nav>
-            <ul>
-                <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
-                <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
-                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header id="header">
+    <nav>
+      <ul>
+        <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
+        <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
+        <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
+      </ul>
+    </nav>
+  </header>
 
 
-    <div id="wrapper">
-        <!-- Main -->
-        <section id="intro" class="wrapper style1 fullscreen fade-up">
-          <div class="inner">
-            <h1 class="major">Rock-Paper-Scissors Game</h1>
+  <div id="wrapper">
+    <!-- Main -->
+    <section id="intro" class="wrapper style1 fullscreen fade-up">
+      <div class="inner">
+        <h1 class="major">Rock-Paper-Scissors Game</h1>
 
-            <div class="project-description">
-              <h2>Rock Paper Scissors Game</h2>
-              <p>
-                Welcome to my interactive <strong>Rock Paper Scissors game</strong>! Put your skills to the test as you compete against the computer.
-              </p>
-              <h3>How it works:</h3>
-              <ul>
-                <li>Choose your move: Rock, Paper, or Scissors.</li>
-                <li>Watch the computer make its choice.</li>
-                <li>See who wins the round, with the result displayed instantly!</li>
-              </ul>
-              <p>
-                This project was created using <strong>HTML, CSS, and JavaScript</strong> to provide an engaging and responsive gaming experience. It's a showcase of my abilities in building interactive web-based applications.
-              </p>
-            </div>
-            
-  
-            <div class="game-container">
-              <h2>Pick Your Choice:</h2>
-              <div class="choices">
-                <button class="choice-button" onclick="playGame('rock')">
-                  Rock
-                </button>
-                <button class="choice-button" onclick="playGame('paper')">
-                  Paper
-                </button>
-                <button class="choice-button" onclick="playGame('scissors')">
-                  Scissors
-                </button>
-              </div>
-              <div id="result" class="result"></div>
-            </div>
+        <div class="project-description">
+          <h2>Rock Paper Scissors Game</h2>
+          <p>
+            Welcome to my interactive <strong>Rock Paper Scissors game</strong>! Put your skills to the test as you
+            compete against the computer.
+          </p>
+          <h3>How it works:</h3>
+          <ul>
+            <li>Choose your move: Rock, Paper, or Scissors.</li>
+            <li>Watch the computer make its choice.</li>
+            <li>See who wins the round, with the result displayed instantly!</li>
+          </ul>
+          <p>
+            This project was created using <strong>HTML, CSS, and JavaScript</strong> to provide an engaging and
+            responsive gaming experience. It's a showcase of my abilities in building interactive web-based
+            applications.
+          </p>
+        </div>
+
+
+        <div class="game-container">
+          <h2>Pick Your Choice:</h2>
+          <div class="choices">
+            <button class="choice-button" onclick="playGame('rock')">
+              Rock
+            </button>
+            <button class="choice-button" onclick="playGame('paper')">
+              Paper
+            </button>
+            <button class="choice-button" onclick="playGame('scissors')">
+              Scissors
+            </button>
           </div>
-  
-        </section>
+          <div id="result" class="result"></div>
+        </div>
       </div>
 
-<!-- Footer -->
-<footer id="footer" class="wrapper style1-alt">
-    <div class="inner">
-        <ul class="menu">
-            <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
-            <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
-        </ul>
-    </div>
-</footer>
+    </section>
+  </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script>
-        function playGame(userChoice) {
-          const choices = ["rock", "paper", "scissors"];
-          const randomChoice = choices[Math.floor(Math.random() * 3)];
-  
-          let resultMessage = `You selected ${userChoice}. `;
-  
-          if (userChoice === randomChoice) {
-            resultMessage += `It's a tie! We both chose ${randomChoice}.`;
-          } else if (
-            (userChoice === "rock" && randomChoice === "scissors") ||
-            (userChoice === "paper" && randomChoice === "rock") ||
-            (userChoice === "scissors" && randomChoice === "paper")
-          ) {
-            resultMessage += `You won! I chose ${randomChoice}.`;
-          } else {
-            resultMessage += `You lost! I chose ${randomChoice}.`;
-          }
-  
-          document.getElementById("result").innerText = resultMessage;
-        }
-      </script>
+  <!-- Footer -->
+  <footer id="footer" class="wrapper style1-alt">
+    <div class="inner">
+      <ul class="menu">
+        <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
+        <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    function playGame(userChoice) {
+      const choices = ["rock", "paper", "scissors"];
+      const randomChoice = choices[Math.floor(Math.random() * 3)];
+
+      let resultMessage = `You selected ${userChoice}. `;
+
+      if (userChoice === randomChoice) {
+        resultMessage += `It's a tie! We both chose ${randomChoice}.`;
+      } else if (
+        (userChoice === "rock" && randomChoice === "scissors") ||
+        (userChoice === "paper" && randomChoice === "rock") ||
+        (userChoice === "scissors" && randomChoice === "paper")
+      ) {
+        resultMessage += `You won! I chose ${randomChoice}.`;
+      } else {
+        resultMessage += `You lost! I chose ${randomChoice}.`;
+      }
+
+      document.getElementById("result").innerText = resultMessage;
+    }
+  </script>
 
 </body>
 
