@@ -465,78 +465,7 @@
       document.getElementById("result").innerText = '';
     }
   </script>
-</body>
 
-</html>
-</head>
-
-<body>
-  <header id="header">
-    <nav>
-      <ul>
-        <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
-        <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
-        <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
-      </ul>
-    </nav>
-  </header>
-
-
-  <div id="wrapper">
-    <!-- Main -->
-    <section id="intro" class="wrapper style1 fullscreen fade-up">
-      <div class="inner">
-        <h1 class="major">Rock-Paper-Scissors Game</h1>
-
-        <div class="project-description">
-          <h2>Rock Paper Scissors Game</h2>
-          <p>
-            Welcome to my interactive <strong>Rock Paper Scissors game</strong>! Put your skills to the test as you
-            compete against the computer.
-          </p>
-          <h3>How it works:</h3>
-          <ul>
-            <li>Choose your move: Rock, Paper, or Scissors.</li>
-            <li>Watch the computer make its choice.</li>
-            <li>See who wins the round, with the result displayed instantly!</li>
-          </ul>
-          <p>
-            This project was created using <strong>HTML, CSS, and JavaScript</strong> to provide an engaging and
-            responsive gaming experience. It's a showcase of my abilities in building interactive web-based
-            applications.
-          </p>
-        </div>
-
-
-        <div class="game-container">
-          <h2>Pick Your Choice:</h2>
-          <div class="choices">
-            <button class="choice-button" onclick="playGame('rock')">
-              Rock
-            </button>
-            <button class="choice-button" onclick="playGame('paper')">
-              Paper
-            </button>
-            <button class="choice-button" onclick="playGame('scissors')">
-              Scissors
-            </button>
-          </div>
-          <div id="result" class="result"></div>
-        </div>
-      </div>
-
-    </section>
-  </div>
-
-  <!-- Footer -->
-  <footer id="footer" class="wrapper style1-alt">
-    <div class="inner">
-      <ul class="menu">
-        <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
-        <li>Site modified by <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024</li>
-      </ul>
-    </div>
-  </footer>
 
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js"></script>
@@ -546,28 +475,7 @@
   <script src="assets/js/breakpoints.min.js"></script>
   <script src="assets/js/util.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-    function playGame(userChoice) {
-      const choices = ["rock", "paper", "scissors"];
-      const randomChoice = choices[Math.floor(Math.random() * 3)];
 
-      let resultMessage = `You selected ${userChoice}. `;
-
-      if (userChoice === randomChoice) {
-        resultMessage += `It's a tie! We both chose ${randomChoice}.`;
-      } else if (
-        (userChoice === "rock" && randomChoice === "scissors") ||
-        (userChoice === "paper" && randomChoice === "rock") ||
-        (userChoice === "scissors" && randomChoice === "paper")
-      ) {
-        resultMessage += `You won! I chose ${randomChoice}.`;
-      } else {
-        resultMessage += `You lost! I chose ${randomChoice}.`;
-      }
-
-      document.getElementById("result").innerText = resultMessage;
-    }
-  </script>
 
 </body>
 
