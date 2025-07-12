@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Message Mixer Encryption</title>
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/css/projects.css" />
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #00ffaa;
+        }
+
+        .container {
+            text-align: center;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            background-color: #111;
+            color: #fff;
+            border: 1px solid #00ffaa;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            resize: vertical;
+        }
+
+        .button {
+            background-color: #00ffaa;
+            border: none;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff3366;
+            color: #fff;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 6px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #000;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 16px;
+            background-color: #111;
+            border: 1px solid #00ffaa;
+            border-radius: 10px;
+            font-size: 18px;
+            white-space: pre-wrap;
+        }
+
+        .boxed-section {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid #00ffaa;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 18px rgba(0, 255, 170, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .boxed-section:hover {
+            box-shadow: 0 0 28px rgba(255, 51, 102, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #00ffaa;
+            padding: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <section class="wrapper style1 fullscreen fade-up">
+            <div class="inner">
+                <h1 class="major">Message Mixer Encryption</h1>
+                <div class="boxed-section">
+                    <h3>Web-Based Encryption Tool</h3>
+                    <p>This project is a <strong>real-time encryption tool</strong> with interactive options:</p>
+                    <ul>
+                        <li><strong>Caesar Cipher:</strong> Shifts letters by a custom amount</li>
+                        <li><strong>Symbol Cipher:</strong> Replaces characters with symbols</li>
+                        <li><strong>Reverse Cipher:</strong> Reverses each word</li>
+                    </ul>
+                    <p>Try out different encryption methods below!</p>
+                </div>
+
+                <div class="container">
+                    <h3>Enter your message:</h3>
+                    <textarea id="user-input" placeholder="Type your message here..."></textarea>
+
+                    <div>
+                        <button class="button" onclick="encryptMessage('caesar')">Caesar Cipher</button>
+                        <button class="button" onclick="encryptMessage('symbol')">Symbol Cipher</button>
+                        <button class="button" onclick="encryptMessage('reverse')">Reverse Cipher</button>
+                    </div>
+
+                    <div style="margin-top: 15px;">
+                        <label for="caesar-shift"><strong>Caesar Shift:</strong></label>
+                        <input type="number" id="caesar-shift" value="3" min="1" max="25" />
+                    </div>
+
+                    <div id="output">Your encrypted message will appear here...</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Design by <a href="http://html5up.net">HTML5 UP</a> &mdash; Modified by <a
+                href="https://kruzee07.github.io/">Krutarth Ghuge</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const caesarCipher = (str, amount = 0) => {
+            if (amount < 0) return caesarCipher(str, amount + 26);
+            let output = '';
+            for (let i = 0; i < str.length; i++) {
+                let char = str[i];
+                if (char.match(/[a-z]/i)) {
+                    let code = str.charCodeAt(i);
+                    if (code >= 65 && code <= 90) {
+                        char = String.fromCharCode(((code - 65 + amount) % 26) + 65);
+                    } else if (code >= 97 && code <= 122) {
+                        char = String.fromCharCode(((code - 97 + amount) % 26) + 97);
+                    }
+                }
+                output += char;
+            }
+            return output;
+        };
+
+        const symbolCipher = (str) => {
+            const symbols = {
+                'i': '!',
+                '!': 'i',
+                'l': '1',
+                '1': 'l',
+                's': '$',
+                '$': 's',
+                'o': '0',
+                '0': 'o',
+                'a': '@',
+                '@': 'a',
+                'e': '3',
+                '3': 'e',
+                'b': '6',
+                '6': 'b'
+            };
+            let output = '';
+            for (let i = 0; i < str.length; i++) {
+                let char = str.toLowerCase()[i];
+                output += symbols[char] || char;
+            }
+            return output;
+        };
+
+        const reverseCipher = (sentence) => {
+            return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+        };
+
+        function encryptMessage(method) {
+            const userInput = document.getElementById('user-input').value;
+            let output = '';
+            if (method === 'caesar') {
+                const shift = parseInt(document.getElementById('caesar-shift').value);
+                output = caesarCipher(userInput, shift);
+            } else if (method === 'symbol') {
+                output = symbolCipher(userInput);
+            } else if (method === 'reverse') {
+                output = reverseCipher(userInput);
+            }
+            document.getElementById('output').innerText = `Encrypted message:\n${output}`;
+        }
+    </script>
+</body>
+
+</html>

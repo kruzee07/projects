@@ -1,105 +1,59 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Krutarth Ghuge's Projects</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript>
-      <link rel="stylesheet" href="assets/css/noscript.css" />
-    </noscript>
-  </head>
+<html lang="en">
 
-  <body class="is-preload">
+<head>
+    <title>Projects | Krutarth Ghuge</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/css/projects.css" />
+    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Optional animated circuit background -->
+    <video id="video-background" autoplay loop muted playsinline>
+        <source src="../kruzee07.github.io/assets/videos/blue-2-circuit.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Header Navigation -->
     <header id="header">
-      <nav>
-        <ul>
-          <li>
-            <a href="../kruzee07.github.io/index.html" class="title"
-              >Krutarth Ghuge</a
-            >
-          </li>
-          <li>
-            <a href="../kruzee07.github.io/index.html#three">Get in touch</a>
-          </li>
-        </ul>
-      </nav>
+        <nav>
+            <ul>
+                <li><a href="https://kruzee07.github.io/" class="nav-title">← Back to Portfolio</a></li>
+                <li><a href="https://kruzee07.github.io/#contact">Get in Touch</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div id="wrapper">
-      <!-- Main -->
-      <section id="intro" class="wrapper style1 fullscreen fade-up">
-        <div class="inner">
-          <h1 class="major">My projects</h1>
-          <section id="one">
-            <div class="containers">
-              <button
-                class="my-button"
-                onclick="window.location.href='univ/uniprojects.html'"
-              >
-                University Projects
-              </button>
-
-              <button
-                class="my-button"
-                onclick="window.location.href='Rock-Paper-Scissors/rock-paper-scissor.html'"
-              >
-                Rock Paper Scissors
-              </button>
-              <button
-                class="my-button"
-                onclick="window.location.href='Exploratory Data Analysis/eda.html'"
-              >
-                Exploratory Data Analysis
-              </button>
-              <button
-                class="my-button"
-                onclick="window.location.href='Message-Mixer encryption/messagemixer.html'"
-              >
-                Message Mixer Encryptor
-              </button>
-              <button
-                class="my-button"
-                onclick="window.location.href='US Medical Insurance Costs/medinsurance.html'"
-              >
-                US Medical Insurance Costs
-              </button>
-              <button
-                class="my-button"
-                onclick="window.location.href='Decrypting Hashed Codes/dhc.html'"
-              >
-                Decrypting Hashed Codes
-              </button>
+    <!-- Projects Section -->
+    <main id="projects-wrapper">
+        <div class="projects-inner">
+            <h1 class="projects-title">My Projects</h1>
+            <div class="projects-grid">
+                <button class="project-btn" onclick="location.href='University-Projects/uniprojects.html'">University
+                    Projects</button>
+                <button class="project-btn" onclick="location.href='Rock-Paper-Scissors/rock-paper-scissor.html'">Rock
+                    Paper Scissors</button>
+                <button class="project-btn" onclick="location.href='Exploratory-Data-Analysis/eda.html'">Exploratory
+                    Data Analysis</button>
+                <button class="project-btn" onclick="location.href='Message-Mixer-Encryption/messagemixer.html'">Message
+                    Mixer Encryptor</button>
+                <button class="project-btn" onclick="location.href='US-Medical-Insurance-Costs/medinsurance.html'">US
+                    Medical Insurance Costs</button>
+                <button class="project-btn" onclick="location.href='Decrypting-Hashed-Codes/dhc.html'">Decrypting Hashed
+                    Codes</button>
             </div>
-          </section>
         </div>
-      </section>
-    </div>
+    </main>
 
     <!-- Footer -->
-    <footer id="footer" class="wrapper style1-alt">
-      <div class="inner">
-        <ul class="menu">
-          <li>Design used from: <a href="http://html5up.net">HTML5 UP</a></li>
-          <li>
-            Site modified by
-            <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2024
-          </li>
-        </ul>
-      </div>
+    <footer id="footer">
+        <p>
+            Design base: <a href="http://html5up.net">HTML5 UP</a> &nbsp;|&nbsp; Modified by
+            <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> © 2024
+        </p>
     </footer>
+</body>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
 </html>

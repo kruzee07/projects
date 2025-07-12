@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>University Projects</title>
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/css/projects.css" />
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #sidebar {
+            background-color: #111;
+            border-right: 2px solid #00ffaa;
+            padding: 1rem;
+        }
+
+        #sidebar nav ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #sidebar nav ul li {
+            border-bottom: 1px solid #00ffaa;
+            margin: 10px 0;
+        }
+
+        #sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        #sidebar nav ul li a:hover {
+            color: #ff3366;
+        }
+
+        .project-popup {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #111;
+            border: 2px solid #00ffaa;
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            overflow-y: auto;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 170, 0.3);
+        }
+
+        .project-popup h2,
+        .project-popup h3 {
+            color: #00ffaa;
+            border-bottom: 1px solid #ff3366;
+            padding-bottom: 5px;
+        }
+
+        .project-popup p,
+        .project-popup li {
+            color: #ddd;
+        }
+
+        .close-popup {
+            float: right;
+            font-size: 18px;
+            color: #ffcc00;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #00ffaa;
+            padding: 20px;
+            font-size: 14px;
+            color: #ff3366;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
+                <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
+                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="sidebar">
+        <nav>
+            <ul>
+                <br>
+                <li><a href="#" onclick="showPopup('COIS3560')">HCI - AR Interfaces</a></li>
+                <li><a href="#" onclick="showPopup('COIS4470')">SimPy vs GPSS</a></li>
+                <li><a href="#" onclick="showPopup('COIS3030')">Hospital System Upgrade</a></li>
+                <li><a href="#" onclick="showPopup('COIS3850')">SlotPikr Booking Site</a></li>
+                <li><a href="#" onclick="showPopup('COIS3420')">Online Bookshelves App</a></li>
+                <li><a href="#" onclick="showPopup('COIS3400')">JASS Database System</a></li>
+                <li><a href="#" onclick="showPopup('COIS2750')">Vehicle Forensics</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <div id="wrapper">
+        <section class="wrapper style1 fullscreen fade-up">
+            <div class="inner">
+                <h1 class="major">University Projects & Papers</h1>
+                <p>Select a project from the sidebar to view details.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Popup Containers -->
+    <div id="popupContainer"></div>
+    <div id="popupOverlay" class="overlay" onclick="hidePopup()"></div>
+
+    <footer>
+        <p>&copy; 2024 Krutarth Ghuge</p>
+    </footer>
+
+    <script>
+        const projectData = {
+            COIS3560: `
+        <h2>Exploring the Impact of Augmented Reality Interfaces on User Experience in HCI</h2>
+        <h3>COIS 3560H - Human Computer Interaction</h3>
+        <p><strong>Contributor:</strong> Samaksh Monga<br><strong>Date:</strong> Mar - Apr 2024</p>
+        <p>
+                        This project investigates the impact of Augmented Reality (AR)
+                        interfaces on user experience (UX) within the realm of
+                        Human-Computer Interaction (HCI). By examining how AR enhances
+                        user interactions by blending the physical and digital worlds,
+                        the research aims to understand its influence on usability,
+                        engagement, and accessibility across various sectors.
+                    </p>
+
+                    <p>
+                        The project explores how AR is applied in fields such as safety,
+                        mobile navigation, personalized training, and language learning,
+                        highlighting its potential to transform industries like gaming,
+                        education, healthcare, and manufacturing. Through a combination
+                        of surveys, interviews, and usability testing, the project
+                        evaluates user preferences, challenges, and expectations,
+                        offering insights into both the strengths and limitations of
+                        current AR interfaces.
+                    </p>
+
+                    <p>
+                        The goal of this research is to provide a deeper understanding
+                        of how AR can be integrated into user-centered designs,
+                        ultimately contributing to the development of more intuitive,
+                        engaging, and effective AR experiences.
+                    </p>
+      `,
+            COIS4470: `
+        <h2>SimPy vs GPSS: A Comparative Study</h2>
+        <h3>COIS 4470H - Modelling and Simulation</h3>
+        <p><strong>Contributor:</strong> Samaksh Monga<br><strong>Date:</strong> Mar - Apr 2024</p>
+        <h4>Key Highlights:</h4>
+                    <ul>
+                        <li><strong>SimPy:</strong> A Python-based, open-source framework that offers flexibility and
+                            ease of use for simulating complex systems like queuing systems, inventory management, and
+                            healthcare models. It is designed for seamless integration with the extensive Python
+                            ecosystem.</li>
+                        <li><strong>GPSS:</strong> A long-established simulation language developed in the 1960s for
+                            discrete event modeling, especially in manufacturing and telecommunications. Known for its
+                            simplicity and efficiency in system modeling, GPSS excels at hierarchical modeling and
+                            predefined statistical functions.</li>
+                    </ul>
+                    <p>Through hands-on experimentation, I analyzed the built-in features, implementation techniques,
+                        input/output mechanisms, and system efficiency of both tools. This analysis was supported by
+                        practical examples and visual demonstrations of each language's capabilities.</p>
+
+                    <h4>Skills Demonstrated:</h4>
+                    <ul>
+                        <li>Comparative analysis of simulation frameworks</li>
+                        <li>Hands-on modeling with both SimPy and GPSS</li>
+                        <li>Creating simulation models for discrete event systems</li>
+                        <li>Analyzing and presenting complex system behaviors through simulation results</li>
+                    </ul>
+                    <p>This project provided valuable insights into the strengths and weaknesses of each tool, offering
+                        a clearer perspective on when to use SimPy or GPSS based on specific simulation needs.</p>
+
+      `,
+            COIS3030: `
+        <h2>Hospital Information System Upgrade</h2>
+        <h3>COIS 3030H - Software Specification and Requirements</h3>
+        <p><strong>Contributors:</strong> Samaksh Monga, Rahul Makhija, Ansh Adgaonkar<br><strong>Date:</strong> Oct - Dec 2023</p>
+        <p><strong>Objective:</strong> Modernize Peterborough Hospital's HIS to address inefficiencies,
+                        streamline operations, and improve patient care.</p>
+
+                    <h4>Key Contributions:</h4>
+                    <ul>
+                        <li><strong>Problem Analysis:</strong> Identified critical challenges caused by a two-decade-old
+                            HIS, including manual triage, scheduling delays, and resource strain.</li>
+                        <li><strong>Goal Definition:</strong> Proposed automation of triage, scheduling, and insurance
+                            processes to reduce wait times and enhance operational efficiency.</li>
+                        <li><strong>Comprehensive Planning:</strong> Developed a complete requirements specification
+                            with detailed use case scenarios and 14 functional and non-functional user stories.</li>
+                        <li><strong>Measurable Outcomes:</strong> Defined metrics such as reduced patient wait times,
+                            improved emergency response, enhanced billing accuracy, and compliance with data security
+                            standards.</li>
+                        <li><strong>Target Timeline:</strong> Ensured the project plan aligns with the May 2024
+                            deployment deadline for the upgraded HIS.</li>
+                    </ul>
+
+                    <p>This project reflects my ability to manage large-scale system upgrades, align technical solutions
+                        with healthcare needs, and drive measurable outcomes.</p>
+
+      `,
+            COIS3850: `
+        <h2>SLOTPIKR Appointment Booking Website</h2>
+        <h3>COIS 3850H - Project Management</h3>
+        <p><strong>Contributors:</strong> Samaksh Monga, Nandini Badhwar, Khushi Chauhan, Parmeet Kaur, Anubhav
+                            Mehandru, Anuradha Roy, Fahmeda Afrin.<br><strong>Date:</strong> Oct - Dec 2023</p>
+       <p><strong>Objective:</strong> Develop a user-centric web platform for university faculty-student
+                        scheduling, addressing inefficiencies in appointment coordination.</p>
+
+                    <h4>Key Highlights:</h4>
+                    <ul>
+                        <li><strong>Agile Development:</strong> Embraced agile principles, ensuring adaptability and
+                            collaboration through daily scrums, sprint reviews, and retrospectives.</li>
+                        <li><strong>Role as Developer:</strong> Designed and implemented front-end and back-end
+                            functionalities, aligning with user-centric design principles and stakeholder feedback.</li>
+                        <li><strong>Innovative Features:</strong> Enabled secure faculty-student interactions through
+                            encrypted credentials, streamlined calendar-based appointment booking, and slot management.
+                        </li>
+                        <li><strong>Collaboration & Refinement:</strong> Worked closely with the Agile Architect and
+                            Product Owner to refine design elements and address evolving requirements.</li>
+                        <li><strong>Outcome:</strong> Delivered a scalable and secure appointment booking system,
+                            enhancing scheduling efficiency and user satisfaction for university staff and students.
+                        </li>
+                    </ul>
+
+                    <p>This project showcases my ability to deliver high-quality solutions in an agile environment while
+                        ensuring usability, security, and scalability.</p>
+
+      `,
+            COIS3420: `
+        <h2>Online Bookshelves Web App</h2>
+        <h3>COIS 3420H - Web Applications Development</h3>
+        <p><strong>Date:</strong> Jan - Apr 2023</p>
+        <p>Created an eBook-sharing platform with features like add/view/review, and shared library access between users.</p>
+      `,
+            COIS3400: `
+        <h2>JASS: Student-Alumni Job Outreach DB</h2>
+        <h3>COIS 3400H - Database Management Systems</h3>
+        <p><strong>Date:</strong> Jun - Jul 2022</p>
+       <h4>Objective:</h4>
+                    <p>Develop a scalable SQL database for connecting university students and alumni with employment
+                        opportunities.</p>
+
+                    <h4>Key Contributions:</h4>
+                    <ul>
+                        <li><strong>Database Design:</strong> Created ER and UML diagrams, designing tables in 3NF/BCNF
+                            for efficient data organization and retrieval.</li>
+                        <li><strong>SQL Implementation:</strong> Wrote SQL scripts for table creation, sample data
+                            insertion, and common queries, such as locating alumni matching job profiles.</li>
+                        <li><strong>Automations:</strong> Developed triggers to handle automatic transitions (e.g.,
+                            moving graduates to the alumni database) and job posting expirations.</li>
+                        <li><strong>Security:</strong> Built access control systems for different user levels, ensuring
+                            data protection and integrity.</li>
+                        <li><strong>Scalability & Backup:</strong> Proposed backup strategies and replication plans to
+                            accommodate large user bases, including potential scaling to over a million users.</li>
+                    </ul>
+                    <p>This project demonstrates my expertise in database systems, automation, and problem-solving,
+                        tailored to meet organizational needs.</p>
+
+      `,
+            COIS2750: `
+        <h2>Vehicle System Forensics in the Digital Age</h2>
+        <h3>COIS 2750H - Computer Crime and Forensics</h3>
+        <p><strong>Date:</strong> Feb - Mar 2022</p>
+        <p><strong>Objective:</strong> To analyze the role of digital forensics in modern vehicle systems
+                        and its implications for security, privacy, and investigation.</p>
+
+                    <h3>Key Highlights:</h3>
+                    <ul>
+                        <li><strong>Autonomous Systems & Data:</strong> Explored how modern vehicle systems collect data
+                            (e.g., speed, location, braking) for operational efficiency and forensic purposes.</li>
+                        <li><strong>Forensic Tools:</strong> Studied tools like Berla Corporation's iVe, which extract
+                            data from black boxes and infotainment systems, aiding accident reconstruction and criminal
+                            investigations.</li>
+                        <li><strong>Privacy Challenges:</strong> Critiqued the risks of data misuse by unauthorized
+                            entities, especially regarding sensitive information like location and synced device logs.
+                        </li>
+                        <li><strong>Future Outlook:</strong> Examined the need for robust security measures in
+                            multi-layered vehicle architectures to mitigate vulnerabilities and protect users.</li>
+                    </ul>
+
+                    <p>This paper demonstrates my ability to connect technological advancements with forensic
+                        applications, addressing both societal benefits and ethical concerns.</p>
+
+`
+        };
+
+        function showPopup(projectId) {
+            const popup = document.createElement('div');
+            popup.classList.add('project-popup');
+            popup.innerHTML = `
+        <span class="close-popup" onclick="hidePopup()">&times;</span>
+        ${projectData[projectId]}
+      `;
+
+            const container = document.getElementById('popupContainer');
+            container.innerHTML = '';
+            container.appendChild(popup);
+            document.getElementById('popupOverlay').style.display = 'block';
+            popup.style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.getElementById('popupContainer').innerHTML = '';
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

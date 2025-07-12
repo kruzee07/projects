@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>US Medical Insurance Costs</title>
+    <meta name="description"
+        content="An analysis of US Medical Insurance Costs using Python with dataset from Codecademy. Explore factors like smoking, BMI, and number of children and their impact on medical charges.">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/css/projects.css" />
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        header#header {
+            background-color: #111;
+            border-bottom: 2px solid #00ffaa;
+        }
+
+        header#header nav ul li a {
+            color: #00ffaa;
+        }
+
+        #sidebar {
+            background-color: #111;
+            border-right: 2px solid #00ffaa;
+            padding: 1rem;
+        }
+
+        #sidebar nav ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #sidebar nav ul li {
+            border-bottom: 1px solid #ffcc00;
+            margin: 10px 0;
+        }
+
+        #sidebar nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        #sidebar nav ul li a:hover {
+            color: #ff3366;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #00ffaa;
+            border-bottom: 1px solid #ffcc00;
+            padding-bottom: 6px;
+        }
+
+        p,
+        li,
+        ol {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .section-box {
+            background-color: #111;
+            padding: 24px;
+            border: 1px solid #333;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 15px rgba(0, 255, 170, 0.1);
+        }
+
+        .section-box h2,
+        .section-box h3 {
+            color: #ffcc00;
+        }
+
+        img {
+            border: 2px solid white;
+            max-width: 100%;
+            height: auto;
+            margin: 10px auto;
+            display: block;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        figcaption {
+            text-align: center;
+            font-size: 0.9em;
+            color: #ccc;
+            margin-top: 6px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #00ffaa;
+            padding: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        a {
+            color: #ffcc00;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #ff3366;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
+                <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
+                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#project-info">Project Info</a></li>
+                <li><a href="#project-desc">Description</a></li>
+                <li><a href="#project-goals">Goals</a></li>
+                <li><a href="#project-data">Dataset</a></li>
+                <li><a href="#analysis">Analysis</a></li>
+                <li><a href="#evaluation">Evaluation</a></li>
+                <li><a href="#outputs">Outputs</a></li>
+                <li><a href="#further-study">Further Study</a></li>
+                <li><a href="#rnl">Resources & Links</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <div id="wrapper">
+        <section class="wrapper style1 fullscreen fade-up">
+            <div class="inner">
+                <h1 class="major">US Medical Insurance Costs</h1>
+                <h3>A Data Analysis Project</h3>
+
+                <section class="section-box" id="project-info">
+                    <h3>From: Codecademy</h3>
+                    <h3>By: Krutarth Ghuge</h3>
+                    <h3>Project Date: June 2024</h3>
+                </section>
+
+                <section class="section-box" id="project-desc">
+                    <h2>Project Description</h2>
+                    <p>
+                        For this project, I explored a dataset on US medical insurance charges using Python. The dataset
+                        (insurance.csv) was analyzed using custom Python functions and visualized through graphs. The
+                        project was coded in Visual Studio Code and pushed to my GitHub repository.
+                    </p>
+                </section>
+
+                <section class="section-box" id="project-goals">
+                    <h2>Project Goals</h2>
+                    <ol>
+                        <li>Evaluate how different attributes affect medical charges</li>
+                        <li>Determine cost differences based on health-related factors</li>
+                        <li>Explore correlations between children and charges</li>
+                        <li>Assess the impact of sex and region on charges</li>
+                    </ol>
+                </section>
+
+                <section class="section-box" id="project-data">
+                    <h2>Data Overview</h2>
+                    <p><strong>Columns:</strong></p>
+                    <ol>
+                        <li>age</li>
+                        <li>sex</li>
+                        <li>bmi</li>
+                        <li>children</li>
+                        <li>smoker</li>
+                        <li>region</li>
+                        <li>charges</li>
+                    </ol>
+                    <p><strong>Summary:</strong> 1338 entries, no missing data, mix of numerical and categorical
+                        features.</p>
+                </section>
+
+                <section class="section-box" id="analysis">
+                    <h2>Analysis Performed</h2>
+                    <ol>
+                        <li>Smoker vs Non-smoker charge difference</li>
+                        <li>Charges vs Age</li>
+                        <li>BMI vs Charges by region</li>
+                        <li>Number of children vs charges</li>
+                    </ol>
+                </section>
+
+                <section class="section-box" id="evaluation">
+                    <h2>Evaluation</h2>
+                    <p>Each analysis included detailed calculations and visual plots. Key findings showed smokers have
+                        significantly higher average charges, charges increase with age, obesity correlates with higher
+                        charges, and a non-linear relation between children and charges.</p>
+                </section>
+
+                <section class="section-box" id="outputs">
+                    <h2>Outputs</h2>
+
+                    <figure>
+                        <h4>Analysis 2</h4>
+                        <img src="./img/averageCharges.png" alt="Average medical charges by age">
+                        <figcaption>Average medical charges by age</figcaption>
+                    </figure>
+
+                    <figure>
+                        <h4>Analysis 3</h4>
+                        <img src="./img/analysis3_plot.png" alt="BMI across regions and charges">
+                        <figcaption>BMI across US regions and medical charges</figcaption>
+                    </figure>
+
+                    <figure>
+                        <h4>Analysis 4</h4>
+                        <img src="./img/analysis4_plot.png" alt="Charges vs number of children">
+                        <figcaption>Average charges by number of children</figcaption>
+                    </figure>
+                </section>
+
+                <section class="section-box" id="further-study">
+                    <h2>Further Study</h2>
+                    <p>
+                        Future work can include multi-variable analysis (e.g., smoker + BMI + region). Different sectors
+                        can benefit:
+                        <br><strong>Healthcare:</strong> Smoking/BMI/children<br>
+                        <strong>Government:</strong> Regional charge trends<br>
+                        <strong>Finance:</strong> Cost estimation models
+                    </p>
+                </section>
+
+                <section class="section-box" id="rnl">
+                    <h2>Resources & Links</h2>
+                    <ul>
+                        <li><a
+                                href="https://www.codecademy.com/projects/portfolio/us-medical-insurance-costs-portfolio-project">Codecademy
+                                Project</a></li>
+                        <li><a href="https://www.kaggle.com/datasets/mirichoi0218/insurance">Kaggle Dataset</a></li>
+                        <li><a href="https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html">BMI
+                                Reference</a></li>
+                        <li><a href="https://chat.openai.com">ChatGPT for notes & documentation</a></li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>Design by <a href="http://html5up.net">HTML5 UP</a> | Modified by <a
+                href="https://kruzee07.github.io/">Krutarth Ghuge</a></p>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

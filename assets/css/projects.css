@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* ------------------- Base Layout ------------------- */
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    overflow-x: hidden;
+}
+
+video#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+/* ------------------- Header ------------------- */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 2;
+}
+
+#header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 40px;
+}
+
+#header nav a {
+    color: #00aaff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+#header nav a:hover {
+    color: #ff3366;
+}
+
+/* ------------------- Projects Section ------------------- */
+#projects-wrapper {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.projects-inner {
+    width: 80%;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.projects-title {
+    font-size: 3em;
+    color: #00aaff;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+}
+
+/* ------------------- Projects Grid ------------------- */
+.projects-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.project-btn {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #00aaff;
+    border: 2px solid #00aaff;
+    padding: 18px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+}
+
+.project-btn:hover {
+    color: #ff3366;
+    border-color: #ff3366;
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 0 25px rgba(255, 51, 102, 0.7);
+}
+
+/* ------------------- Footer ------------------- */
+#footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 1px solid #00aaff;
+    z-index: 2;
+}
+
+#footer a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: #ff3366;
+}

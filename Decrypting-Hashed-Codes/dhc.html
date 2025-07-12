@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Decrypting Hashed Codes</title>
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/css/projects.css" />
+    <style>
+        /* Additional DHC-specific styles */
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #00aaff;
+        }
+
+        section#sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 40px 20px;
+            box-shadow: 4px 0 10px rgba(0, 170, 255, 0.4);
+            z-index: 5;
+        }
+
+        #sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #sidebar nav ul li {
+            border-bottom: 1px solid #00aaff;
+            margin-bottom: 12px;
+        }
+
+        #sidebar nav ul li a {
+            color: #00aaff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        #sidebar nav ul li a:hover {
+            color: #ff3366;
+        }
+
+        #wrapper {
+            margin-left: 270px;
+            padding: 40px 30px;
+        }
+
+        .section-box {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid #00aaff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 18px rgba(0, 170, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .section-box:hover {
+            box-shadow: 0 0 28px rgba(255, 51, 102, 0.4);
+        }
+
+        .section-box h2 {
+            color: #00aaff;
+            border-bottom: 2px solid rgba(0, 170, 255, 0.3);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .section-box ol {
+            margin-left: 20px;
+        }
+
+        .blue-text {
+            color: #00aaff;
+        }
+
+        .yellow-text {
+            color: #ffff66;
+        }
+
+        .bold-text {
+            font-weight: bold;
+        }
+
+        .italic-text {
+            font-style: italic;
+        }
+
+        .underline-text {
+            text-decoration: underline;
+        }
+
+        footer#footer {
+            margin-top: 60px;
+            text-align: center;
+            border-top: 1px solid #00aaff;
+            padding-top: 20px;
+        }
+
+        footer#footer .menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer#footer .menu li {
+            color: #ccc;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar Navigation -->
+    <section id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#introduction">Project Introduction</a></li>
+                <li><a href="#hashing-basics">Hashing Basics</a></li>
+                <li><a href="#hashing-algorithms">Hashing Algorithms</a></li>
+                <li><a href="#decryption-challenge">Decryption Challenge</a></li>
+                <li><a href="#salting-concept">Salting Concept</a></li>
+                <li><a href="#findings">Findings</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#rnl">Resources & Links</a></li>
+                <li><a href="#test-form">Demos</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- Main Content -->
+    <div id="wrapper">
+        <header>
+            <h1>Decrypting Hashed Codes</h1>
+            <h3 class="blue-text">A Cyber Security Project</h3>
+        </header>
+
+        <section id="introduction" class="section-box">
+            <h2>Project Introduction</h2>
+            <p>This project focuses on decrypting hashed codes and understanding hashing concepts. As cyber threats
+                increase, <span class="yellow-text bold-text">encryption</span> and <span
+                    class="yellow-text italic-text">hashing</span> play crucial roles in securing information.</p>
+            <p><strong>Importance in Cybersecurity:</strong> Hashing is used for passwords, digital signatures,
+                integrity checks, and more. Understanding it protects systems from attacks like collisions or rainbow
+                tables.</p>
+            <ol>
+                <li>Basics of hashing and its significance</li>
+                <li>Common algorithms like SHA-1, SHA-256, MD5</li>
+                <li>A real decryption challenge</li>
+                <li>The role of salting</li>
+                <li>Key takeaways</li>
+            </ol>
+        </section>
+
+        <section id="hashing-basics" class="section-box">
+            <h2>Understanding Hashing Basics</h2>
+            <p><span class="blue-text bold-text">Hashing</span> converts input into a fixed-length value, useful for
+                data integrity verification. Even a tiny change results in a different output.</p>
+            <ol>
+                <li><strong>Password Storage</strong> - Hash instead of saving raw passwords</li>
+                <li><strong>Data Integrity</strong> - Detect if data changed</li>
+                <li><strong>Digital Signatures</strong> - Ensure authenticity</li>
+            </ol>
+            <p>Key Properties:</p>
+            <ol>
+                <li><strong>Deterministic</strong> - Same input → same hash</li>
+                <li><strong>Collision Resistant</strong> - Hard to find two same hashes</li>
+                <li><strong>Preimage Resistant</strong> - Hard to reverse</li>
+                <li><strong>Avalanche Effect</strong> - Minor change → major output change</li>
+            </ol>
+        </section>
+
+        <section id="hashing-algorithms" class="section-box">
+            <h2>Common Hashing Algorithms</h2>
+            <p>We explore SHA-1, SHA-2 (especially SHA-256), and MD5.</p>
+            <p>Features: Speed, hash length, resistance to attacks</p>
+            <p>Vulnerabilities: MD5 is weak to collisions, SHA-1 is being deprecated.</p>
+        </section>
+
+        <section id="decryption-challenge" class="section-box">
+            <h2>Decryption Challenge</h2>
+            <p>Try cracking this hash: <span class="blue-text">5f4dcc3b5aa765d61d8327deb882cf99</span>
+                <br>(Hint: It's a very common password.)
+            </p>
+        </section>
+
+        <section id="salting-concept" class="section-box">
+            <h2>Salting Concept</h2>
+            <p>Salting means adding randomness to passwords before hashing. Even if two users have the same password,
+                their hashes will differ.</p>
+            <p>This protects against rainbow table attacks.</p>
+        </section>
+
+        <section id="findings" class="section-box">
+            <h2>Findings</h2>
+            <p>Hashing alone isn't secure. Salting and strong algorithms like SHA-256 or bcrypt are essential. MD5
+                should be avoided.</p>
+        </section>
+
+        <section id="conclusion" class="section-box">
+            <h2>Conclusion</h2>
+            <p>Understanding hashing and salting is key for developers working with sensitive data. Security starts at
+                the foundation.</p>
+        </section>
+
+        <section id="rnl" class="section-box">
+            <h2>Resources & Links</h2>
+            <ul>
+                <li><a href="https://www.owasp.org/index.php/Hashing">OWASP on Hashing</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">Wikipedia: Hash Functions</a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="test-form" class="section-box">
+            <h2>Demos</h2>
+            <p>This section may include a simple form to try hashing inputs locally.</p>
+        </section>
+
+        <footer id="footer">
+            <ul class="menu">
+                <li>&copy; 2024 Krutarth Ghuge</li>
+                <li>Back to <a href="https://kruzee07.github.io/projects/">Projects</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+
+</html>

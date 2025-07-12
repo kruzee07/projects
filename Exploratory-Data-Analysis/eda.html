@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Exploratory Data Analysis</title>
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../assets/css/projects.css" />
+    <style>
+        /* Extra styles for EDA-specific layout */
+
+        body {
+            background-color: #000;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #00ffaa;
+        }
+
+        #sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 40px 20px;
+            box-shadow: 4px 0 10px rgba(0, 255, 170, 0.4);
+            z-index: 5;
+        }
+
+        #sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #sidebar nav ul li {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #00ffaa;
+        }
+
+        #sidebar nav ul li a {
+            color: #00ffaa;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        #sidebar nav ul li a:hover {
+            color: #ff3366;
+        }
+
+        #wrapper {
+            margin-left: 270px;
+            padding: 40px 30px;
+        }
+
+        .boxed-section {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid #00ffaa;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 18px rgba(0, 255, 170, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .boxed-section:hover {
+            box-shadow: 0 0 28px rgba(255, 51, 102, 0.4);
+        }
+
+        .boxed-section h2 {
+            color: #00ffaa;
+            margin-bottom: 10px;
+        }
+
+        .boxed-section h3 {
+            color: #00ccff;
+        }
+
+        .boxed-section ul {
+            padding-left: 20px;
+        }
+
+        a {
+            color: #00ccff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            border-top: 1px solid #00ffaa;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <section id="sidebar">
+        <div class="inner">
+            <nav>
+                <ul>
+                    <li><a href="#climate-trace">Climate Trace Project</a></li>
+                    <li><a href="#google-earth-engine">Google Earth Engine</a></li>
+                    <li><a href="#setup">Setup Details</a></li>
+                    <li><a href="#outcomes">Outcomes & Results</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Wrapper -->
+    <div id="wrapper">
+
+        <header>
+            <h1>Exploratory Data Analysis</h1>
+            <h3 class="blue-text">A Comprehensive Data Analysis Project</h3>
+        </header>
+
+        <section id="climate-trace" class="boxed-section">
+            <h2>Climate Trace Project</h2>
+            <p>The <strong>Climate Trace</strong> project focuses on analyzing global emissions data. Using APIs and
+                geospatial tools, we identified pollution sources and emission trends globally.</p>
+
+            <h3>Steps in the Project:</h3>
+            <ul>
+                <li><strong>Data Collection:</strong> Used <a href="https://www.climatetrace.org/">Climate Trace API</a>
+                    to gather emissions data across countries and industries.</li>
+                <li><strong>Data Analysis:</strong> Applied breakdowns by sectors, visualized emission patterns, and
+                    tracked high-pollution regions.</li>
+                <li><strong>Geospatial Mapping:</strong> Mapped emissions across the globe using GeoPandas and Cartopy.
+                </li>
+                <li><strong>Reporting:</strong> Built visuals of gases, sectors, and contributors.</li>
+            </ul>
+
+            <h3>Technologies:</h3>
+            <ul>
+                <li>Python (Pandas, NumPy, Matplotlib)</li>
+                <li>GeoPandas, Cartopy</li>
+                <li>Climate Trace API</li>
+            </ul>
+
+            <h3>Outcome:</h3>
+            <ul>
+                <li>Generated detailed emissions profiles</li>
+                <li>Identified leading global polluters</li>
+                <li>Built interactive plots and maps</li>
+            </ul>
+        </section>
+
+        <section id="google-earth-engine" class="boxed-section">
+            <h2>Google Earth Engine Project</h2>
+            <p>This project analyzed environmental change over time using satellite data and the <strong>Google Earth
+                    Engine (GEE)</strong>. The focus was on temperature, air quality, deforestation, and urbanization
+                trends.</p>
+
+            <h3>Steps Taken:</h3>
+            <ul>
+                <li>Set up Earth Engine API and authenticated access</li>
+                <li>Analyzed data from MODIS, NDVI, and other sources</li>
+                <li>Mapped changes in land cover, temperature, and pollution</li>
+            </ul>
+
+            <h3>Tools Used:</h3>
+            <ul>
+                <li>Google Earth Engine API</li>
+                <li>Python + Jupyter</li>
+                <li>Satellite imagery analysis</li>
+            </ul>
+
+            <h3>Results:</h3>
+            <ul>
+                <li>Visualized temperature and vegetation shifts</li>
+                <li>Mapped deforestation and urban expansion</li>
+                <li>Identified areas with environmental risks</li>
+            </ul>
+        </section>
+
+        <section id="setup" class="boxed-section">
+            <h2>Setup Details</h2>
+            <p><strong>Climate Trace:</strong></p>
+            <ul>
+                <li>Registered and obtained API keys</li>
+                <li>Installed requests, pandas, and visualization libraries</li>
+                <li>Developed scripts to extract and format emissions data</li>
+            </ul>
+
+            <p><strong>Google Earth Engine:</strong></p>
+            <ul>
+                <li>Enabled GEE API via Google Cloud</li>
+                <li>Authenticated user token and installed Python SDK</li>
+                <li>Analyzed and visualized satellite data via code editor</li>
+            </ul>
+        </section>
+
+        <section id="outcomes" class="boxed-section">
+            <h2>Outcomes & Results</h2>
+            <p>These projects provided data-driven insights on emissions and land-use change, helping visualize the
+                global environmental impact.</p>
+
+            <h3>Climate Trace:</h3>
+            <ul>
+                <li>Tracked sector-wise emissions globally</li>
+                <li>Built visual dashboards for trend analysis</li>
+            </ul>
+
+            <h3>Google Earth Engine:</h3>
+            <ul>
+                <li>Mapped temperature and air quality</li>
+                <li>Revealed regional impacts of urbanization and deforestation</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Krutarth Ghuge — <a href="https://kruzee07.github.io/projects/">Back to Projects</a></p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
