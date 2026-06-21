@@ -4,5 +4,5 @@
 
 ### 📊 GitHub Stats
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kruzee07&langs_count=8&theme=radical)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=kruzee07&repo=projects&langs_count=8&theme=tokyonight&hide=html,css)
 
