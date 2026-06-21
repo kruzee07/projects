@@ -1,121 +1,406 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box
+    }
 
-/* ------------------- Base Layout ------------------- */
-body {
-    margin: 0;
-    background-color: black;
-    color: white;
-    font-family: 'Orbitron', sans-serif;
-    overflow-x: hidden;
-}
+    html {
+        scroll-behavior: smooth
+    }
 
-video#video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
-    object-fit: cover;
-    z-index: 0;
-    opacity: 0.6;
-}
+    body {
+        margin: 0;
+        color: #e0e0e0;
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
+    }
 
-/* ------------------- Header ------------------- */
-#header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 2;
-}
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
 
-#header nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0 40px;
-}
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.6)),
+            url('/assets/help/bg.png');
 
-#header nav a {
-    color: #00aaff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s;
-}
+        background-size: contain;
+        background-position: center;
 
-#header nav a:hover {
-    color: #ff3366;
-}
+        z-index: -1;
+    }
 
-/* ------------------- Projects Section ------------------- */
-#projects-wrapper {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    padding-top: 120px;
-    padding-bottom: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
+    /* NAV */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(10, 10, 10, 0.15);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid #1a1a1a
+    }
 
-.projects-inner {
-    width: 80%;
-    max-width: 1000px;
-    text-align: center;
-}
+    .nav-brand {
+        color: #ff3366;
+        text-decoration: none;
+        font-size: 13px;
+        letter-spacing: .05em;
+        text-transform: uppercase
+    }
 
-.projects-title {
-    font-size: 3em;
-    color: #00aaff;
-    margin-bottom: 40px;
-    letter-spacing: 3px;
-}
+    .nav-links {
+        display: flex;
+        gap: 1.5rem
+    }
 
-/* ------------------- Projects Grid ------------------- */
-.projects-grid {
-    display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
+    .nav-links a {
+        color: #00aaff;
+        text-decoration: none;
+        font-size: 13px;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        transition: color .2s
+    }
 
-.project-btn {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #00aaff;
-    border: 2px solid #00aaff;
-    padding: 18px 20px;
-    font-size: 18px;
-    border-radius: 10px;
-    font-family: 'Orbitron', sans-serif;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
-}
+    .nav-links a:hover {
+        color: #ff3366
+    }
 
-.project-btn:hover {
-    color: #ff3366;
-    border-color: #ff3366;
-    background-color: rgba(0, 0, 0, 0.95);
-    box-shadow: 0 0 25px rgba(255, 51, 102, 0.7);
-}
+    /* HERO */
+    #hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem
+    }
 
-/* ------------------- Footer ------------------- */
-#footer {
-    text-align: center;
-    padding: 25px;
-    font-size: 14px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-top: 1px solid #00aaff;
-    z-index: 2;
-}
+    #hero h1 {
+        font-size: clamp(2.8rem, 8vw, 6rem);
+        font-weight: 700;
+        color: #ff3366;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        margin-bottom: .75rem
+    }
 
-#footer a {
-    color: #00aaff;
-    text-decoration: none;
-}
+    #hero p {
+        color: azure;
+        font-size: 13px;
+        letter-spacing: .15em;
+        text-transform: uppercase;
+        margin-bottom: 3rem
+    }
 
-#footer a:hover {
-    color: #ff3366;
-}
+    .scroll-hint {
+        color: #333;
+        font-size: 12px;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        animation: bounce 2s infinite
+    }
+
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0)
+        }
+
+        50% {
+            transform: translateY(6px)
+        }
+    }
+
+    /* SECTIONS */
+    section {
+        padding: 6rem 2rem;
+        max-width: 1100px;
+        margin: 0 auto
+    }
+
+    .section-label {
+        font-size: 11px;
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        color: #ff3366;
+        margin-bottom: .5rem
+    }
+
+    h2.section-title {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #00aaff;
+        margin-bottom: 2.5rem;
+        padding-bottom: .75rem;
+        border-bottom: 1px solid #1a1a1a
+    }
+
+    .section-divider {
+        border: none;
+        border-top: 1px solid #111;
+        max-width: 1100px;
+        margin: 0 auto
+    }
+
+    /* STANDALONE PROJECT CARDS */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem
+    }
+
+    .project-card {
+        background: #0f0f0f;
+        border: 1px solid #1a1a1a;
+        border-radius: 4px;
+        padding: 1.75rem;
+        transition: border-color .25s
+    }
+
+    .project-card:hover {
+        border-color: #007FFF
+    }
+
+    .project-tag {
+        display: inline-block;
+        font-size: 11px;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: #007FFF;
+        border: 1px solid rgba(0, 127, 255, .2);
+        border-radius: 2px;
+        padding: 2px 8px;
+        margin-bottom: .75rem
+    }
+
+    .project-card h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #e0e0e0;
+        margin-bottom: .5rem
+    }
+
+    .project-card p {
+        font-size: 13px;
+        color: #777;
+        line-height: 1.6
+    }
+
+    .project-links {
+        margin-top: 1.25rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center
+    }
+
+    .project-links a {
+        font-size: 12px;
+        color: #00aaff;
+        text-decoration: none;
+        letter-spacing: .05em
+    }
+
+    .project-links a:hover {
+        color: #ff3366
+    }
+
+    .project-links a.muted {
+        color: #444
+    }
+
+    .project-links a.muted:hover {
+        color: #ff3366
+    }
+
+    /* UNIVERSITY SECTION */
+    .uni-grid {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 2rem;
+        align-items: start
+    }
+
+    .uni-sidebar {
+        position: sticky;
+        top: 5rem
+    }
+
+    .uni-sidebar ul {
+        list-style: none;
+        border-left: 1px solid #1a1a1a;
+        padding-left: 1.25rem
+    }
+
+    .uni-sidebar ul li {
+        margin-bottom: .25rem
+    }
+
+    .uni-sidebar ul li a {
+        font-size: 13px;
+        color: #555;
+        text-decoration: none;
+        display: block;
+        padding: .35rem 0;
+        transition: color .2s;
+        letter-spacing: .02em
+    }
+
+    .uni-sidebar ul li a:hover {
+        color: #00aaff
+    }
+
+    .uni-sidebar ul li a.active {
+        color: #ff3366
+    }
+
+    .uni-content {}
+
+    .uni-project {
+        display: none;
+        animation: fadeIn .2s ease
+    }
+
+    .uni-project.active {
+        display: block
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(6px)
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0)
+        }
+    }
+
+    .uni-project h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #00aaff;
+        margin-bottom: .25rem
+    }
+
+    .uni-project .course-tag {
+        font-size: 11px;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: azure;
+        margin-bottom: 1.25rem;
+        display: block
+    }
+
+    .uni-project .meta {
+        font-size: 13px;
+        color: azure;
+        margin-bottom: 1.25rem;
+        padding: .6rem .9rem;
+        background: #0f0f0f;
+        border-left: 2px solid #ff3366;
+        line-height: 1.6
+    }
+
+    .uni-project .meta strong {
+        color: #777
+    }
+
+    .uni-project p {
+        font-size: 14px;
+        color: #bbb;
+        margin-bottom: .85rem
+    }
+
+    .uni-project h4 {
+        font-size: 12px;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: #007FFF;
+        margin: .75rem 0 .5rem
+    }
+
+    .uni-project ul {
+        padding-left: 1.25rem;
+        margin-bottom: .85rem
+    }
+
+    .uni-project ul li {
+        font-size: 14px;
+        color: #bbb;
+        margin-bottom: .4rem
+    }
+
+    .uni-project ul li strong {
+        color: #ccc
+    }
+
+    .github-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        margin-top: 1.5rem;
+        padding: .55rem 1.25rem;
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 4px;
+        color: #ff3366;
+        font-size: 13px;
+        text-decoration: none;
+        transition: all .2s
+    }
+
+    .github-btn:hover {
+        background: #ff3366;
+        color: azure;
+        border-color: #444
+    }
+
+    .github-btn i {
+        font-size: 16px
+    }
+
+    /* FOOTER */
+    footer {
+        padding: 2rem;
+        text-align: center;
+        border-top: 1px solid #111;
+        color: azure;
+        font-size: 12px;
+        letter-spacing: .05em
+    }
+
+    footer a {
+        color: azure;
+        text-decoration: none
+    }
+
+    footer a:hover {
+        color: #ff3366
+    }
+
+    @media(max-width:700px) {
+        .uni-grid {
+            grid-template-columns: 1fr
+        }
+
+        .uni-sidebar {
+            position: static;
+            margin-bottom: 2rem
+        }
+
+        #hero h1 {
+            font-size: 2.4rem
+        }
+    }

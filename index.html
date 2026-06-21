@@ -2,58 +2,320 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Krutarth Ghuge</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/css/projects.css" />
-    <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 
 <body>
-    <!-- Optional animated circuit background -->
-    <video id="video-background" autoplay loop muted playsinline>
-        <source src="../kruzee07.github.io/assets/videos/blue-2-circuit.mp4" type="video/mp4" />
-    </video>
 
-    <!-- Header Navigation -->
-    <header id="header">
-        <nav>
-            <ul>
-                <li><a href="https://kruzee07.github.io/" class="nav-title">← Back to Portfolio</a></li>
-                <li><a href="https://kruzee07.github.io/#contact">Get in Touch</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Projects Section -->
-    <main id="projects-wrapper">
-        <div class="projects-inner">
-            <h1 class="projects-title" style="color: #ff3366;">My Projects</h1>
-            <div class="projects-grid">
-                <button class="project-btn" onclick="location.href='University-Projects/uniprojects.html'">University
-                    Projects</button>
-                <button class="project-btn" onclick="location.href='Rock-Paper-Scissors/rock-paper-scissor.html'">Rock
-                    Paper Scissors</button>
-                <button class="project-btn" onclick="location.href='Exploratory-Data-Analysis/eda.html'">Exploratory
-                    Data Analysis</button>
-                <button class="project-btn" onclick="location.href='Message-Mixer-Encryption/messagemixer.html'">Message
-                    Mixer Encryptor</button>
-                <button class="project-btn" onclick="location.href='US-Medical-Insurance-Costs/medinsurance.html'">US
-                    Medical Insurance Costs</button>
-                <button class="project-btn" onclick="location.href='Decrypting-Hashed-Codes/dhc.html'">Decrypting Hashed
-                    Codes</button>
-            </div>
+    <!-- NAV -->
+    <nav>
+        <a href="https://kruzee07.github.io/" class="nav-brand">&#8592; Home Page</a>
+        <div class="nav-links">
+            <a href="#standalone">Projects</a>
+            <a href="#university">University</a>
+            <a href="https://kruzee07.github.io/#contact">Contact</a>
         </div>
-    </main>
+    </nav>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <p>
-            Design base: <a href="http://html5up.net">HTML5 UP</a> &nbsp;|&nbsp; Modified by
-            <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> © 2024
+    <!-- HERO -->
+    <div id="hero">
+        <h1>My Projects</h1>
+        <p>A collection of work spanning data, security, and software</p>
+        <div class="scroll-hint">&#8595; scroll</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- STANDALONE PROJECTS -->
+    <section id="standalone">
+        <div class="section-label">Work</div>
+        <h2 class="section-title">Standalone Projects</h2>
+
+        <div class="projects-grid">
+
+
+            <div class="project-card">
+                <span class="project-tag">Security &middot; Python</span>
+                <h3>Message Mixer Encryptor</h3>
+                <p>An encryption tool implementing classical cipher techniques and SHA-256 hashing to secure message
+                    content in
+                    transit and at rest.</p>
+                <div class="project-links">
+                    <a href="Message-Mixer-Encryption/messagemixer.html">View Project &rarr;</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-tag">Security &middot; Python</span>
+                <h3>Decrypting Hashed Codes</h3>
+                <p>A reverse-engineering tool that applies dictionary and brute-force techniques to recover plaintext
+                    from
+                    common cryptographic hash functions.</p>
+                <div class="project-links">
+                    <a href="Decrypting-Hashed-Codes/dhc.html">View Project &rarr;</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-tag">Data Analysis &middot; Python</span>
+                <h3>Exploratory Data Analysis</h3>
+                <p>End-to-end EDA workflow covering data cleaning, statistical profiling, and visualization to surface
+                    actionable patterns in structured datasets.</p>
+                <div class="project-links">
+                    <a href="Exploratory-Data-Analysis/eda.html">View Project &rarr;</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-tag">Data Analysis &middot; Python</span>
+                <h3>US Medical Insurance Costs</h3>
+                <p>Statistical analysis of a real-world insurance dataset to identify key cost drivers using regression
+                    and
+                    feature correlation techniques.</p>
+                <div class="project-links">
+                    <a href="US-Medical-Insurance-Costs/medinsurance.html">View Project &rarr;</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="project-tag">JavaScript &middot; Game</span>
+                <h3>Rock Paper Scissors</h3>
+                <p>A browser-based game with score tracking, animated result reveals, and keyboard support — built as a
+                    clean
+                    vanilla JS exercise.</p>
+                <div class="project-links">
+                    <a href="Rock-Paper-Scissors/rock-paper-scissor.html">Play &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+        <a href="https://github.com/kruzee07/projects" target="_blank" class="github-btn">
+            <i class="fab fa-github"></i> View on GitHub
+        </a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- UNIVERSITY PROJECTS -->
+    <section id="university">
+        <div class="section-label">Academic</div>
+        <h2 class="section-title">University Projects &amp; Papers</h2>
+
+        <div class="uni-grid">
+
+            <!-- Sidebar nav -->
+            <div class="uni-sidebar">
+                <ul id="uni-nav">
+                    <li><a href="#" class="uni-link active" data-target="COIS3560">HCI &mdash; AR Interfaces</a></li>
+                    <li><a href="#" class="uni-link" data-target="COIS4470">SimPy vs GPSS</a></li>
+                    <li><a href="#" class="uni-link" data-target="COIS3030">Hospital System Upgrade</a></li>
+                    <li><a href="#" class="uni-link" data-target="COIS3850">SlotPikr Booking Site</a></li>
+                    <li><a href="#" class="uni-link" data-target="COIS3420">Online Bookshelves App</a></li>
+                    <li><a href="#" class="uni-link" data-target="COIS3400">JASS Database System</a></li>
+                    <li><a href="#" class="uni-link" data-target="COIS2750">Vehicle Forensics</a></li>
+                </ul>
+                <a href="https://github.com/kruzee07/projects-university" target="_blank" class="github-btn">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+
+            <!-- Detail panels -->
+            <div class="uni-content">
+
+                <div class="uni-project active" id="COIS3560">
+                    <h3>Exploring AR Interfaces on User Experience in HCI</h3>
+                    <span class="course-tag">COIS 3560H &mdash; Human Computer Interaction</span>
+                    <div class="meta"><strong>Contributor:</strong> Samaksh Monga &nbsp;&nbsp;<strong>Date:</strong> Mar
+                        &ndash;
+                        Apr 2024</div>
+                    <p>Investigates the impact of Augmented Reality interfaces on user experience within HCI, examining
+                        how AR
+                        enhances interactions by blending the physical and digital worlds.</p>
+                    <p>The project explores AR applications across safety, mobile navigation, personalized training, and
+                        language
+                        learning — highlighting transformative potential in gaming, education, healthcare, and
+                        manufacturing.</p>
+                    <p>Through surveys, interviews, and usability testing, the project evaluates user preferences,
+                        challenges, and
+                        expectations, offering insight into both the strengths and limitations of current AR interfaces.
+                    </p>
+                </div>
+
+                <div class="uni-project" id="COIS4470">
+                    <h3>SimPy vs GPSS: A Comparative Study</h3>
+                    <span class="course-tag">COIS 4470H &mdash; Modelling and Simulation</span>
+                    <div class="meta"><strong>Contributor:</strong> Samaksh Monga &nbsp;&nbsp;<strong>Date:</strong> Mar
+                        &ndash;
+                        Apr 2024</div>
+                    <h4>Key Highlights</h4>
+                    <ul>
+                        <li><strong>SimPy:</strong> Python-based open-source framework offering flexibility for
+                            simulating queuing,
+                            inventory, and healthcare systems with seamless Python ecosystem integration.</li>
+                        <li><strong>GPSS:</strong> A 1960s discrete-event simulation language excelling in manufacturing
+                            and
+                            telecommunications, known for hierarchical modelling and built-in statistical functions.
+                        </li>
+                    </ul>
+                    <p>Hands-on experimentation analyzed built-in features, implementation techniques, I/O mechanisms,
+                        and system
+                        efficiency of both tools, supported by practical examples and visual demonstrations.</p>
+                    <h4>Skills Demonstrated</h4>
+                    <ul>
+                        <li>Comparative analysis of simulation frameworks</li>
+                        <li>Hands-on modelling with SimPy and GPSS</li>
+                        <li>Creating discrete event simulation models</li>
+                        <li>Analyzing and presenting complex system behavior through simulation results</li>
+                    </ul>
+                </div>
+
+                <div class="uni-project" id="COIS3030">
+                    <h3>Hospital Information System Upgrade</h3>
+                    <span class="course-tag">COIS 3030H &mdash; Software Specification and Requirements</span>
+                    <div class="meta"><strong>Contributors:</strong> Samaksh Monga, Rahul Makhija, Ansh Adgaonkar
+                        &nbsp;&nbsp;<strong>Date:</strong> Oct &ndash; Dec 2023</div>
+                    <p>Modernizing Peterborough Hospital's HIS to address inefficiencies, streamline operations, and
+                        improve
+                        patient care through automation and updated system architecture.</p>
+                    <h4>Key Contributions</h4>
+                    <ul>
+                        <li><strong>Problem Analysis:</strong> Identified critical challenges from a two-decade-old HIS
+                            — manual
+                            triage, scheduling delays, and resource strain.</li>
+                        <li><strong>Goal Definition:</strong> Proposed automation of triage, scheduling, and insurance
+                            processes to
+                            reduce wait times and enhance efficiency.</li>
+                        <li><strong>Requirements Specification:</strong> Developed detailed use case scenarios and 14
+                            functional and
+                            non-functional user stories.</li>
+                        <li><strong>Measurable Outcomes:</strong> Defined metrics for wait time reduction, emergency
+                            response,
+                            billing accuracy, and data security compliance.</li>
+                        <li><strong>Target Timeline:</strong> Aligned project plan with the May 2024 deployment
+                            deadline.</li>
+                    </ul>
+                </div>
+
+                <div class="uni-project" id="COIS3850">
+                    <h3>SlotPikr Appointment Booking Website</h3>
+                    <span class="course-tag">COIS 3850H &mdash; Project Management</span>
+                    <div class="meta"><strong>Contributors:</strong> Samaksh Monga, Nandini Badhwar, Khushi Chauhan,
+                        Parmeet Kaur,
+                        Anubhav Mehandru, Anuradha Roy, Fahmeda Afrin &nbsp;&nbsp;<strong>Date:</strong> Oct &ndash; Dec
+                        2023</div>
+                    <p>A user-centric web platform for university faculty-student scheduling, addressing inefficiencies
+                        in
+                        appointment coordination through a clean booking interface.</p>
+                    <h4>Key Highlights</h4>
+                    <ul>
+                        <li><strong>Agile Development:</strong> Daily scrums, sprint reviews, and retrospectives
+                            ensuring
+                            adaptability throughout the build.</li>
+                        <li><strong>Development Role:</strong> Designed and implemented front-end and back-end
+                            functionalities
+                            aligned with user-centric design principles and stakeholder feedback.</li>
+                        <li><strong>Innovative Features:</strong> Encrypted credentials, calendar-based booking, and
+                            slot management
+                            for secure faculty-student interactions.</li>
+                        <li><strong>Outcome:</strong> Delivered a scalable, secure appointment booking system enhancing
+                            scheduling
+                            efficiency for university staff and students.</li>
+                    </ul>
+                </div>
+
+                <div class="uni-project" id="COIS3420">
+                    <h3>Online Bookshelves Web App</h3>
+                    <span class="course-tag">COIS 3420H &mdash; Web Applications Development</span>
+                    <div class="meta"><strong>Date:</strong> Jan &ndash; Apr 2023</div>
+                    <p>An eBook-sharing platform featuring add, view, and review functionality with shared library
+                        access between
+                        registered users. Built to explore full-stack web development including session management,
+                        relational data
+                        modelling, and responsive UI design.</p>
+                </div>
+
+                <div class="uni-project" id="COIS3400">
+                    <h3>JASS: Student-Alumni Job Outreach DB</h3>
+                    <span class="course-tag">COIS 3400H &mdash; Database Management Systems</span>
+                    <div class="meta"><strong>Date:</strong> Jun &ndash; Jul 2022</div>
+                    <p>A scalable SQL database connecting university students and alumni with employment opportunities,
+                        designed
+                        around normalized relational schemas.</p>
+                    <h4>Key Contributions</h4>
+                    <ul>
+                        <li><strong>Database Design:</strong> ER and UML diagrams; tables designed in 3NF/BCNF for
+                            efficient data
+                            organization and retrieval.</li>
+                        <li><strong>SQL Implementation:</strong> Scripts for table creation, sample data insertion, and
+                            queries such
+                            as locating alumni matching job profiles.</li>
+                        <li><strong>Automations:</strong> Triggers for automatic transitions (e.g., graduate-to-alumni
+                            promotion)
+                            and job posting expirations.</li>
+                        <li><strong>Security:</strong> Access control systems for different user levels ensuring data
+                            protection and
+                            integrity.</li>
+                        <li><strong>Scalability:</strong> Backup strategies and replication plans to accommodate large
+                            user bases
+                            (1M+ users).</li>
+                    </ul>
+                </div>
+
+                <div class="uni-project" id="COIS2750">
+                    <h3>Vehicle System Forensics in the Digital Age</h3>
+                    <span class="course-tag">COIS 2750H &mdash; Computer Crime and Forensics</span>
+                    <div class="meta"><strong>Date:</strong> Feb &ndash; Mar 2022</div>
+                    <p>Analyzing the role of digital forensics in modern vehicle systems and its implications for
+                        security,
+                        privacy, and criminal investigation.</p>
+                    <h4>Key Highlights</h4>
+                    <ul>
+                        <li><strong>Autonomous Systems &amp; Data:</strong> Explored how modern vehicles collect speed,
+                            location,
+                            and braking data for operational and forensic purposes.</li>
+                        <li><strong>Forensic Tools:</strong> Studied tools like Berla Corporation's iVe, extracting data
+                            from black
+                            boxes and infotainment systems for accident reconstruction.</li>
+                        <li><strong>Privacy Challenges:</strong> Critiqued risks of data misuse by unauthorized
+                            entities, especially
+                            regarding location history and synced device logs.</li>
+                        <li><strong>Future Outlook:</strong> Examined the need for robust security in multi-layered
+                            vehicle
+                            architectures to protect users from emerging vulnerabilities.</li>
+                    </ul>
+                </div>
+
+            </div><!-- /uni-content -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 <a href="https://kruzee07.github.io/">Krutarth Ghuge</a>&nbsp;&middot;&nbsp; Built with purpose
         </p>
     </footer>
+
+    <script>
+        const links = document.querySelectorAll('.uni-link');
+        const panels = document.querySelectorAll('.uni-project');
+        links.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = link.dataset.target;
+                links.forEach(l => l.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                link.classList.add('active');
+                const panel = document.getElementById(target);
+                if (panel) panel.classList.add('active');
+            });
+        });
+    </script>
+
 </body>
 
 </html>

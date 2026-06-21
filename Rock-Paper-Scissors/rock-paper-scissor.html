@@ -1,215 +1,403 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rock-Paper-Scissors</title>
-  <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="../assets/css/projects.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors | Krutarth Ghuge</title>
+  <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/projects.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    body {
-      background-color: #000;
-      color: white;
-      font-family: 'Orbitron', sans-serif;
+    /* LAYOUT OVERRIDES */
+    .page-section {
+      max-width: 900px;
     }
 
-    .game-container {
-      text-align: center;
-      margin: 50px auto;
-      max-width: 800px;
+    .section-divider {
+      max-width: 900px;
     }
 
-    .choice-button {
-      padding: 12px 24px;
-      font-size: 18px;
-      margin: 8px;
-      border: none;
-      border-radius: 8px;
-      background-color: #00ffaa;
-      color: #000;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
+    /* ABOUT SECTION (variant version) */
+    .about-text p {
+      color: #bbb;
+      font-size: 15px;
+      margin-bottom: .85rem;
     }
 
-    .choice-button:hover {
-      background-color: #ff3366;
-      color: #fff;
+    .about-text ul {
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
     }
 
-    .result {
-      margin-top: 24px;
-      font-size: 22px;
-      color: #00ffaa;
-    }
-
-    .score {
-      font-size: 20px;
-      margin-top: 16px;
-      color: #ffcc00;
-    }
-
-    .reset-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: #444;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 6px;
-    }
-
-    .reset-button:hover {
-      background-color: #777;
-    }
-
-    .choice-image {
-      width: 100px;
-      height: 100px;
-      margin: 10px;
-      border: 2px solid #00ffaa;
-      border-radius: 8px;
-      background-color: #111;
-    }
-
-    .project-description {
-      text-align: left;
-      margin: 30px auto;
-      max-width: 800px;
-    }
-
-    .project-description h2,
-    .project-description h3 {
-      color: #00ffaa;
-    }
-
-    .project-description a {
-      color: #ffcc00;
-    }
-
-    .outputs {
-      margin-top: 20px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      border-top: 1px solid #00ffaa;
-      padding: 20px;
+    .about-text ul li {
       font-size: 14px;
+      color: #bbb;
+      margin-bottom: .4rem;
+    }
+
+    .about-text ul li::marker {
+      color: #ff3366;
+    }
+
+    .credit-link {
+      font-size: 13px;
+      color: #444;
+      text-decoration: none;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
+    .credit-link:hover {
+      color: #00aaff;
+    }
+
+    /* TECH TAG SPACING VARIANT */
+    .tech-tags {
+      margin-top: 1rem;
+    }
+
+    /* GAME MODULE (new complete system) */
+    .game-wrapper {
+      background: #0f0f0f;
+      border: 1px solid #1a1a1a;
+      border-radius: 4px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .game-wrapper h3 {
+      font-size: 14px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    /* CHOICE BUTTON SYSTEM */
+    .choice-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .choice-btn {
+      padding: .7rem 1.75rem;
+      background: transparent;
+      border: 1px solid #1f1f1f;
+      border-radius: 3px;
       color: #aaa;
+      font-size: 14px;
+      font-family: inherit;
+      letter-spacing: .05em;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .choice-btn:hover {
+      border-color: #ff3366;
+      color: #ff3366;
+    }
+
+    .choice-btn:active {
+      transform: scale(.97);
+    }
+
+    .choice-btn .emoji {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: .3rem;
+    }
+
+    /* RESULT SYSTEM */
+    .result-area {
+      min-height: 60px;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-msg {
+      font-size: 1rem;
+      color: #e0e0e0;
+      letter-spacing: .02em;
+    }
+
+    .result-msg.win {
+      color: #00aaff;
+    }
+
+    .result-msg.lose {
+      color: #ff3366;
+    }
+
+    .result-msg.tie {
+      color: #555;
+    }
+
+    /* SCOREBOARD */
+    .scoreboard {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .score-block {
+      text-align: center;
+    }
+
+    .score-block .score-label {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: .25rem;
+    }
+
+    .score-block .score-val {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #00aaff;
+      line-height: 1;
+    }
+
+    .score-divider {
+      display: flex;
+      align-items: center;
+      color: #222;
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+
+    /* CHOICE DISPLAY */
+    .choices-display {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #111;
+    }
+
+    .choice-display-block {
+      text-align: center;
+    }
+
+    .choice-display-block .choice-label {
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #333;
+      margin-bottom: .5rem;
+    }
+
+    .choice-emoji {
+      font-size: 3rem;
+      min-height: 3.5rem;
+      display: block;
+    }
+
+    .choice-vs {
+      color: #1f1f1f;
+      font-size: 1.25rem;
+    }
+
+    .reset-btn {
+      margin-top: 1.75rem;
+      padding: .5rem 1.4rem;
+      background: transparent;
+      border: 1px solid #222;
+      border-radius: 3px;
+      color: #444;
+      font-size: 12px;
+      font-family: inherit;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .reset-btn:hover {
+      border-color: #555;
+      color: #888;
+    }
+
+    /* RESPONSIVE OVERRIDES */
+    @media(max-width:600px) {
+      .scoreboard {
+        gap: 1.5rem;
+      }
+
+      .choices-display {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .choice-vs {
+        transform: rotate(90deg);
+      }
     }
   </style>
 </head>
 
 <body>
-  <header id="header">
-    <nav>
-      <ul>
-        <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
-        <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
-        <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <div id="wrapper">
-    <section class="wrapper style1 fullscreen fade-up">
-      <div class="inner">
-        <h1 class="major">Rock-Paper-Scissors Game</h1>
+  <nav>
+    <a href="https://kruzee07.github.io/" class="nav-brand">&#8592; Home Page</a>
+    <div class="nav-links">
+      <a href="https://kruzee07.github.io/projects/">Projects</a>
+      <a href="https://kruzee07.github.io/#contact">Contact</a>
+    </div>
+  </nav>
 
-        <div class="project-description">
-          <h2>Interactive Web Game</h2>
-          <p>
-            Test your reflexes and logic in this fun and interactive <strong>Rock Paper Scissors</strong> game.
-          </p>
-          <ul>
-            <li>Choose: Rock, Paper, or Scissors</li>
-            <li>Computer plays instantly</li>
-            <li>Live scores and visual choices displayed</li>
-          </ul>
-          <p>Built with <strong>HTML, CSS, and JavaScript</strong> as a showcase of interactive design and gameplay
-            logic.</p>
-          <p><a
-              href="https://www.vecteezy.com/vector-art/12616132-rock-paper-scissors-icon-set-on-white-background">Image
-              Credits</a></p>
-        </div>
-
-        <div class="game-container">
-          <h2>Pick Your Move:</h2>
-          <div>
-            <button class="choice-button" onclick="playGame('rock')">Rock</button>
-            <button class="choice-button" onclick="playGame('paper')">Paper</button>
-            <button class="choice-button" onclick="playGame('scissors')">Scissors</button>
-          </div>
-
-          <div id="result" class="result"></div>
-
-          <div class="score">
-            <p>Your Score: <span id="userScore">0</span> | Computer Score: <span id="computerScore">0</span></p>
-          </div>
-
-          <button class="reset-button" onclick="resetScores()">Reset Score</button>
-
-          <div id="outputs" class="outputs">
-            <h3>Your Choice:</h3>
-            <img id="userChoiceImg" class="choice-image" src="" alt="User Choice" />
-            <h3>Computer's Choice:</h3>
-            <img id="computerChoiceImg" class="choice-image" src="" alt="Computer Choice" />
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- HERO -->
+  <div id="hero">
+    <div class="section-label">Interactive Game</div>
+    <h1>Rock Paper Scissors</h1>
+    <p>HTML &nbsp;&middot;&nbsp; CSS &nbsp;&middot;&nbsp; JavaScript</p>
+    <div class="scroll-hint">&#8595; scroll to play</div>
   </div>
 
+  <hr class="section-divider">
+
+  <!-- ABOUT -->
+  <section class="page-section">
+    <div class="section-label">Overview</div>
+    <h2 class="section-title">About this project</h2>
+    <div class="about-text">
+      <p>A browser-based Rock Paper Scissors game built to demonstrate interactive UI design and client-side game logic.
+        Scores are tracked live across rounds, and both choices are displayed after each move.</p>
+      <ul>
+        <li>Pick Rock, Paper, or Scissors — the computer responds instantly</li>
+        <li>Live scoreboard updates after every round</li>
+        <li>Visual choice display shows both sides of each match</li>
+        <li>Reset at any time to start a fresh session</li>
+      </ul>
+      <div class="tech-tags">
+        <span class="tech-tag">HTML</span>
+        <span class="tech-tag">CSS</span>
+        <span class="tech-tag">JavaScript</span>
+      </div>
+      <a href="https://www.vecteezy.com/vector-art/12616132-rock-paper-scissors-icon-set-on-white-background"
+        target="_blank" class="credit-link">Image credits &rarr;</a>
+    </div>
+
+    <a href="https://github.com/kruzee07/projects/tree/main/Rock-Paper-Scissors" target="_blank" class="github-btn">
+      <i class="fab fa-github"></i> View on GitHub
+    </a>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- GAME -->
+  <section class="page-section">
+    <div class="section-label">Play</div>
+    <h2 class="section-title">Pick your move</h2>
+    <div class="game-wrapper">
+
+      <div class="choice-buttons">
+        <button class="choice-btn" onclick="playGame('rock')">
+          <span class="emoji">&#9994;</span>Rock
+        </button>
+        <button class="choice-btn" onclick="playGame('paper')">
+          <span class="emoji">&#9995;</span>Paper
+        </button>
+        <button class="choice-btn" onclick="playGame('scissors')">
+          <span class="emoji">&#9996;</span>Scissors
+        </button>
+      </div>
+
+      <div class="result-area">
+        <div id="result-msg" class="result-msg"></div>
+      </div>
+
+      <div class="scoreboard">
+        <div class="score-block">
+          <div class="score-label">You</div>
+          <div class="score-val" id="userScore">0</div>
+        </div>
+        <div class="score-divider">&ndash;</div>
+        <div class="score-block">
+          <div class="score-label">Computer</div>
+          <div class="score-val" id="computerScore">0</div>
+        </div>
+      </div>
+
+      <div class="choices-display">
+        <div class="choice-display-block">
+          <div class="choice-label">Your choice</div>
+          <span class="choice-emoji" id="userEmoji"></span>
+        </div>
+        <div class="choice-vs">vs</div>
+        <div class="choice-display-block">
+          <div class="choice-label">Computer's choice</div>
+          <span class="choice-emoji" id="computerEmoji"></span>
+        </div>
+      </div>
+
+      <button class="reset-btn" onclick="resetScores()">Reset scores</button>
+    </div>
+  </section>
+
   <footer>
-    <p>Design by <a href="http://html5up.net">HTML5 UP</a> &mdash; Modified by <a
-        href="https://kruzee07.github.io/">Krutarth Ghuge</a> 2025</p>
+    <p>&copy; 2025 <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> &nbsp;&middot;&nbsp; <a
+        href="https://kruzee07.github.io/projects/">Back to Projects</a></p>
   </footer>
 
   <script>
+    const emojis = { rock: '&#9994;', paper: '&#9995;', scissors: '&#9996;' };
     let userScore = 0;
     let computerScore = 0;
 
     function playGame(userChoice) {
-      const choices = ["rock", "paper", "scissors"];
-      const randomChoice = choices[Math.floor(Math.random() * 3)];
+      const choices = ['rock', 'paper', 'scissors'];
+      const comp = choices[Math.floor(Math.random() * 3)];
 
-      document.getElementById('userChoiceImg').src = `images/${userChoice}.png`;
-      document.getElementById('computerChoiceImg').src = `images/${randomChoice}.png`;
+      document.getElementById('userEmoji').innerHTML = emojis[userChoice];
+      document.getElementById('computerEmoji').innerHTML = emojis[comp];
 
-      let resultMessage = `You chose ${userChoice}. `;
+      const resultEl = document.getElementById('result-msg');
+      let msg = '';
+      let cls = '';
 
-      if (userChoice === randomChoice) {
-        resultMessage += `It's a tie!`;
+      if (userChoice === comp) {
+        msg = `Both picked ${userChoice} — it's a tie.`;
+        cls = 'tie';
       } else if (
-        (userChoice === "rock" && randomChoice === "scissors") ||
-        (userChoice === "paper" && randomChoice === "rock") ||
-        (userChoice === "scissors" && randomChoice === "paper")
+        (userChoice === 'rock' && comp === 'scissors') ||
+        (userChoice === 'paper' && comp === 'rock') ||
+        (userChoice === 'scissors' && comp === 'paper')
       ) {
-        resultMessage += `You won! Computer chose ${randomChoice}.`;
+        msg = `You win! ${cap(userChoice)} beats ${comp}.`;
+        cls = 'win';
         userScore++;
       } else {
-        resultMessage += `You lost! Computer chose ${randomChoice}.`;
+        msg = `You lose. ${cap(comp)} beats ${userChoice}.`;
+        cls = 'lose';
         computerScore++;
       }
 
-      document.getElementById("result").innerText = resultMessage;
-      document.getElementById("userScore").innerText = userScore;
-      document.getElementById("computerScore").innerText = computerScore;
+      resultEl.textContent = msg;
+      resultEl.className = 'result-msg ' + cls;
+      document.getElementById('userScore').textContent = userScore;
+      document.getElementById('computerScore').textContent = computerScore;
     }
 
     function resetScores() {
       userScore = 0;
       computerScore = 0;
-      document.getElementById("userScore").innerText = "0";
-      document.getElementById("computerScore").innerText = "0";
-      document.getElementById("userChoiceImg").src = '';
-      document.getElementById("computerChoiceImg").src = '';
-      document.getElementById("result").innerText = '';
+      document.getElementById('userScore').textContent = '0';
+      document.getElementById('computerScore').textContent = '0';
+      document.getElementById('userEmoji').innerHTML = '';
+      document.getElementById('computerEmoji').innerHTML = '';
+      const resultEl = document.getElementById('result-msg');
+      resultEl.textContent = '';
+      resultEl.className = 'result-msg';
     }
+
+    function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
   </script>
 </body>
 

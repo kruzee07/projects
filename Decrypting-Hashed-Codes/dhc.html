@@ -1,252 +1,649 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Decrypting Hashed Codes</title>
-    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../assets/css/projects.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decrypting Hashed Codes | Krutarth Ghuge</title>
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Additional DHC-specific styles */
-
-        body {
-            background-color: black;
-            color: white;
-            font-family: 'Orbitron', sans-serif;
+        /* Modified existing selector */
+        nav {
+            background: rgba(10, 10, 10, 0.9);
         }
 
-        h1,
-        h2,
-        h3 {
+        /* Modified existing selector */
+        #hero h1 {
+            font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+            letter-spacing: .1em;
+            margin-bottom: 1rem;
+        }
+
+        /* New selector */
+        #hero .section-label {
+            margin-bottom: .75rem;
+        }
+
+        /* New selector */
+        .page-section {
+            padding: 6rem 2rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Modified existing selector */
+        h2.section-title {
+            margin-bottom: 2rem;
+        }
+
+        /* Modified existing selector */
+        .section-divider {
+            max-width: 960px;
+        }
+
+        /* INTRO GRID */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .intro-grid p {
+            font-size: 15px;
+            color: #bbb;
+            margin-bottom: .85rem;
+        }
+
+        .intro-list {
+            list-style: none;
+            padding: 0;
+            margin-top: .5rem;
+        }
+
+        .intro-list li {
+            font-size: 14px;
+            color: #bbb;
+            padding: .35rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            border-bottom: 1px solid #0f0f0f;
+        }
+
+        .intro-list li::before {
+            content: "→";
+            color: #ff3366;
+            position: absolute;
+            left: 0;
+        }
+
+        .intro-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            margin-top: 1.25rem;
+        }
+
+        .tech-tag {
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #007FFF;
+            border: 1px solid rgba(0, 127, 255, .25);
+            border-radius: 2px;
+            padding: 3px 10px;
+        }
+
+        /* CONCEPT CARDS */
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .concept-card {
+            background: #0f0f0f;
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
+            padding: 1.25rem;
+        }
+
+        .concept-card h4 {
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #00aaff;
+            margin-bottom: .5rem;
+        }
+
+        .concept-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ALGORITHM TABLE */
+        .algo-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: .5rem;
+        }
+
+        .algo-table th {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #555;
+            text-align: left;
+            padding: .6rem .9rem;
+            border-bottom: 1px solid #1a1a1a;
+            font-weight: 400;
+        }
+
+        .algo-table td {
+            font-size: 13px;
+            color: #bbb;
+            padding: .6rem .9rem;
+            border-bottom: 1px solid #111;
+            vertical-align: top;
+        }
+
+        .algo-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .algo-table .badge {
+            display: inline-block;
+            font-size: 10px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 2px;
+        }
+
+        .badge-safe {
+            color: #00aaff;
+            border: 1px solid rgba(0, 170, 255, .25);
+        }
+
+        .badge-weak {
+            color: #ff3366;
+            border: 1px solid rgba(255, 51, 102, .25);
+        }
+
+        .badge-deprecated {
+            color: #555;
+            border: 1px solid #222;
+        }
+
+        /* CHALLENGE BLOCK */
+        .challenge-block {
+            background: #0f0f0f;
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
+            padding: 2rem;
+        }
+
+        .challenge-block .challenge-label {
+            font-size: 11px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: #ff3366;
+            margin-bottom: .75rem;
+        }
+
+        .hash-display {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #00aaff;
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-radius: 3px;
+            padding: .75rem 1rem;
+            margin: .75rem 0;
+            word-break: break-all;
+            letter-spacing: .03em;
+        }
+
+        .hint-text {
+            font-size: 13px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 1.25rem;
+        }
+
+        .guess-row {
+            display: flex;
+            gap: .75rem;
+            margin-top: 1rem;
+        }
+
+        .guess-input {
+            flex: 1;
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 3px;
+            padding: .6rem .9rem;
+            color: #e0e0e0;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color .2s;
+        }
+
+        .guess-input:focus {
+            border-color: #007FFF;
+        }
+
+        .guess-input::placeholder {
+            color: #333;
+        }
+
+        .guess-btn {
+            padding: .6rem 1.4rem;
+            background: transparent;
+            border: 1px solid #ff3366;
+            border-radius: 3px;
+            color: #ff3366;
+            font-size: 13px;
+            font-family: inherit;
+            letter-spacing: .05em;
+            cursor: pointer;
+            transition: all .2s;
+            white-space: nowrap;
+        }
+
+        .guess-btn:hover {
+            background: #ff3366;
+            color: #0a0a0a;
+        }
+
+        .guess-result {
+            margin-top: .85rem;
+            font-size: 14px;
+            min-height: 22px;
+        }
+
+        .guess-result.correct {
             color: #00aaff;
         }
 
-        section#sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 40px 20px;
-            box-shadow: 4px 0 10px rgba(0, 170, 255, 0.4);
-            z-index: 5;
+        .guess-result.wrong {
+            color: #ff3366;
         }
 
-        #sidebar nav ul {
+        /* SALTING */
+        .salting-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .salt-block {
+            background: #0f0f0f;
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
+            padding: 1.5rem;
+        }
+
+        .salt-block h4 {
+            font-size: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #00aaff;
+            margin-bottom: .85rem;
+            padding-bottom: .5rem;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .salt-block p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        .mono-example {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #555;
+            background: #0a0a0a;
+            border: 1px solid #111;
+            border-radius: 3px;
+            padding: .6rem .9rem;
+            margin-top: .75rem;
+            word-break: break-all;
+        }
+
+        /* FINDINGS */
+        .findings-list {
             list-style: none;
             padding: 0;
         }
 
-        #sidebar nav ul li {
-            border-bottom: 1px solid #00aaff;
-            margin-bottom: 12px;
+        .findings-list li {
+            display: flex;
+            gap: .9rem;
+            padding: .85rem 0;
+            border-bottom: 1px solid #0f0f0f;
+            font-size: 14px;
+            color: #bbb;
         }
 
-        #sidebar nav ul li a {
+        .findings-list li:last-child {
+            border-bottom: none;
+        }
+
+        .findings-list li .finding-icon {
+            color: #ff3366;
+            flex-shrink: 0;
+            width: 18px;
+            margin-top: 2px;
+            font-size: 13px;
+        }
+
+        /* RESOURCES */
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-list li {
+            padding: .5rem 0;
+            border-bottom: 1px solid #0f0f0f;
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-list a {
+            font-size: 14px;
             color: #00aaff;
             text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
         }
 
-        #sidebar nav ul li a:hover {
+        .resource-list a:hover {
             color: #ff3366;
         }
 
-        #wrapper {
-            margin-left: 270px;
-            padding: 40px 30px;
-        }
+        @media(max-width:680px) {
 
-        .section-box {
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid #00aaff;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 18px rgba(0, 170, 255, 0.3);
-            transition: all 0.3s ease;
-        }
+            .intro-grid,
+            .salting-grid {
+                grid-template-columns: 1fr;
+            }
 
-        .section-box:hover {
-            box-shadow: 0 0 28px rgba(255, 51, 102, 0.4);
-        }
-
-        .section-box h2 {
-            color: #00aaff;
-            border-bottom: 2px solid rgba(0, 170, 255, 0.3);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-
-        .section-box ol {
-            margin-left: 20px;
-        }
-
-        .blue-text {
-            color: #00aaff;
-        }
-
-        .yellow-text {
-            color: #ff3366;
-        }
-
-        .bold-text {
-            font-weight: bold;
-        }
-
-        .italic-text {
-            font-style: italic;
-        }
-
-        .underline-text {
-            text-decoration: underline;
-        }
-
-        footer#footer {
-            margin-top: 60px;
-            text-align: center;
-            border-top: 1px solid #00aaff;
-            padding-top: 20px;
-        }
-
-        footer#footer .menu {
-            list-style: none;
-            padding: 0;
-        }
-
-        footer#footer .menu li {
-            color: #ccc;
-            font-size: 14px;
+            .guess-row {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header id="header">
-        <nav>
-            <ul>
-                <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
-                <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
-                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- Sidebar Navigation -->
-    <section id="sidebar">
-        <nav>
-            <ul>
-                <li><a href="#introduction">Project Introduction</a></li>
-                <li><a href="#hashing-basics">Hashing Basics</a></li>
-                <li><a href="#hashing-algorithms">Hashing Algorithms</a></li>
-                <li><a href="#decryption-challenge">Decryption Challenge</a></li>
-                <li><a href="#salting-concept">Salting Concept</a></li>
-                <li><a href="#findings">Findings</a></li>
-                <li><a href="#conclusion">Conclusion</a></li>
-                <li><a href="#rnl">Resources & Links</a></li>
-                <li><a href="#test-form">Demos</a></li>
-            </ul>
-        </nav>
+
+    <nav>
+        <a href="https://kruzee07.github.io/" class="nav-brand">&#8592; Home Page</a>
+        <div class="nav-links">
+            <a href="https://kruzee07.github.io/projects/">Projects</a>
+            <a href="https://kruzee07.github.io/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div id="hero">
+        <div class="section-label">Cybersecurity &middot; Python</div>
+        <h1>Decrypting Hashed Codes</h1>
+        <p>Hashing fundamentals &nbsp;&middot;&nbsp; Crack the challenge &nbsp;&middot;&nbsp; Salting defence</p>
+        <div class="scroll-hint">&#8595; scroll</div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- INTRO -->
+    <section class="page-section" id="introduction">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">Project introduction</h2>
+        <div class="intro-grid">
+            <div>
+                <p>This project explores how cryptographic hashing works, where it breaks down, and how defenders use
+                    salting to close the gap. As cyber threats grow, understanding these fundamentals is essential for
+                    anyone building or auditing secure systems.</p>
+                <p>Hashing underpins password storage, digital signatures, and data integrity checks across virtually
+                    every modern application. Getting it wrong — weak algorithms, no salting — opens the door to rainbow
+                    table and collision attacks.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SHA-256</span>
+                    <span class="tech-tag">MD5</span>
+                    <span class="tech-tag">SHA-1</span>
+                    <span class="tech-tag">Cryptography</span>
+                </div>
+            </div>
+            <div>
+                <p style="font-size:13px;color:#444;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.75rem">
+                    This project covers</p>
+                <ul class="intro-list">
+                    <li>Basics of hashing and its significance</li>
+                    <li>Common algorithms — SHA-1, SHA-256, MD5</li>
+                    <li>A real hash decryption challenge</li>
+                    <li>The role of salting in modern security</li>
+                    <li>Key takeaways and recommendations</li>
+                </ul>
+            </div>
+        </div>
+        <a href="https://github.com/kruzee07/projects/tree/main/Exploratory-Data-Analysis" target="_blank"
+            class="github-btn">
+            <i class="fab fa-github"></i> View on GitHub
+        </a>
     </section>
 
-    <!-- Main Content -->
-    <div id="wrapper">
-        <header>
-            <h1>Decrypting Hashed Codes</h1>
-            <h3 class="blue-text">A Cyber Security Project</h3>
-        </header>
+    <hr class="section-divider">
 
-        <section id="introduction" class="section-box">
-            <h2>Project Introduction</h2>
-            <p>This project focuses on decrypting hashed codes and understanding hashing concepts. As cyber threats
-                increase, <span class="yellow-text bold-text">encryption</span> and <span
-                    class="yellow-text italic-text">hashing</span> play crucial roles in securing information.</p>
-            <p><strong>Importance in Cybersecurity:</strong> Hashing is used for passwords, digital signatures,
-                integrity checks, and more. Understanding it protects systems from attacks like collisions or rainbow
-                tables.</p>
-            <ol>
-                <li>Basics of hashing and its significance</li>
-                <li>Common algorithms like SHA-1, SHA-256, MD5</li>
-                <li>A real decryption challenge</li>
-                <li>The role of salting</li>
-                <li>Key takeaways</li>
-            </ol>
-        </section>
+    <!-- HASHING BASICS -->
+    <section class="page-section" id="hashing-basics">
+        <div class="section-label">Fundamentals</div>
+        <h2 class="section-title">Hashing basics</h2>
+        <div class="concept-grid">
+            <div class="concept-card">
+                <h4>Deterministic</h4>
+                <p>The same input always produces the same hash output — every single time, on any machine.</p>
+            </div>
+            <div class="concept-card">
+                <h4>Collision resistant</h4>
+                <p>Computationally infeasible to find two different inputs that produce the same hash value.</p>
+            </div>
+            <div class="concept-card">
+                <h4>Preimage resistant</h4>
+                <p>Given a hash, it should be practically impossible to reverse-engineer the original input.</p>
+            </div>
+            <div class="concept-card">
+                <h4>Avalanche effect</h4>
+                <p>Even a single-character change in input produces a completely different output hash.</p>
+            </div>
+        </div>
+        <p style="font-size:14px;color:#777;margin-top:.5rem">Hashing is not encryption — there is no key, and the
+            process is designed to be one-way. Its role is verification, not secrecy.</p>
+    </section>
 
-        <section id="hashing-basics" class="section-box">
-            <h2>Understanding Hashing Basics</h2>
-            <p><span class="blue-text bold-text">Hashing</span> converts input into a fixed-length value, useful for
-                data integrity verification. Even a tiny change results in a different output.</p>
-            <ol>
-                <li><strong>Password Storage</strong> - Hash instead of saving raw passwords</li>
-                <li><strong>Data Integrity</strong> - Detect if data changed</li>
-                <li><strong>Digital Signatures</strong> - Ensure authenticity</li>
-            </ol>
-            <p>Key Properties:</p>
-            <ol>
-                <li><strong>Deterministic</strong> - Same input → same hash</li>
-                <li><strong>Collision Resistant</strong> - Hard to find two same hashes</li>
-                <li><strong>Preimage Resistant</strong> - Hard to reverse</li>
-                <li><strong>Avalanche Effect</strong> - Minor change → major output change</li>
-            </ol>
-        </section>
+    <hr class="section-divider">
 
-        <section id="hashing-algorithms" class="section-box">
-            <h2>Common Hashing Algorithms</h2>
-            <p>We explore SHA-1, SHA-2 (especially SHA-256), and MD5.</p>
-            <p>Features: Speed, hash length, resistance to attacks</p>
-            <p>Vulnerabilities: MD5 is weak to collisions, SHA-1 is being deprecated.</p>
-        </section>
+    <!-- ALGORITHMS -->
+    <section class="page-section" id="hashing-algorithms">
+        <div class="section-label">Algorithms</div>
+        <h2 class="section-title">Common hashing algorithms</h2>
+        <table class="algo-table">
+            <thead>
+                <tr>
+                    <th>Algorithm</th>
+                    <th>Output length</th>
+                    <th>Speed</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>MD5</strong></td>
+                    <td>128-bit</td>
+                    <td>Very fast</td>
+                    <td><span class="badge badge-weak">Weak</span></td>
+                    <td>Vulnerable to collision attacks. Avoid for security-critical use.</td>
+                </tr>
+                <tr>
+                    <td><strong>SHA-1</strong></td>
+                    <td>160-bit</td>
+                    <td>Fast</td>
+                    <td><span class="badge badge-deprecated">Deprecated</span></td>
+                    <td>Collision demonstrated in 2017. Being phased out across the industry.</td>
+                </tr>
+                <tr>
+                    <td><strong>SHA-256</strong></td>
+                    <td>256-bit</td>
+                    <td>Moderate</td>
+                    <td><span class="badge badge-safe">Recommended</span></td>
+                    <td>Part of the SHA-2 family. Current industry standard for most use cases.</td>
+                </tr>
+                <tr>
+                    <td><strong>bcrypt</strong></td>
+                    <td>Variable</td>
+                    <td>Intentionally slow</td>
+                    <td><span class="badge badge-safe">Recommended</span></td>
+                    <td>Purpose-built for passwords. Cost factor scales with hardware improvements.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-        <section id="decryption-challenge" class="section-box">
-            <h2>Decryption Challenge</h2>
-            <p>Try cracking this hash: <span class="blue-text">5f4dcc3b5aa765d61d8327deb882cf99</span>
-                <br>(Hint: It's a very common password.)
-            </p>
-        </section>
+    <hr class="section-divider">
 
-        <section id="salting-concept" class="section-box">
-            <h2>Salting Concept</h2>
-            <p>Salting means adding randomness to passwords before hashing. Even if two users have the same password,
-                their hashes will differ.</p>
-            <p>This protects against rainbow table attacks.</p>
-        </section>
+    <!-- CHALLENGE -->
+    <section class="page-section" id="decryption-challenge">
+        <div class="section-label">Interactive</div>
+        <h2 class="section-title">Decryption challenge</h2>
+        <div class="challenge-block">
+            <div class="challenge-label">Crack this hash</div>
+            <p style="font-size:14px;color:#777;margin-bottom:.5rem">The following is an MD5 hash of a very common
+                password. Can you identify the plaintext?</p>
+            <div class="hash-display">5f4dcc3b5aa765d61d8327deb882cf99</div>
+            <p class="hint-text">Hint: it's one of the most commonly used passwords in the world.</p>
+            <div class="guess-row">
+                <input class="guess-input" id="crack-input" type="text" placeholder="Type your guess..."
+                    autocomplete="off">
+                <button class="guess-btn" onclick="checkGuess()">Check</button>
+            </div>
+            <div class="guess-result" id="crack-result"></div>
+            <p style="font-size:12px;color:#2a2a2a;margin-top:1.5rem">This demonstrates why MD5 is unsuitable for
+                password storage — the hash above can be found in any publicly available rainbow table within
+                milliseconds.</p>
+        </div>
+    </section>
 
-        <section id="findings" class="section-box">
-            <h2>Findings</h2>
-            <p>Hashing alone isn't secure. Salting and strong algorithms like SHA-256 or bcrypt are essential. MD5
-                should be avoided.</p>
-        </section>
+    <hr class="section-divider">
 
-        <section id="conclusion" class="section-box">
-            <h2>Conclusion</h2>
-            <p>Understanding hashing and salting is key for developers working with sensitive data. Security starts at
-                the foundation.</p>
-        </section>
+    <!-- SALTING -->
+    <section class="page-section" id="salting-concept">
+        <div class="section-label">Defence</div>
+        <h2 class="section-title">Salting concept</h2>
+        <div class="salting-grid">
+            <div class="salt-block">
+                <h4>Without salting</h4>
+                <p>Two users with the same password produce identical hashes. An attacker who obtains the hash database
+                    can use a precomputed rainbow table to crack every matching password simultaneously.</p>
+                <div class="mono-example">hash("password") → 5f4dcc3b5aa765d61d83...</div>
+            </div>
+            <div class="salt-block">
+                <h4>With salting</h4>
+                <p>A random value (the salt) is appended to the password before hashing. Even identical passwords
+                    produce unique hashes, making precomputed attacks useless.</p>
+                <div class="mono-example">hash("password" + "x7kQ2!") → a94f3c8e...</div>
+            </div>
+        </div>
+        <p style="font-size:14px;color:#555;margin-top:1.5rem">The salt is stored alongside the hash in plain text — its
+            job is not secrecy, but uniqueness. It forces attackers to crack each hash individually rather than in bulk.
+        </p>
+    </section>
 
-        <section id="rnl" class="section-box">
-            <h2>Resources & Links</h2>
-            <ul>
-                <li><a href="https://www.owasp.org/index.php/Hashing">OWASP on Hashing</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">Wikipedia: Hash Functions</a>
-                </li>
-            </ul>
-        </section>
+    <hr class="section-divider">
 
-        <section id="test-form" class="section-box">
-            <h2>Demos</h2>
-            <p>This section may include a simple form to try hashing inputs locally.</p>
-        </section>
+    <!-- FINDINGS -->
+    <section class="page-section" id="findings">
+        <div class="section-label">Takeaways</div>
+        <h2 class="section-title">Findings &amp; conclusion</h2>
+        <ul class="findings-list">
+            <li>
+                <i class="fas fa-arrow-right finding-icon"></i>
+                <span>Hashing alone is not sufficient for password security. Without salting, identical passwords
+                    produce identical hashes — a critical vulnerability.</span>
+            </li>
+            <li>
+                <i class="fas fa-arrow-right finding-icon"></i>
+                <span>MD5 should never be used for security-sensitive hashing. It was broken in practice over a decade
+                    ago and is trivially crackable with modern hardware.</span>
+            </li>
+            <li>
+                <i class="fas fa-arrow-right finding-icon"></i>
+                <span>SHA-256 is the current safe minimum for general-purpose integrity checks. For passwords
+                    specifically, bcrypt or Argon2 are strongly preferred.</span>
+            </li>
+            <li>
+                <i class="fas fa-arrow-right finding-icon"></i>
+                <span>The avalanche effect and collision resistance are properties worth testing — minor input changes
+                    should produce radically different outputs.</span>
+            </li>
+            <li>
+                <i class="fas fa-arrow-right finding-icon"></i>
+                <span>Security starts at the foundation. Developers who understand these primitives make better
+                    decisions at every layer of a system.</span>
+            </li>
+        </ul>
+    </section>
 
-        <footer id="footer">
-            <ul class="menu">
-                <li>&copy; 2024 Krutarth Ghuge</li>
-                <li>Back to <a href="https://kruzee07.github.io/projects/">Projects</a></li>
-            </ul>
-        </footer>
-    </div>
+    <hr class="section-divider">
+
+    <!-- RESOURCES -->
+    <section class="page-section" id="rnl">
+        <div class="section-label">References</div>
+        <h2 class="section-title">Resources &amp; links</h2>
+        <ul class="resource-list">
+            <li><a href="https://www.owasp.org/index.php/Hashing" target="_blank">OWASP — Password Storage Cheat Sheet
+                    &rarr;</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function" target="_blank">Wikipedia —
+                    Cryptographic hash function &rarr;</a></li>
+            <li><a href="https://github.com/kruzee07" target="_blank">Source code on GitHub &rarr;</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> &nbsp;&middot;&nbsp; <a
+                href="https://kruzee07.github.io/projects/">Back to Projects</a></p>
+    </footer>
+
+    <script>
+        function checkGuess() {
+            const answer = 'password';
+            const input = document.getElementById('crack-input').value.trim().toLowerCase();
+            const resultEl = document.getElementById('crack-result');
+            if (!input) return;
+            if (input === answer) {
+                resultEl.textContent = '✓ Correct — "' + answer + '" is the plaintext. This hash appears in every rainbow table ever made.';
+                resultEl.className = 'guess-result correct';
+            } else {
+                resultEl.textContent = '✗ Not quite. Think simpler — it\'s one of the most common passwords ever used.';
+                resultEl.className = 'guess-result wrong';
+            }
+        }
+        document.getElementById('crack-input').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') checkGuess();
+        });
+    </script>
 </body>
 
 </html>

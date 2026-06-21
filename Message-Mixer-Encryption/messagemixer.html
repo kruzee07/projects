@@ -1,218 +1,410 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Message Mixer Encryption</title>
-    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../assets/css/projects.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Mixer Encryption | Krutarth Ghuge</title>
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            background-color: #000;
-            color: white;
-            font-family: 'Orbitron', sans-serif;
+        /* OVERRIDES */
+        .page-section {
+            max-width: 900px;
         }
 
-        h1,
-        h2,
-        h3 {
-            color: #00ffaa;
+        .section-divider {
+            max-width: 900px;
         }
 
-        .container {
-            text-align: center;
-            margin: 40px auto;
-            max-width: 800px;
+        /* ABOUT SECTION (new system) */
+        .about-text p {
+            color: #bbb;
+            font-size: 15px;
+            margin-bottom: .85rem;
+        }
+
+        .cipher-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .cipher-card {
+            background: #0f0f0f;
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
+            padding: 1.25rem;
+        }
+
+        .cipher-card h4 {
+            font-size: 13px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #00aaff;
+            margin-bottom: .5rem;
+        }
+
+        .cipher-card p {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        /* TECH TAG (same structure but slightly different spacing from main) */
+        .tech-tags {
+            margin-top: 1.5rem;
+        }
+
+        /* TOOL WRAPPER SYSTEM (completely new) */
+        .tool-wrapper {
+            background: #0f0f0f;
+            border: 1px solid #1a1a1a;
+            border-radius: 4px;
+            padding: 2rem;
+        }
+
+        .field-label {
+            font-size: 12px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #444;
+            margin-bottom: .5rem;
+            display: block;
         }
 
         textarea {
             width: 100%;
-            height: 120px;
-            background-color: #111;
-            color: #fff;
-            border: 1px solid #00ffaa;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 8px;
-            resize: vertical;
-        }
-
-        .button {
-            background-color: #00ffaa;
-            border: none;
-            color: #000;
-            font-weight: bold;
-            padding: 10px 20px;
-            margin: 10px 5px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #ff3366;
-            color: #fff;
-        }
-
-        input[type="number"] {
-            width: 60px;
-            padding: 6px;
-            font-size: 16px;
-            background-color: #fff;
-            color: #000;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-
-        #output {
-            margin-top: 20px;
-            padding: 16px;
-            background-color: #111;
-            border: 1px solid #00ffaa;
-            border-radius: 10px;
-            font-size: 18px;
-            white-space: pre-wrap;
-        }
-
-        .boxed-section {
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid #00ffaa;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 18px rgba(0, 255, 170, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .boxed-section:hover {
-            box-shadow: 0 0 28px rgba(255, 51, 102, 0.4);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            border-top: 1px solid #00ffaa;
-            padding: 20px;
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 3px;
+            padding: .75rem 1rem;
+            color: #e0e0e0;
             font-size: 14px;
+            font-family: 'Segoe UI', sans-serif;
+            resize: vertical;
+            min-height: 110px;
+            outline: none;
+            transition: border-color .2s;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            border-color: #007FFF;
+        }
+
+        textarea::placeholder {
+            color: #333;
+        }
+
+        /* CIPHER CONTROLS (new UI system) */
+        .cipher-controls {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            align-items: center;
+        }
+
+        .cipher-btn {
+            padding: .6rem 1.4rem;
+            background: transparent;
+            border: 1px solid #1f1f1f;
+            border-radius: 3px;
             color: #aaa;
+            font-size: 13px;
+            font-family: inherit;
+            letter-spacing: .05em;
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+        .cipher-btn:hover {
+            border-color: #ff3366;
+            color: #ff3366;
+        }
+
+        .cipher-btn.active {
+            border-color: #ff3366;
+            color: #ff3366;
+        }
+
+        /* SHIFT CONTROL (new input system) */
+        .shift-control {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            margin-left: auto;
+        }
+
+        .shift-control label {
+            font-size: 12px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #444;
+        }
+
+        .shift-control input {
+            width: 56px;
+            padding: .4rem .6rem;
+            background: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 3px;
+            color: #e0e0e0;
+            font-size: 14px;
+            text-align: center;
+            outline: none;
+            transition: border-color .2s;
+        }
+
+        .shift-control input:focus {
+            border-color: #007FFF;
+        }
+
+        /* RUN BUTTON (unique CTA style) */
+        .run-btn {
+            margin-top: 1.25rem;
+            padding: .65rem 1.75rem;
+            background: transparent;
+            border: 1px solid #ff3366;
+            border-radius: 2px;
+            color: #ff3366;
+            font-size: 13px;
+            font-family: inherit;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .2s;
+            width: 100%;
+        }
+
+        .run-btn:hover {
+            background: #ff3366;
+            color: #0a0a0a;
+        }
+
+        /* OUTPUT SYSTEM */
+        .output-area {
+            margin-top: 1.5rem;
+            padding: 1.25rem;
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-radius: 3px;
+            font-size: 14px;
+            color: #bbb;
+            white-space: pre-wrap;
+            word-break: break-all;
+            min-height: 60px;
+            line-height: 1.7;
+            border-left: 2px solid #007FFF;
+        }
+
+        .output-area.empty {
+            color: #333;
+            font-style: italic;
+        }
+
+        .output-label {
+            font-size: 11px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #333;
+            margin-bottom: .5rem;
+        }
+
+        /* COPY BUTTON SYSTEM */
+        .copy-btn {
+            margin-top: .75rem;
+            padding: .4rem 1rem;
+            background: transparent;
+            border: 1px solid #222;
+            border-radius: 3px;
+            color: #444;
+            font-size: 12px;
+            font-family: inherit;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+        .copy-btn:hover {
+            border-color: #555;
+            color: #888;
+        }
+
+        .copy-btn.copied {
+            color: #00aaff;
+            border-color: #00aaff;
+        }
+
+        /* RESPONSIVE ONLY DIFFERENCES */
+        @media(max-width:600px) {
+            .shift-control {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .cipher-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header id="header">
-        <nav>
-            <ul>
-                <li><a href="https://kruzee07.github.io/index.html#intro" class="title">Krutarth Ghuge</a></li>
-                <li><a href="https://kruzee07.github.io/projects/">Projects</a></li>
-                <li><a href="https://kruzee07.github.io/index.html#three">Get in touch</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <div id="wrapper">
-        <section class="wrapper style1 fullscreen fade-up">
-            <div class="inner">
-                <h1 class="major">Message Mixer Encryption</h1>
-                <div class="boxed-section">
-                    <h3>Web-Based Encryption Tool</h3>
-                    <p>This project is a <strong>real-time encryption tool</strong> with interactive options:</p>
-                    <ul>
-                        <li><strong>Caesar Cipher:</strong> Shifts letters by a custom amount</li>
-                        <li><strong>Symbol Cipher:</strong> Replaces characters with symbols</li>
-                        <li><strong>Reverse Cipher:</strong> Reverses each word</li>
-                    </ul>
-                    <p>Try out different encryption methods below!</p>
-                </div>
+    <nav>
+        <a href="https://kruzee07.github.io/" class="nav-brand">&#8592; Home Page</a>
+        <div class="nav-links">
+            <a href="https://kruzee07.github.io/projects/">Projects</a>
+            <a href="https://kruzee07.github.io/#contact">Contact</a>
+        </div>
+    </nav>
 
-                <div class="container">
-                    <h3>Enter your message:</h3>
-                    <textarea id="user-input" placeholder="Type your message here..."></textarea>
-
-                    <div>
-                        <button class="button" onclick="encryptMessage('caesar')">Caesar Cipher</button>
-                        <button class="button" onclick="encryptMessage('symbol')">Symbol Cipher</button>
-                        <button class="button" onclick="encryptMessage('reverse')">Reverse Cipher</button>
-                    </div>
-
-                    <div style="margin-top: 15px;">
-                        <label for="caesar-shift"><strong>Caesar Shift:</strong></label>
-                        <input type="number" id="caesar-shift" value="3" min="1" max="25" />
-                    </div>
-
-                    <div id="output">Your encrypted message will appear here...</div>
-                </div>
-            </div>
-        </section>
+    <!-- HERO -->
+    <div id="hero">
+        <div class="section-label">Security &middot; Python</div>
+        <h1>Message Mixer</h1>
+        <p>Real-time browser-based encryption tool</p>
+        <div class="scroll-hint">&#8595; scroll</div>
     </div>
 
+    <hr class="section-divider">
+
+    <!-- ABOUT -->
+    <section class="page-section">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">About this project</h2>
+        <div class="about-text">
+            <p>A real-time encryption tool implementing three classical cipher techniques entirely in the browser. Type
+                a message, pick a method, and see the result instantly — no server calls, no dependencies.</p>
+            <div class="cipher-cards">
+                <div class="cipher-card">
+                    <h4>Caesar Cipher</h4>
+                    <p>Shifts every letter by a configurable amount. The oldest and most widely known cipher technique.
+                    </p>
+                </div>
+                <div class="cipher-card">
+                    <h4>Symbol Cipher</h4>
+                    <p>Replaces characters with lookalike symbols — turning readable text into an obfuscated string.</p>
+                </div>
+                <div class="cipher-card">
+                    <h4>Reverse Cipher</h4>
+                    <p>Reverses each word in the message independently while preserving word order.</p>
+                </div>
+            </div>
+            <div class="tech-tags">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">Cipher Logic</span>
+            </div>
+        </div>
+        <a href="https://github.com/kruzee07/projects/tree/main/Message-Mixer-Encryption" target="_blank"
+            class="github-btn">
+            <i class="fab fa-github"></i> View on GitHub
+        </a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- TOOL -->
+    <section class="page-section">
+        <div class="section-label">Try it</div>
+        <h2 class="section-title">Encrypt a message</h2>
+        <div class="tool-wrapper">
+            <label class="field-label" for="user-input">Your message</label>
+            <textarea id="user-input" placeholder="Type something to encrypt..."></textarea>
+
+            <div class="cipher-controls">
+                <button class="cipher-btn active" id="btn-caesar" onclick="selectCipher('caesar')">Caesar</button>
+                <button class="cipher-btn" id="btn-symbol" onclick="selectCipher('symbol')">Symbol</button>
+                <button class="cipher-btn" id="btn-reverse" onclick="selectCipher('reverse')">Reverse</button>
+                <div class="shift-control" id="shift-wrap">
+                    <label for="caesar-shift">Shift</label>
+                    <input type="number" id="caesar-shift" value="3" min="1" max="25">
+                </div>
+            </div>
+
+            <button class="run-btn" onclick="encryptMessage()">Encrypt &rarr;</button>
+
+            <div style="margin-top:1.5rem">
+                <div class="output-label">Result</div>
+                <div id="output" class="output-area empty">Your encrypted message will appear here.</div>
+                <button class="copy-btn" id="copy-btn" onclick="copyOutput()">Copy</button>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>Design by <a href="http://html5up.net">HTML5 UP</a> &mdash; Modified by <a
-                href="https://kruzee07.github.io/">Krutarth Ghuge</a></p>
+        <p>&copy; 2025 <a href="https://kruzee07.github.io/">Krutarth Ghuge</a> &nbsp;&middot;&nbsp; <a
+                href="https://kruzee07.github.io/projects/">Back to Projects</a></p>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        const caesarCipher = (str, amount = 0) => {
+        let selectedCipher = 'caesar';
+
+        function selectCipher(method) {
+            selectedCipher = method;
+            document.querySelectorAll('.cipher-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + method).classList.add('active');
+            document.getElementById('shift-wrap').style.display = method === 'caesar' ? 'flex' : 'none';
+        }
+
+        const caesarCipher = (str, amount) => {
             if (amount < 0) return caesarCipher(str, amount + 26);
-            let output = '';
+            let out = '';
             for (let i = 0; i < str.length; i++) {
-                let char = str[i];
-                if (char.match(/[a-z]/i)) {
-                    let code = str.charCodeAt(i);
-                    if (code >= 65 && code <= 90) {
-                        char = String.fromCharCode(((code - 65 + amount) % 26) + 65);
-                    } else if (code >= 97 && code <= 122) {
-                        char = String.fromCharCode(((code - 97 + amount) % 26) + 97);
-                    }
-                }
-                output += char;
+                let c = str[i];
+                const code = str.charCodeAt(i);
+                if (code >= 65 && code <= 90) c = String.fromCharCode(((code - 65 + amount) % 26) + 65);
+                else if (code >= 97 && code <= 122) c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
+                out += c;
             }
-            return output;
+            return out;
         };
 
         const symbolCipher = (str) => {
-            const symbols = {
-                'i': '!',
-                '!': 'i',
-                'l': '1',
-                '1': 'l',
-                's': '$',
-                '$': 's',
-                'o': '0',
-                '0': 'o',
-                'a': '@',
-                '@': 'a',
-                'e': '3',
-                '3': 'e',
-                'b': '6',
-                '6': 'b'
-            };
-            let output = '';
-            for (let i = 0; i < str.length; i++) {
-                let char = str.toLowerCase()[i];
-                output += symbols[char] || char;
-            }
-            return output;
+            const map = { i: '!', '!': 'i', l: '1', '1': 'l', s: '$', '$': 's', o: '0', '0': 'o', a: '@', '@': 'a', e: '3', '3': 'e', b: '6', '6': 'b' };
+            return str.toLowerCase().split('').map(c => map[c] || c).join('');
         };
 
-        const reverseCipher = (sentence) => {
-            return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
-        };
+        const reverseCipher = (sentence) =>
+            sentence.split(' ').map(w => w.split('').reverse().join('')).join(' ');
 
-        function encryptMessage(method) {
-            const userInput = document.getElementById('user-input').value;
-            let output = '';
-            if (method === 'caesar') {
-                const shift = parseInt(document.getElementById('caesar-shift').value);
-                output = caesarCipher(userInput, shift);
-            } else if (method === 'symbol') {
-                output = symbolCipher(userInput);
-            } else if (method === 'reverse') {
-                output = reverseCipher(userInput);
+        function encryptMessage() {
+            const input = document.getElementById('user-input').value;
+            if (!input.trim()) return;
+            let result = '';
+            if (selectedCipher === 'caesar') {
+                const shift = parseInt(document.getElementById('caesar-shift').value) || 3;
+                result = caesarCipher(input, shift);
+            } else if (selectedCipher === 'symbol') {
+                result = symbolCipher(input);
+            } else {
+                result = reverseCipher(input);
             }
-            document.getElementById('output').innerText = `Encrypted message:\n${output}`;
+            const out = document.getElementById('output');
+            out.textContent = result;
+            out.classList.remove('empty');
+            const copyBtn = document.getElementById('copy-btn');
+            copyBtn.textContent = 'Copy';
+            copyBtn.classList.remove('copied');
+        }
+
+        function copyOutput() {
+            const text = document.getElementById('output').textContent;
+            if (!text || text === 'Your encrypted message will appear here.') return;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copy-btn');
+                btn.textContent = 'Copied';
+                btn.classList.add('copied');
+                setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+            });
         }
     </script>
 </body>
